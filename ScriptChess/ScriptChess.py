@@ -11,8 +11,6 @@ def code_tochars(code):
     return CSI + str(code) + 'm'
 
 
-# questa è una modifica
-
 
 
 class AnsiCodes(object):
