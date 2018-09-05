@@ -54,8 +54,6 @@ namespace ChessApp_2._0
         private void Reset_Click(object sender, EventArgs e)
         {
            PyThread.Abort();
-
-
             Global.boardCod = new int[8, 8]
                 {{4,3,2,6,5,2,3,4 },
                  {1,1,1,1,1,1,1,1 },
