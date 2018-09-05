@@ -9,14 +9,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 
-
-
-
-
 using Microsoft.Scripting.Hosting;
 
-using IronPython;
-using IronPython.Compiler.Ast;
 using IronPython.Modules;
 using IronPython.Runtime;
 using IronPython.Hosting;
@@ -27,15 +21,11 @@ using IronPython.Hosting;
 
 namespace ChessApp_2._0
 {
-
-
     public partial class Form1 : Form
     {
-       
-      
-        Thread PyThread;
+        Thread PyThread = new Thread(PythonIni);
 
-        //------------------------------------------------------In Farm1----------------------------------------
+        //------------------------------------------------------In Form1----------------------------------------
         public Form1()
         {
             InitializeComponent();
@@ -47,13 +37,18 @@ namespace ChessApp_2._0
 
         private void Start_Click(object sender, EventArgs e)
         {
-            PyThread = new Thread(PythonIni);
             PyThread.Start();
         }
 
         private void Reset_Click(object sender, EventArgs e)
         {
+
            PyThread.Abort();
+
+            if (PyThread.IsAlive)
+                PyThread.Abort();
+
+
             Global.boardCod = new int[8, 8]
                 {{4,3,2,6,5,2,3,4 },
                  {1,1,1,1,1,1,1,1 },
@@ -66,7 +61,7 @@ namespace ChessApp_2._0
             RenderPiceOnboard();
         }
 
-        //------------------------------------------------------method Farm1-----------------------------------
+        //------------------------------------------------------method Form1-----------------------------------
 
         private void Bildboard()
         {
@@ -82,7 +77,7 @@ namespace ChessApp_2._0
                  {0,0,0,0,0,0,0,0 },
                  {-1,-1,-1,-1,-1,-1,-1,-1 },
                  {-4,-3,-2,-6,-5,-2,-3,-4 } };
-            //----------------------------------Global.board AREA----------------------------------
+            //----------------------------------board AREA----------------------------------
 
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
@@ -136,7 +131,7 @@ namespace ChessApp_2._0
 
                 }
         }
-        private void PythonIni()
+        private static void PythonIni()
         {
             PythonPass pass = new PythonPass();
             ScriptEngine engine = Python.CreateEngine();
@@ -156,7 +151,7 @@ namespace ChessApp_2._0
 
 
             compiledCode.Execute(scope);
-         
+
         }
     }
 
@@ -166,9 +161,7 @@ namespace ChessApp_2._0
         public static int[,] boardCod;
         public static int clikedyPos = -1;
         public static int clikedxPos = -1;
-        public static bool Clicked = false;
-        //public static string FristClick = "";
-        //public static string secondClick = "";
+        public static bool clicked = false;
         public static string clickStr = "";
     }
 
@@ -191,7 +184,7 @@ namespace ChessApp_2._0
         }
         public string Mossa()
         {
-            return Global.clickStr/* + Global.secondClick*/;
+            return Global.clickStr;
         }
     }
 }

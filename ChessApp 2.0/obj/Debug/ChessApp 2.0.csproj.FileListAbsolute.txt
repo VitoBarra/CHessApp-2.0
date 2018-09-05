@@ -52,3 +52,30 @@ D:\User\Documents\Projects\ChessApp 2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.cspr
 D:\User\Documents\Projects\ChessApp 2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.exe
 D:\User\Documents\Projects\ChessApp 2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.pdb
 D:\User\Documents\Projects\ChessApp 2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.Form1.resources
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\ChessApp 2.0.exe.config
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\ChessApp 2.0.exe
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\ChessApp 2.0.pdb
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.Modules.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.SQLite.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.Wpf.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Dynamic.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Scripting.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Scripting.Metadata.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.xml
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.Modules.xml
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.SQLite.xml
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.Wpf.xml
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Dynamic.xml
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Scripting.xml
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Scripting.Metadata.xml
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.csprojAssemblyReference.cache
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.Board.resources
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.Form1.resources
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.Properties.Resources.resources
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.csproj.GenerateResource.cache
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.csproj.CoreCompileInputs.cache
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.csproj.CopyComplete
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.exe
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.pdb
