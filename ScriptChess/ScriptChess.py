@@ -1055,7 +1055,7 @@ class chessboard():
             while k == 0:
                 zorrotto = PythonPass.Mossa()
                 if len(zorrotto) == 2:
-
+                    print zorrotto
                     if self.matrix[int(zorrotto[0])][int(zorrotto[1])] == "" and len(pygamemossacoordinateperboard) == 0:
                         pass
                     else:
@@ -1065,6 +1065,7 @@ class chessboard():
                             self.generate_for_black()
                             if pygamemossacoordinateperboard in self.movesblack:
                                 self.make_move_number(pygamemossacoordinateperboard)
+                                print "ho fatto la mossa"
                                 k = 1
 
                         except:
@@ -1079,5 +1080,5 @@ class chessboard():
            
 
 ch = chessboard()
-ch.set_field(2)
+ch.set_field(1)
 ch.Play_whitWhite()
