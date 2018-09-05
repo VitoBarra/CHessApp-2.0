@@ -1045,6 +1045,10 @@ class chessboard():
     def Play_whitWhite(self):
         pygamemossacoordinateperboard = ""
         for x in range(50):
+            if not self.check_whiteking():
+                PythonPass.CheckMate("Black")
+            if not self.check_blackking():
+                PythonPass.CheckMate("White")
             t = time.time()
             evW, movW = self.minmaxtreeevaluationai()
             print time.time() - t
@@ -1073,6 +1077,11 @@ class chessboard():
                         pygamemossacoordinateperboard = ""
 
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
+
+            if not self.check_whiteking():
+                PythonPass.CheckMate("Black")
+            if not self.check_blackking():
+                PythonPass.CheckMate("White")
 
 
 
