@@ -35,18 +35,18 @@ namespace ChessApp_2._0
 
         private void Board_MouseClick(object sender, MouseEventArgs e)
         {
-            if (Global.boardCod[yPos, xPos] != 0 || Global.Clicked)
+            if (Global.boardCod[yPos, xPos] != 0 || Global.clicked)
             {
-                if (!Global.Clicked)
+                if (!Global.clicked)
                 {
-                    Global.Clicked = true;
+                    Global.clicked = true;
                     Global.clikedxPos = xPos;
                     Global.clikedyPos = yPos;
                     Global.clickStr = yPos.ToString() + xPos.ToString();
                 }
                 else
                 {
-                    Global.Clicked = false;
+                    Global.clicked = false;
                     if (yPos != Global.clikedyPos || xPos != Global.clikedxPos)
                     {
                         Global.boardCod[yPos, xPos] = Global.boardCod[Global.clikedyPos, Global.clikedxPos];
