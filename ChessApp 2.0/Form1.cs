@@ -137,11 +137,13 @@ namespace ChessApp_2._0
             var paths = engine.GetSearchPaths();
             paths.Add(@"C:\\Python27\\Lib");
             paths.Add(@"c:\\python27\\lib\\site-packages\\numpy\\core");
-            paths.Add(@"D:\\User\\Documents\\Projects\\ChessApp 2.0\\ScriptChess");
+            paths.Add(@"C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess");
             engine.SetSearchPaths(paths);
 
+            //CompiledCode compiledCode = engine.CreateScriptSourceFromFile("D:\User\Documents\Projects\ChessApp_2.0\ScriptChess\ScriptChess.py").Compile();
 
-            CompiledCode compiledCode = engine.CreateScriptSourceFromFile("D:\\User\\Documents\\Projects\\ChessApp 2.0\\ScriptChess\\ScriptChess.py").Compile();
+            CompiledCode compiledCode = engine.CreateScriptSourceFromFile("C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\" +
+                "ScriptChess\\ScriptChess.py").Compile();
 
             ScriptScope scope = engine.CreateScope();
             scope.SetVariable("PythonPass", pass);
@@ -181,7 +183,10 @@ namespace ChessApp_2._0
         }
         public string Mossa()
         {
-            return Global.clickStr;
+            string k = "";
+            k = Global.clickStr;
+            Global.clickStr = "";
+            return k;
         }
     }
 }
