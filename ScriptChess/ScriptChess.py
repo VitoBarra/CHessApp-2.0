@@ -1083,6 +1083,7 @@ class chessboard():
             if not self.check_blackking():
                 PythonPass.CheckMate("White")
 
+            
 
 
 
