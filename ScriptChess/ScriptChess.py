@@ -11,6 +11,10 @@ def code_tochars(code):
     return CSI + str(code) + 'm'
 
 
+# questa è una modifica
+
+
+
 class AnsiCodes(object):
     def init(self):
         # the subclasses declare class attributes which are numbers.
