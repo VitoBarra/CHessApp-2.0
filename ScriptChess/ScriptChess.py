@@ -1043,31 +1043,33 @@ class chessboard():
             
 
     def Play_whitWhite(self):
-        pygamemossacoordinateperboard  = ""
+        pygamemossacoordinateperboard = ""
         for x in range(50):
+            t = time.time()
             evW, movW = self.minmaxtreeevaluationai()
+            print time.time() - t
             self.make_move_number(movW)
             self.update_number_matrix()
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
-            while True:
-                zorrotto  = PythonPass.Mossa()
-                if len(zorrotto)== 2:
+            k = 0
+            while k == 0:
+                zorrotto = PythonPass.Mossa()
+                if len(zorrotto) == 2:
+
                     if self.matrix[int(zorrotto[0])][int(zorrotto[1])] == "" and len(pygamemossacoordinateperboard) == 0:
-                       pass
+                        pass
                     else:
-                       pygamemossacoordinateperboard += zorrotto
+                        pygamemossacoordinateperboard += zorrotto
                     if len(pygamemossacoordinateperboard) == 4:
                         try:
                             self.generate_for_black()
                             if pygamemossacoordinateperboard in self.movesblack:
                                 self.make_move_number(pygamemossacoordinateperboard)
-                                break
-                               
+                                k = 1
+
                         except:
                             pass
                         pygamemossacoordinateperboard = ""
-                    
-                   
 
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
 
