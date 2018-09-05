@@ -42,9 +42,6 @@ namespace ChessApp_2._0
 
         private void Reset_Click(object sender, EventArgs e)
         {
-
-           PyThread.Abort();
-
             if (PyThread.IsAlive)
                 PyThread.Abort();
 
