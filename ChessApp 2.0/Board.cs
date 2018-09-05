@@ -40,21 +40,12 @@ namespace ChessApp_2._0
                 if (!Global.clicked)
                 {
                     Global.clicked = true;
-                    Global.clikedxPos = xPos;
-                    Global.clikedyPos = yPos;
                     Global.clickStr = yPos.ToString() + xPos.ToString();
                 }
                 else
                 {
                     Global.clicked = false;
-                    if (yPos != Global.clikedyPos || xPos != Global.clikedxPos)
-                    {
-                        Global.boardCod[yPos, xPos] = Global.boardCod[Global.clikedyPos, Global.clikedxPos];
-                        Global.boardCod[Global.clikedyPos, Global.clikedxPos] = 0;
-                        Global.clickStr = yPos.ToString() + xPos.ToString();
-                    }
-                    Global.clikedxPos = -1;
-                    Global.clikedyPos = -1;
+                    Global.clickStr = yPos.ToString() + xPos.ToString();
                 }
                 Form1.RenderPiceOnboard();
             }
