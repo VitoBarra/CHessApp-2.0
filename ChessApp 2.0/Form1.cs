@@ -141,8 +141,7 @@ namespace ChessApp_2._0
             engine.SetSearchPaths(paths);
 
             //CompiledCode compiledCode = engine.CreateScriptSourceFromFile("D:\User\Documents\Projects\ChessApp_2.0\ScriptChess\ScriptChess.py").Compile();
-
-            CompiledCode compiledCode = engine.CreateScriptSourceFromFile("C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\" +
+                CompiledCode compiledCode = engine.CreateScriptSourceFromFile("C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\" +
                 "ScriptChess\\ScriptChess.py").Compile();
 
             ScriptScope scope = engine.CreateScope();
