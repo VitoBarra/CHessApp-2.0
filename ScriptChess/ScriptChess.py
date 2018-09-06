@@ -962,25 +962,68 @@ class chessboard():
 
     def check_if_checkmate_is_imminent(self, color=0):
         
-        return 0
-        #   ----------------- NON FUNZIONA UNA MINCHIA -------------------- #
+        #return 0 for no checkmate, 1 for checkmate
 
-        
-        #print 'sono entrato nel controllo checkmate'
-        #tempo = self.searchfield
-        #self.set_field(3)
-        #if color == 0: req = self.minmaxtreeevaluationai()
-        #else: req = self.blackminmax()
-        #if req == -1000000:
-        #    PythonPass.CheckMate("Black")
-        #    self.set_field(tempo)
-        #    return 1
-        #elif req == 1000000:
-        #    PythonPass.CheckMate("White")
-        #    self.set_field(tempo)
-        #    return 1
-        #print 'sono uscito dal checkmate'
-        #return 0
+
+        if color:  # se color == 1 allora ha appena mosso il bianco e deve generare il nero per vedere se c'e' un matto
+            self.generate_for_black()
+            temporal = [0] * len(self.movesblack)
+            count = 0
+            for j1 in self.movesblack:
+                newchessboard = chessboard()
+                newchessboard.setposition(self.matrix)
+                newchessboard.make_move_number(j1)
+                newchessboard.generate_for_white()
+                for j2 in newchessboard.moveswhite:
+                    newchessboard2 = chessboard()
+                    newchessboard2.setposition(newchessboard.matrix)
+                    newchessboard2.make_move_number(j2)
+                    if not newchessboard2.check_blackking():
+                        temporal[count] = 1
+                count += 1
+            if 0 not in temporal:
+                PythonPass.CheckMate("Black")
+                return 1
+        else:    # color == 0
+            self.generate_for_white()
+            temporal = [0] * len(self.moveswhite)
+            count = 0
+            for j1 in self.moveswhite:
+                newchessboard = chessboard()
+                newchessboard.setposition(self.matrix)
+                newchessboard.make_move_number(j1)
+                newchessboard.generate_for_black()
+                for j2 in newchessboard.movesblack:
+                    newchessboard2 = chessboard()
+                    newchessboard2.setposition(newchessboard.matrix)
+                    newchessboard2.make_move_number(j2)
+                    if not newchessboard2.check_whiteking():
+                        temporal[count] = 1
+                count += 1
+            if 0 not in temporal:
+                PythonPass.CheckMate("Black")
+                return 1
+        print 'nessun matto', color
+        return 0
+
+                #   ----------------- NON FUNZIONA UNA MINCHIA -------------------- #
+
+
+                #print 'sono entrato nel controllo checkmate'
+                #tempo = self.searchfield
+                #self.set_field(3)
+                #if color == 0: req = self.minmaxtreeevaluationai()
+                #else: req = self.blackminmax()
+                #if req == -1000000:
+                #    PythonPass.CheckMate("Black")
+                #    self.set_field(tempo)
+                #    return 1
+                #elif req == 1000000:
+                #    PythonPass.CheckMate("White")
+                #    self.set_field(tempo)
+                #    return 1
+                #print 'sono uscito dal checkmate'
+                #return 0
         
 
     def update_number_matrix(self):
@@ -1019,23 +1062,18 @@ class chessboard():
             evW, movW = self.minmaxtreeevaluationai()
             self.make_move_number(movW)
             self.update_number_matrix()
-            PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
+            # PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
             evB, movB = self.blackminmax()
             self.make_move_number(movB)
             self.update_number_matrix()
-            PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
+            # PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
 
     def Play_whitWhite(self):
         pygamemossacoordinateperboard = ""
+        PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
         for x in range(50):
-            # if not self.check_whiteking():
-            #     PythonPass.CheckMate("Black")
-            #     break
-            # if not self.check_blackking():
-            #     PythonPass.CheckMate("White")
-            #     break
-
             if self.check_if_checkmate_is_imminent():
+                PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
                 break
 
             t = time.time()
@@ -1046,6 +1084,7 @@ class chessboard():
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
             k = 0
             if self.check_if_checkmate_is_imminent(color=1):
+                PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
                 break
             while k == 0:
                 zorrotto = PythonPass.Mossa()
@@ -1069,25 +1108,18 @@ class chessboard():
 
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
 
-            # if not self.check_whiteking():
-            #     PythonPass.CheckMate("Black")
-            #     break
-            # if not self.check_blackking():
-            #     PythonPass.CheckMate("White")
-            #     break
-
 
 
 
 ch = chessboard()
 ch.set_field(1)
-ch.setposition([["","","","","","","",""],
-["","","","","","","",""],
-["","","","","","","",""],
-["","","","","","","",""],
-["","","","","","","q2",""],
-["","","","","","","",""],
-["","","","","","","",""],
-["","","","","","p2","","p1"]])
+#ch.setposition([["","","","","","","",""],
+#["","","","","","","",""],
+#["","","","","","","",""],
+#["","","","","","","",""],
+#["","","","","","","q2",""],
+#["","","","","","","",""],
+#["","","","","","","",""],
+#["","","","","","p2","","p1"]])
 ch.update_number_matrix()
 ch.Play_whitWhite()
