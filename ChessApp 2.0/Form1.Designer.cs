@@ -93,6 +93,7 @@
             this.GameMode.Name = "GameMode";
             this.GameMode.Size = new System.Drawing.Size(82, 22);
             this.GameMode.Text = "GameMode";
+            this.GameMode.Click += new System.EventHandler(this.GameMode_Click);
             // 
             // PlayerVsPlayerGameMode
             // 

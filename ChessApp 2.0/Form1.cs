@@ -207,6 +207,11 @@ namespace ChessApp_2._0
 
         }
         #endregion
+
+        private void GameMode_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
