@@ -35,6 +35,7 @@ namespace ChessApp_2._0
             Bildboard();
         }
 
+
         private void Start_Click(object sender, EventArgs e)
         {
             if (PyThread.IsAlive)
