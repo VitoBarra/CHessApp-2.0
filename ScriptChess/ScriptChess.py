@@ -811,12 +811,8 @@ class chessboard():
 
     def repetitiondraw(self):
         try:
-            if self.movehistoryw[-1] == self.movehistoryw[-3] and self.movehistoryw[-1] == self.movehistoryw[-5] and \
-                            self.movehistoryb[-1] == self.movehistoryb[-3] and self.movehistoryb[-1] == \
-                    self.movehistoryb[-5]:
-                if self.movehistoryw[-2] == self.movehistoryw[-4] and self.movehistoryw[-2] == self.movehistoryw[-6] and \
-                                self.movehistoryb[-2] == self.movehistoryb[-4] and self.movehistoryb[-2] == \
-                        self.movehistoryb[-6]:
+            if self.movehistoryw[-1] == self.movehistoryw[-3] and self.movehistoryw[-1] == self.movehistoryw[-5] and self.movehistoryb[-1] == self.movehistoryb[-3] and self.movehistoryb[-1] == self.movehistoryb[-5]:
+                if self.movehistoryw[-2] == self.movehistoryw[-4] and self.movehistoryw[-2] == self.movehistoryw[-6] and self.movehistoryb[-2] == self.movehistoryb[-4] and self.movehistoryb[-2] == self.movehistoryb[-6]:
                     return 1
         except:
             return 0
@@ -854,6 +850,8 @@ class chessboard():
                 new.set_field(self.searchfield)
                 new.set_depth(self.depth + 1)
                 # new.movehistoryw += [move]
+                new.movehistoryb = copy.deepcopy(self.movehistoryb)
+                new.movehistoryw = copy.deepcopy(self.movehistoryw)
                 enn += [new.minmaxtreeevaluationai()]
 
             varmax = -50000
@@ -880,7 +878,8 @@ class chessboard():
                 new.make_move_number(move)
                 new.set_field(self.searchfield)
                 new.set_depth(self.depth + 1)
-                # new.movehistoryb += [move]
+                new.movehistoryb = copy.deepcopy(self.movehistoryb)
+                new.movehistoryw = copy.deepcopy(self.movehistoryw)
                 enn += [new.minmaxtreeevaluationai()]
 
             varmax = 50000
@@ -913,7 +912,8 @@ class chessboard():
                 new.make_move_number(move)
                 new.set_field(self.searchfield)
                 new.set_depth(self.depth + 1)
-                # new.movehistoryb += [move]
+                new.movehistoryb = copy.deepcopy(self.movehistoryb)
+                new.movehistoryw = copy.deepcopy(self.movehistoryw)
                 enn += [new.blackminmax()]
 
             varmax = 50000
@@ -938,7 +938,8 @@ class chessboard():
                 new.make_move_number(move)
                 new.set_field(self.searchfield)
                 new.set_depth(self.depth + 1)
-                # new.movehistoryb += [move]
+                new.movehistoryb = copy.deepcopy(self.movehistoryb)
+                new.movehistoryw = copy.deepcopy(self.movehistoryw)
                 enn += [new.blackminmax()]
 
             varmax = -50000
@@ -1072,9 +1073,17 @@ class chessboard():
         pygamemossacoordinateperboard = ""
         PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
         for x in range(50):
+
+
+
             if self.check_if_checkmate_is_imminent():
                 PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
                 break
+            
+            if self.repetitiondraw():
+                print "draw by repetition"
+                break
+
 
             t = time.time()
             evW, movW = self.minmaxtreeevaluationai()
