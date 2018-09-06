@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
 
 using Microsoft.Scripting.Hosting;
 
@@ -153,20 +154,29 @@ namespace ChessApp_2._0
         }
         private static void PythonIni()
         {
-           // string pathsStr = Environment.;
+            
+            string pathsStr = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
+            pathsStr += "\\ScriptChess";
+
+
+
+
+
+
             ScriptEngine engine = Python.CreateEngine();
 
 
             var paths = engine.GetSearchPaths();
             paths.Add(@"C:\\Python27\\Lib");
             paths.Add(@"c:\\python27\\lib\\site-packages\\numpy\\core");
-          //  paths.Add(@"D:\\User\\Documents\\Projects\\ChessApp_2.0\\ScriptChess");
-             paths.Add(@"C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess");
+            paths.Add(pathsStr);
+            pathsStr += "\\ScriptChess.py";
+            //paths.Add(@"C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess");
             engine.SetSearchPaths(paths);
 
-            //CompiledCode compiledCode = engine.CreateScriptSourceFromFile("D:\\User\\Documents\\Projects\\ChessApp_2.0\\ScriptChess\\ScriptChess.py").Compile();
+            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pathsStr).Compile();
 
-            CompiledCode compiledCode = engine.CreateScriptSourceFromFile("C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess\\ScriptChess.py").Compile();
+            //CompiledCode compiledCode = engine.CreateScriptSourceFromFile("C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess\\ScriptChess.py").Compile();
 
             ScriptScope scope = engine.CreateScope();
 
