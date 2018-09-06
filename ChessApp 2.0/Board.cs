@@ -33,6 +33,7 @@ namespace ChessApp_2._0
 
         }
 
+
         private void Board_MouseClick(object sender, MouseEventArgs e)
         {
             if (Global.boardCod[yPos, xPos] != 0 || Global.clicked)
