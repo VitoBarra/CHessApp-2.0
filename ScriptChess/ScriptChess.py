@@ -898,12 +898,8 @@ class chessboard():
         if not self.check_whiteking():
             if self.depth == 0:
                 return -1000000
-            else:
-                return -1000000
         if not self.check_blackking():
             if self.depth == 0:
-                return -1000000
-            else:
                 return -1000000
         if self.depth % 2 == 0:
             self.generate_for_black()
@@ -965,17 +961,27 @@ class chessboard():
         return zeta
 
     def check_if_checkmate_is_imminent(self, color=0):
-        tempo = self.searchfield
-        self.set_field(2)
-        if color == 0: req = self.minmaxtreeevaluationai()
-        else: req = self.blackminmax()
-        if req == -1000000:
-            PythonPass.CheckMate("Black")
-            return 1
-        elif req == 1000000:
-            PythonPass.CheckMate("White")
-            return 1
-        self.set_field(tempo)
+        
+        return 0
+        #   ----------------- NON FUNZIONA UNA MINCHIA -------------------- #
+
+        
+        #print 'sono entrato nel controllo checkmate'
+        #tempo = self.searchfield
+        #self.set_field(3)
+        #if color == 0: req = self.minmaxtreeevaluationai()
+        #else: req = self.blackminmax()
+        #if req == -1000000:
+        #    PythonPass.CheckMate("Black")
+        #    self.set_field(tempo)
+        #    return 1
+        #elif req == 1000000:
+        #    PythonPass.CheckMate("White")
+        #    self.set_field(tempo)
+        #    return 1
+        #print 'sono uscito dal checkmate'
+        #return 0
+        
 
     def update_number_matrix(self):
         for j1 in range(8):
@@ -1039,12 +1045,12 @@ class chessboard():
             self.update_number_matrix()
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
             k = 0
-            if self.check_if_checkmate_is_imminent():
+            if self.check_if_checkmate_is_imminent(color=1):
                 break
             while k == 0:
                 zorrotto = PythonPass.Mossa()
                 if len(zorrotto) == 2:
-                    print zorrotto
+                    #print zorrotto
                     if self.matrix[int(zorrotto[0])][int(zorrotto[1])] == "" and len(
                             pygamemossacoordinateperboard) == 0:
                         pass
@@ -1075,4 +1081,13 @@ class chessboard():
 
 ch = chessboard()
 ch.set_field(1)
+ch.setposition([["","","","","","","",""],
+["","","","","","","",""],
+["","","","","","","",""],
+["","","","","","","",""],
+["","","","","","","q2",""],
+["","","","","","","",""],
+["","","","","","","",""],
+["","","","","","p2","","p1"]])
+ch.update_number_matrix()
 ch.Play_whitWhite()
