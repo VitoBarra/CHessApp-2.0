@@ -37,6 +37,8 @@ namespace ChessApp_2._0
 
         private void Start_Click(object sender, EventArgs e)
         {
+            if (PyThread.IsAlive)
+                PyThread.Abort();
             PyThread.Start();
         }
 
@@ -58,7 +60,7 @@ namespace ChessApp_2._0
             RenderPiceOnboard();
         }
 
-        //------------------------------------------------------method Form1-----------------------------------
+        //-------------------------------------------method Form1----------------------------------------------
 
         private void Bildboard()
         {
