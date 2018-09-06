@@ -158,11 +158,6 @@ namespace ChessApp_2._0
             string pathsStr = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
             pathsStr += "\\ScriptChess";
 
-
-
-
-
-
             ScriptEngine engine = Python.CreateEngine();
 
 
@@ -170,13 +165,12 @@ namespace ChessApp_2._0
             paths.Add(@"C:\\Python27\\Lib");
             paths.Add(@"c:\\python27\\lib\\site-packages\\numpy\\core");
             paths.Add(pathsStr);
-            pathsStr += "\\ScriptChess.py";
-            //paths.Add(@"C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess");
             engine.SetSearchPaths(paths);
 
+            pathsStr += "\\ScriptChess.py";
             CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pathsStr).Compile();
 
-            //CompiledCode compiledCode = engine.CreateScriptSourceFromFile("C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess\\ScriptChess.py").Compile();
+           
 
             ScriptScope scope = engine.CreateScope();
 
@@ -189,7 +183,15 @@ namespace ChessApp_2._0
         }
 
 
+        private void TrackBackButton_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void TrackForwardButton_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #region ToolStrip item function
         private void PlayerVsPlayerGameMode_Click(object sender, EventArgs e)
@@ -218,10 +220,7 @@ namespace ChessApp_2._0
         }
         #endregion
 
-        private void GameMode_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 
 
@@ -238,6 +237,7 @@ namespace ChessApp_2._0
 
     public class PythonPass
     {
+        static bool Tarckback = false;
         public void BildPiceOnBoard(string pyboardSt)
         {
             int[,] num = new int[8, 8];

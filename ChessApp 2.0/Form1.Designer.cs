@@ -40,6 +40,8 @@
             this.AiVsAiGameMode = new System.Windows.Forms.ToolStripMenuItem();
             this.Tool = new System.Windows.Forms.ToolStripDropDownButton();
             this.SetPositionTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.TrackBackButton = new System.Windows.Forms.Button();
+            this.TrackForwardButton = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +95,6 @@
             this.GameMode.Name = "GameMode";
             this.GameMode.Size = new System.Drawing.Size(82, 22);
             this.GameMode.Text = "GameMode";
-            this.GameMode.Click += new System.EventHandler(this.GameMode_Click);
             // 
             // PlayerVsPlayerGameMode
             // 
@@ -114,14 +115,14 @@
             // PlayWhitWhiteGameMode
             // 
             this.PlayWhitWhiteGameMode.Name = "PlayWhitWhiteGameMode";
-            this.PlayWhitWhiteGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayWhitWhiteGameMode.Size = new System.Drawing.Size(156, 22);
             this.PlayWhitWhiteGameMode.Text = "Play whit White";
             this.PlayWhitWhiteGameMode.Click += new System.EventHandler(this.PlayWhitWhiteGameMode_Click);
             // 
             // PlayWhitBlackGameMode
             // 
             this.PlayWhitBlackGameMode.Name = "PlayWhitBlackGameMode";
-            this.PlayWhitBlackGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayWhitBlackGameMode.Size = new System.Drawing.Size(156, 22);
             this.PlayWhitBlackGameMode.Text = "Play whit Black";
             this.PlayWhitBlackGameMode.Click += new System.EventHandler(this.PlayWhitBlackGameMode_Click);
             // 
@@ -146,9 +147,35 @@
             // SetPositionTool
             // 
             this.SetPositionTool.Name = "SetPositionTool";
-            this.SetPositionTool.Size = new System.Drawing.Size(180, 22);
+            this.SetPositionTool.Size = new System.Drawing.Size(136, 22);
             this.SetPositionTool.Text = "Set position";
             this.SetPositionTool.Click += new System.EventHandler(this.SetPositionTool_Click);
+            // 
+            // TrackBackButton
+            // 
+            this.TrackBackButton.BackColor = System.Drawing.SystemColors.Menu;
+            this.TrackBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TrackBackButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrackBackButton.Location = new System.Drawing.Point(12, 28);
+            this.TrackBackButton.Name = "TrackBackButton";
+            this.TrackBackButton.Size = new System.Drawing.Size(23, 23);
+            this.TrackBackButton.TabIndex = 4;
+            this.TrackBackButton.Text = "<";
+            this.TrackBackButton.UseVisualStyleBackColor = false;
+            this.TrackBackButton.Click += new System.EventHandler(this.TrackBackButton_Click);
+            // 
+            // TrackForwardButton
+            // 
+            this.TrackForwardButton.BackColor = System.Drawing.SystemColors.Menu;
+            this.TrackForwardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TrackForwardButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrackForwardButton.Location = new System.Drawing.Point(41, 28);
+            this.TrackForwardButton.Name = "TrackForwardButton";
+            this.TrackForwardButton.Size = new System.Drawing.Size(23, 23);
+            this.TrackForwardButton.TabIndex = 5;
+            this.TrackForwardButton.Text = ">";
+            this.TrackForwardButton.UseVisualStyleBackColor = false;
+            this.TrackForwardButton.Click += new System.EventHandler(this.TrackForwardButton_Click);
             // 
             // Form1
             // 
@@ -156,6 +183,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(399, 450);
+            this.Controls.Add(this.TrackForwardButton);
+            this.Controls.Add(this.TrackBackButton);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.Reset_button);
             this.Controls.Add(this.Start_button);
@@ -182,6 +211,8 @@
         private System.Windows.Forms.ToolStripMenuItem AiVsAiGameMode;
         private System.Windows.Forms.ToolStripDropDownButton Tool;
         private System.Windows.Forms.ToolStripMenuItem SetPositionTool;
+        private System.Windows.Forms.Button TrackBackButton;
+        private System.Windows.Forms.Button TrackForwardButton;
     }
 }
 
