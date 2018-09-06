@@ -177,7 +177,41 @@ namespace ChessApp_2._0
             compiledCode.Execute(scope);
 
         }
+
+
+
+
+        #region ToolStrip item function
+        private void PlayerVsPlayerGameMode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlayWhitWhiteGameMode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlayWhitBlackGameMode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AiVsAiGameMode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetPositionTool_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
+
+
+
+
 
     public static class Global
     {

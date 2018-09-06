@@ -32,9 +32,14 @@
             this.Start_button = new System.Windows.Forms.Button();
             this.Reset_button = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.GameMode = new System.Windows.Forms.ToolStripDropDownButton();
+            this.PlayerVsPlayerGameMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlayerVsAIGameMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlayWhitWhiteGameMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlayWhitBlackGameMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.AiVsAiGameMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tool = new System.Windows.Forms.ToolStripDropDownButton();
+            this.SetPositionTool = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,37 +73,81 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox1,
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.GameMode,
+            this.Tool});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(399, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // GameMode
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.GameMode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.GameMode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PlayerVsPlayerGameMode,
+            this.PlayerVsAIGameMode,
+            this.AiVsAiGameMode});
+            this.GameMode.Image = ((System.Drawing.Image)(resources.GetObject("GameMode.Image")));
+            this.GameMode.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.GameMode.Name = "GameMode";
+            this.GameMode.Size = new System.Drawing.Size(82, 22);
+            this.GameMode.Text = "GameMode";
             // 
-            // toolStripButton2
+            // PlayerVsPlayerGameMode
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.PlayerVsPlayerGameMode.Name = "PlayerVsPlayerGameMode";
+            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayerVsPlayerGameMode.Text = "Player vs Player";
+            this.PlayerVsPlayerGameMode.Click += new System.EventHandler(this.PlayerVsPlayerGameMode_Click);
             // 
-            // toolStripComboBox1
+            // PlayerVsAIGameMode
             // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            this.PlayerVsAIGameMode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PlayWhitWhiteGameMode,
+            this.PlayWhitBlackGameMode});
+            this.PlayerVsAIGameMode.Name = "PlayerVsAIGameMode";
+            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayerVsAIGameMode.Text = "Player Vs AI";
+            // 
+            // PlayWhitWhiteGameMode
+            // 
+            this.PlayWhitWhiteGameMode.Name = "PlayWhitWhiteGameMode";
+            this.PlayWhitWhiteGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayWhitWhiteGameMode.Text = "Play whit White";
+            this.PlayWhitWhiteGameMode.Click += new System.EventHandler(this.PlayWhitWhiteGameMode_Click);
+            // 
+            // PlayWhitBlackGameMode
+            // 
+            this.PlayWhitBlackGameMode.Name = "PlayWhitBlackGameMode";
+            this.PlayWhitBlackGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayWhitBlackGameMode.Text = "Play whit Black";
+            this.PlayWhitBlackGameMode.Click += new System.EventHandler(this.PlayWhitBlackGameMode_Click);
+            // 
+            // AiVsAiGameMode
+            // 
+            this.AiVsAiGameMode.Name = "AiVsAiGameMode";
+            this.AiVsAiGameMode.Size = new System.Drawing.Size(180, 22);
+            this.AiVsAiGameMode.Text = "Ai Vs Ai";
+            this.AiVsAiGameMode.Click += new System.EventHandler(this.AiVsAiGameMode_Click);
+            // 
+            // Tool
+            // 
+            this.Tool.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Tool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SetPositionTool});
+            this.Tool.Image = ((System.Drawing.Image)(resources.GetObject("Tool.Image")));
+            this.Tool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Tool.Name = "Tool";
+            this.Tool.Size = new System.Drawing.Size(43, 22);
+            this.Tool.Text = "Tool";
+            // 
+            // SetPositionTool
+            // 
+            this.SetPositionTool.Name = "SetPositionTool";
+            this.SetPositionTool.Size = new System.Drawing.Size(180, 22);
+            this.SetPositionTool.Text = "Set position";
+            this.SetPositionTool.Click += new System.EventHandler(this.SetPositionTool_Click);
             // 
             // Form1
             // 
@@ -124,9 +173,14 @@
         private System.Windows.Forms.Button Start_button;
         private System.Windows.Forms.Button Reset_button;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripDropDownButton GameMode;
+        private System.Windows.Forms.ToolStripMenuItem PlayerVsPlayerGameMode;
+        private System.Windows.Forms.ToolStripMenuItem PlayerVsAIGameMode;
+        private System.Windows.Forms.ToolStripMenuItem PlayWhitWhiteGameMode;
+        private System.Windows.Forms.ToolStripMenuItem PlayWhitBlackGameMode;
+        private System.Windows.Forms.ToolStripMenuItem AiVsAiGameMode;
+        private System.Windows.Forms.ToolStripDropDownButton Tool;
+        private System.Windows.Forms.ToolStripMenuItem SetPositionTool;
     }
 }
 
