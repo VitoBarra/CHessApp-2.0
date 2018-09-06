@@ -239,7 +239,7 @@ namespace ChessApp_2._0
     {
         static bool Tarckback = false;
 
-
+         
 
         public void BildPiceOnBoard(string pyboardSt)
         {
