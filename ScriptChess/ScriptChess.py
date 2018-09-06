@@ -1112,7 +1112,7 @@ class chessboard():
 
 
 ch = chessboard()
-ch.set_field(1)
+ch.set_field(2)
 #ch.setposition([["","","","","","","",""],
 #["","","","","","","",""],
 #["","","","","","","",""],
