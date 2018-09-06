@@ -23,8 +23,9 @@ namespace ChessApp_2._0
 {
     public partial class Form1 : Form
     {
-        Thread PyThread = new Thread(PythonIni);
-
+        Thread PyThread;
+        bool clickdStart = false;
+        bool clickdReset = false;
         //------------------------------------------------------In Form1----------------------------------------
         public Form1()
         {
@@ -37,13 +38,33 @@ namespace ChessApp_2._0
 
         private void Start_Click(object sender, EventArgs e)
         {
-            PyThread.Start();
+            if (!clickdStart) 
+            {
+                if (!clickdStart && clickdReset)
+                {
+                    PyThread = new Thread(PythonIni);
+                    PyThread.Start();
+                    clickdReset = false;
+                }
+                else
+                {
+                    PyThread = new Thread(PythonIni);
+                    PyThread.Start();
+                }
+                clickdStart = true;
+            }
+
+            
         }
 
         private void Reset_Click(object sender, EventArgs e)
         {
             if (PyThread.IsAlive)
+            {
                 PyThread.Abort();
+                clickdReset = true;
+                clickdStart = false;
+            }
 
 
             Global.boardCod = new int[8, 8]
@@ -56,6 +77,7 @@ namespace ChessApp_2._0
                  {-1,-1,-1,-1,-1,-1,-1,-1 },
                  {-4,-3,-2,-6,-5,-2,-3,-4 } };
             RenderPiceOnboard();
+          
         }
 
         //------------------------------------------------------method Form1-----------------------------------
@@ -130,7 +152,7 @@ namespace ChessApp_2._0
         }
         private static void PythonIni()
         {
-            PythonPass pass = new PythonPass();
+           // string pathsStr = Environment.;
             ScriptEngine engine = Python.CreateEngine();
 
 
@@ -146,6 +168,8 @@ namespace ChessApp_2._0
             // CompiledCode compiledCode = engine.CreateScriptSourceFromFile("C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess\\ScriptChess.py").Compile();
 
             ScriptScope scope = engine.CreateScope();
+
+            PythonPass pass = new PythonPass();
             scope.SetVariable("PythonPass", pass);
 
 
