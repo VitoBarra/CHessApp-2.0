@@ -24,7 +24,7 @@ namespace ChessApp_2._0
 {
     public partial class Form1 : Form
     {
-        Thread PyThread;
+        Thread PyThread = new Thread(PythonIni);
         bool clickdStart = false;
         bool clickdReset = false;
         //------------------------------------------------------In Form1----------------------------------------
@@ -68,16 +68,30 @@ namespace ChessApp_2._0
                 clickdStart = false;
             }
 
-
-            Global.boardCod = new int[8, 8]
-                {{4,3,2,6,5,2,3,4 },
+            if (Global.Player)
+                Global.boardCod = new int[8, 8]
+                {
+                 {-4,-3,-2,-6,-5,-2,-3,-4 },
+                 { -1,-1,-1,-1,-1,-1,-1,-1 },
+                 { 0,0,0,0,0,0,0,0 },
+                 { 0,0,0,0,0,0,0,0 },
+                 { 0,0,0,0,0,0,0,0 },
+                 { 0,0,0,0,0,0,0,0 },
+                 { 1,1,1,1,1,1,1,1 },
+                 { 4,3,2,6,5,2,3,4 }
+                };
+            else
+                Global.boardCod = new int[8, 8]
+                 {
+                 {4,3,2,6,5,2,3,4 },
                  {1,1,1,1,1,1,1,1 },
                  {0,0,0,0,0,0,0,0 },
                  {0,0,0,0,0,0,0,0 },
                  {0,0,0,0,0,0,0,0 },
                  {0,0,0,0,0,0,0,0 },
                  {-1,-1,-1,-1,-1,-1,-1,-1 },
-                 {-4,-3,-2,-6,-5,-2,-3,-4 } };
+                 {-4,-3,-2,-6,-5,-2,-3,-4 }
+                 };
             RenderPiceOnboard();
           
         }
@@ -185,7 +199,7 @@ namespace ChessApp_2._0
 
         private void TrackBackButton_Click(object sender, EventArgs e)
         {
-
+            PythonPass.Trackback = true;
         }
 
         private void TrackForwardButton_Click(object sender, EventArgs e)
@@ -231,15 +245,16 @@ namespace ChessApp_2._0
     {
         public static Board[,] board;
         public static int[,] boardCod;
+        public static bool Player = false;
         public static bool clicked = false;
         public static string clickStr = "";
     }
 
     public class PythonPass
     {
-        static bool Tarckback = false;
+        public static bool Trackback = false;
 
-         
+
 
         public void BildPiceOnBoard(string pyboardSt)
         {
@@ -265,6 +280,13 @@ namespace ChessApp_2._0
         public void CheckMate(string winner)
         {
             MessageBox.Show("CheckMate!!\nwinner " + winner);
+        }
+
+        public bool TrackBackValue()
+        {
+            bool temp = Trackback;
+            Trackback = false;
+            return temp;
         }
     }
 }

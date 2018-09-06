@@ -1114,6 +1114,9 @@ class chessboard():
                         except:
                             pass
                         pygamemossacoordinateperboard = ""
+                trackBack = PythonPass.TrackBackValue()
+                #if trackBack:
+                #    for 
 
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
 
