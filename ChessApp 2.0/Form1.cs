@@ -24,7 +24,7 @@ namespace ChessApp_2._0
 {
     public partial class Form1 : Form
     {
-        Thread PyThread;
+        Thread PyThread = new Thread(PythonIni);
         bool clickdStart = false;
         bool clickdReset = false;
         //------------------------------------------------------In Form1----------------------------------------
@@ -68,16 +68,30 @@ namespace ChessApp_2._0
                 clickdStart = false;
             }
 
-
-            Global.boardCod = new int[8, 8]
-                {{4,3,2,6,5,2,3,4 },
+            if (Global.Player)
+                Global.boardCod = new int[8, 8]
+                {
+                 {-4,-3,-2,-6,-5,-2,-3,-4 },
+                 { -1,-1,-1,-1,-1,-1,-1,-1 },
+                 { 0,0,0,0,0,0,0,0 },
+                 { 0,0,0,0,0,0,0,0 },
+                 { 0,0,0,0,0,0,0,0 },
+                 { 0,0,0,0,0,0,0,0 },
+                 { 1,1,1,1,1,1,1,1 },
+                 { 4,3,2,6,5,2,3,4 }
+                };
+            else
+                Global.boardCod = new int[8, 8]
+                 {
+                 {4,3,2,6,5,2,3,4 },
                  {1,1,1,1,1,1,1,1 },
                  {0,0,0,0,0,0,0,0 },
                  {0,0,0,0,0,0,0,0 },
                  {0,0,0,0,0,0,0,0 },
                  {0,0,0,0,0,0,0,0 },
                  {-1,-1,-1,-1,-1,-1,-1,-1 },
-                 {-4,-3,-2,-6,-5,-2,-3,-4 } };
+                 {-4,-3,-2,-6,-5,-2,-3,-4 }
+                 };
             RenderPiceOnboard();
           
         }
@@ -158,11 +172,6 @@ namespace ChessApp_2._0
             string pathsStr = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
             pathsStr += "\\ScriptChess";
 
-
-
-
-
-
             ScriptEngine engine = Python.CreateEngine();
 
 
@@ -170,13 +179,12 @@ namespace ChessApp_2._0
             paths.Add(@"C:\\Python27\\Lib");
             paths.Add(@"c:\\python27\\lib\\site-packages\\numpy\\core");
             paths.Add(pathsStr);
-            pathsStr += "\\ScriptChess.py";
-            //paths.Add(@"C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess");
             engine.SetSearchPaths(paths);
 
+            pathsStr += "\\ScriptChess.py";
             CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pathsStr).Compile();
 
-            //CompiledCode compiledCode = engine.CreateScriptSourceFromFile("C:\\Users\\R39\\source\\repos\\ChessApp_2.0\\ScriptChess\\ScriptChess.py").Compile();
+           
 
             ScriptScope scope = engine.CreateScope();
 
@@ -189,7 +197,15 @@ namespace ChessApp_2._0
         }
 
 
+        private void TrackBackButton_Click(object sender, EventArgs e)
+        {
+            PythonPass.Trackback = true;
+        }
 
+        private void TrackForwardButton_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #region ToolStrip item function
         private void PlayerVsPlayerGameMode_Click(object sender, EventArgs e)
@@ -218,10 +234,7 @@ namespace ChessApp_2._0
         }
         #endregion
 
-        private void GameMode_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 
 
@@ -232,12 +245,17 @@ namespace ChessApp_2._0
     {
         public static Board[,] board;
         public static int[,] boardCod;
+        public static bool Player = false;
         public static bool clicked = false;
         public static string clickStr = "";
     }
 
     public class PythonPass
     {
+        public static bool Trackback = false;
+
+
+
         public void BildPiceOnBoard(string pyboardSt)
         {
             int[,] num = new int[8, 8];
@@ -262,6 +280,13 @@ namespace ChessApp_2._0
         public void CheckMate(string winner)
         {
             MessageBox.Show("CheckMate!!\nwinner " + winner);
+        }
+
+        public bool TrackBackValue()
+        {
+            bool temp = Trackback;
+            Trackback = false;
+            return temp;
         }
     }
 }
