@@ -1085,6 +1085,7 @@ class chessboard():
                 break
 
 
+
             t = time.time()
             evW, movW = self.minmaxtreeevaluationai()
             print time.time() - t
