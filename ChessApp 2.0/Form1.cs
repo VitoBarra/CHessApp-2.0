@@ -238,6 +238,9 @@ namespace ChessApp_2._0
     public class PythonPass
     {
         static bool Tarckback = false;
+
+
+
         public void BildPiceOnBoard(string pyboardSt)
         {
             int[,] num = new int[8, 8];
