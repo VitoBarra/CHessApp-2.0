@@ -1,16 +1,13 @@
 import copy
 import time
-#import numpy as np
+# import numpy as np
 from GenericFunction import *
-
-
 
 CSI = '\033['
 
+
 def code_tochars(code):
     return CSI + str(code) + 'm'
-
-
 
 
 class AnsiCodes(object):
@@ -23,29 +20,31 @@ class AnsiCodes(object):
                 value = getattr(self, name)
                 setattr(self, name, code_to_chars(value))
 
+
 class AnsiFore(AnsiCodes):
-    BLACK           = 30
-    RED             = 31
-    GREEN           = 32
-    YELLOW          = 33
-    BLUE            = 34
-    MAGENTA         = 35
-    CYAN            = 36
-    WHITE           = 37
-    RESET           = 39
+    BLACK = 30
+    RED = 31
+    GREEN = 32
+    YELLOW = 33
+    BLUE = 34
+    MAGENTA = 35
+    CYAN = 36
+    WHITE = 37
+    RESET = 39
 
     # These are fairly well supported, but not part of the standard.
-    LIGHTBLACK_EX   = 90
-    LIGHTRED_EX     = 91
-    LIGHTGREEN_EX   = 92
-    LIGHTYELLOW_EX  = 93
-    LIGHTBLUE_EX    = 94
+    LIGHTBLACK_EX = 90
+    LIGHTRED_EX = 91
+    LIGHTGREEN_EX = 92
+    LIGHTYELLOW_EX = 93
+    LIGHTBLUE_EX = 94
     LIGHTMAGENTA_EX = 95
-    LIGHTCYAN_EX    = 96
-    LIGHTWHITE_EX   = 97
+    LIGHTCYAN_EX = 96
+    LIGHTWHITE_EX = 97
 
 
-Fore   = AnsiFore()
+Fore = AnsiFore()
+
 
 def StrigaStrana(a):
     stringa = ""
@@ -55,9 +54,8 @@ def StrigaStrana(a):
                 stringa += "+"
                 stringa += str(b)
             else:
-                 stringa += str(b)
+                stringa += str(b)
     return stringa
-
 
 
 class chessboard():
@@ -69,10 +67,9 @@ class chessboard():
         # q = queen ----> Q
         # p = king -----> K
         self.matrix = [["r1", "k1", "b1", "p1", "q1", "b1", "k1", "r1"],
-                       ["a1", "a1", "a1", "a1", "a1", "a1", "a1", "a1"],
+                       ["a1", "a1", "a1", "a1", "a1", "a1", "a1", "a1"], ["", "", "", "", "", "", "", ""],
                        ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""],
-                       ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""],
-                       ["a2", "a2", "a2", "a2", "a2", "a2", "a2", "a2"],
+                       ["", "", "", "", "", "", "", ""], ["a2", "a2", "a2", "a2", "a2", "a2", "a2", "a2"],
                        ["r2", "k2", "b2", "p2", "q2", "b2", "k2", "r2"]]
         self.depth = 0
         self.searchfield = 5
@@ -90,10 +87,9 @@ class chessboard():
         try:
 
             for xnxx in range(8):
-                self.matrix_with_numbers.append([0,0,0,0,0,0,0,0])
+                self.matrix_with_numbers.append([0, 0, 0, 0, 0, 0, 0, 0])
         except:
             print "okay non va qui"
-        
 
     def write(self, white=1):
         for j1 in range(8):
@@ -153,7 +149,8 @@ class chessboard():
             return exchangeforpgn(self.matrix[int(mossa[0])][int(mossa[1])][0]) + transform_from_number(mossa[1]) + str(
                 int(mossa[0]) + 1) + transform_from_number(mossa[3]) + str(int(mossa[2]) + 1)
         else:
-            return exchangeforpgn(self.matrix[int(mossa[0])][int(mossa[1])][0]) + transform_from_number(mossa[1]) + str(int(mossa[0]) + 1) + "x" + transform_from_number(mossa[3]) + str(int(mossa[2]) + 1)
+            return exchangeforpgn(self.matrix[int(mossa[0])][int(mossa[1])][0]) + transform_from_number(mossa[1]) + str(
+                int(mossa[0]) + 1) + "x" + transform_from_number(mossa[3]) + str(int(mossa[2]) + 1)
 
     def make_move_string(self, move):
         z = move.split(' ')
@@ -186,8 +183,6 @@ class chessboard():
             self.castle[2] = False
         elif number[0] == 7 and number[1] == 7:
             self.castle[3] = False
-
-  
 
     def pawnmoves(self, coord1, coord2):
         moves = []
@@ -355,7 +350,6 @@ class chessboard():
                 z1 = -100
         return moves
 
-    # noinspection PyChainedComparisons,PyChainedComparisons
     def kingmoves(self, coord1, coord2):
         moves = []
         z1 = coord1 + 1
@@ -729,31 +723,33 @@ class chessboard():
         return 0
 
     def checkcastle_white(self):
+        return 0
         if self.castle[0] == True:
             if self.matrix[0][1] == "" and self.matrix[0][2] == "":
                 if not self.check_if_white_is_in_check() and self.checkif_attacked_whitepiece("0",
                                                                                               "1") and self.checkif_attacked_whitepiece(
-                        "0", "2"):
+                    "0", "2"):
                     self.moveswhite += ["wO-O"]
         if self.castle[1] == True:
             if self.matrix[0][4] == "" and self.matrix[0][5] == "" and self.matrix[0][6] == "":
                 if not self.check_if_white_is_in_check() and self.checkif_attacked_whitepiece("0",
                                                                                               "4") and self.checkif_attacked_whitepiece(
-                        "0", "5") and self.checkif_attacked_whitepiece("0", "6"):
+                    "0", "5") and self.checkif_attacked_whitepiece("0", "6"):
                     self.moveswhite += ["wO-O-O"]
 
     def checkcastle_black(self):
+        return 0
         if self.castle[2] == True:
             if self.matrix[7][1] == "" and self.matrix[7][2] == "":
                 if not self.check_if_black_is_in_check() and self.checkif_attacked_blackpiece("7",
                                                                                               "1") and self.checkif_attacked_blackpiece(
-                        "7", "2"):
+                    "7", "2"):
                     self.moveswhite += ["bO-O"]
         if self.castle[3] == True:
             if self.matrix[7][4] == "" and self.matrix[7][5] == "" and self.matrix[7][6] == "":
                 if not self.check_if_black_is_in_check() and self.checkif_attacked_blackpiece("7",
                                                                                               "4") and self.checkif_attacked_blackpiece(
-                        "7", "5") and self.checkif_attacked_blackpiece("7", "6"):
+                    "7", "5") and self.checkif_attacked_blackpiece("7", "6"):
                     self.moveswhite += ["bO-O-O"]
 
     def evaluate(self):
@@ -857,7 +853,7 @@ class chessboard():
                 new.make_move_number(move)
                 new.set_field(self.searchfield)
                 new.set_depth(self.depth + 1)
-                #new.movehistoryw += [move]
+                # new.movehistoryw += [move]
                 enn += [new.minmaxtreeevaluationai()]
 
             varmax = -50000
@@ -884,7 +880,7 @@ class chessboard():
                 new.make_move_number(move)
                 new.set_field(self.searchfield)
                 new.set_depth(self.depth + 1)
-                #new.movehistoryb += [move]
+                # new.movehistoryb += [move]
                 enn += [new.minmaxtreeevaluationai()]
 
             varmax = 50000
@@ -901,15 +897,11 @@ class chessboard():
             return self.evaluate()
         if not self.check_whiteking():
             if self.depth == 0:
-                print("Checkmate")
-                print("black win")
                 return -1000000
             else:
                 return -1000000
         if not self.check_blackking():
             if self.depth == 0:
-                print("Checkmate")
-                print("White win")
                 return -1000000
             else:
                 return -1000000
@@ -925,7 +917,7 @@ class chessboard():
                 new.make_move_number(move)
                 new.set_field(self.searchfield)
                 new.set_depth(self.depth + 1)
-                #new.movehistoryb += [move]
+                # new.movehistoryb += [move]
                 enn += [new.blackminmax()]
 
             varmax = 50000
@@ -950,7 +942,7 @@ class chessboard():
                 new.make_move_number(move)
                 new.set_field(self.searchfield)
                 new.set_depth(self.depth + 1)
-                #new.movehistoryb += [move]
+                # new.movehistoryb += [move]
                 enn += [new.blackminmax()]
 
             varmax = -50000
@@ -972,30 +964,18 @@ class chessboard():
                         zeta += 1
         return zeta
 
-
-
-    def negamax(self):
-        if self.depth == self.searchfield:
-            return self.evaluate()
-        if self.repetitiondraw():
-            return 0
-        if not self.check_whiteking():
-            if self.depth == 0:
-                print("Checkmate")
-                print("black win")
-                return 1000000
-            else:
-                return -1000000
-        if not self.check_blackking():
-            if self.depth == 0:
-                print("Checkmate")
-                print("White win")
-                return 1000000
-            else:
-                return 1000000
-
-
-
+    def check_if_checkmate_is_imminent(self, color=0):
+        tempo = self.searchfield
+        self.set_field(2)
+        if color == 0: req = self.minmaxtreeevaluationai()
+        else: req = self.blackminmax()
+        if req == -1000000:
+            PythonPass.CheckMate("Black")
+            return 1
+        elif req == 1000000:
+            PythonPass.CheckMate("White")
+            return 1
+        self.set_field(tempo)
 
     def update_number_matrix(self):
         for j1 in range(8):
@@ -1028,7 +1008,6 @@ class chessboard():
                 if tester == "p2":
                     self.matrix_with_numbers[j1][j2] = -6
 
-
     def play_againstitself(self):
         for x in range(50):
             evW, movW = self.minmaxtreeevaluationai()
@@ -1040,15 +1019,19 @@ class chessboard():
             self.update_number_matrix()
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
 
-            
-
     def Play_whitWhite(self):
         pygamemossacoordinateperboard = ""
         for x in range(50):
-            if not self.check_whiteking():
-                PythonPass.CheckMate("Black")
-            if not self.check_blackking():
-                PythonPass.CheckMate("White")
+            # if not self.check_whiteking():
+            #     PythonPass.CheckMate("Black")
+            #     break
+            # if not self.check_blackking():
+            #     PythonPass.CheckMate("White")
+            #     break
+
+            if self.check_if_checkmate_is_imminent():
+                break
+
             t = time.time()
             evW, movW = self.minmaxtreeevaluationai()
             print time.time() - t
@@ -1056,11 +1039,14 @@ class chessboard():
             self.update_number_matrix()
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
             k = 0
+            if self.check_if_checkmate_is_imminent():
+                break
             while k == 0:
                 zorrotto = PythonPass.Mossa()
                 if len(zorrotto) == 2:
                     print zorrotto
-                    if self.matrix[int(zorrotto[0])][int(zorrotto[1])] == "" and len(pygamemossacoordinateperboard) == 0:
+                    if self.matrix[int(zorrotto[0])][int(zorrotto[1])] == "" and len(
+                            pygamemossacoordinateperboard) == 0:
                         pass
                     else:
                         pygamemossacoordinateperboard += zorrotto
@@ -1069,7 +1055,6 @@ class chessboard():
                             self.generate_for_black()
                             if pygamemossacoordinateperboard in self.movesblack:
                                 self.make_move_number(pygamemossacoordinateperboard)
-                                print "ho fatto la mossa"
                                 k = 1
 
                         except:
@@ -1078,16 +1063,15 @@ class chessboard():
 
             PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
 
-            if not self.check_whiteking():
-                PythonPass.CheckMate("Black")
-            if not self.check_blackking():
-                PythonPass.CheckMate("White")
+            # if not self.check_whiteking():
+            #     PythonPass.CheckMate("Black")
+            #     break
+            # if not self.check_blackking():
+            #     PythonPass.CheckMate("White")
+            #     break
 
-            
 
 
-
-           
 
 ch = chessboard()
 ch.set_field(1)
