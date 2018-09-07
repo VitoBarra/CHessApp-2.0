@@ -907,7 +907,7 @@ class chessboard():
 
     def check_if_checkmate_is_imminent(self, color=0):
         
-        #return 0 for no checkmate, 1 for checkmate
+        #return 0 for no checkmate, 1 for checkmate by black, 2 for checkmate by white
 
 
         if color:  # se color == 1 allora ha appena mosso il bianco e deve generare il nero per vedere se c'e' un matto
@@ -927,7 +927,7 @@ class chessboard():
                         temporal[count] = 1
                 count += 1
             if 0 not in temporal:
-                PythonPass.CheckMate("Black")
+
                 return 1
         else:    # color == 0
             self.generate_for_white()
@@ -951,24 +951,6 @@ class chessboard():
         print 'nessun matto', color
         return 0
 
-                #   ----------------- NON FUNZIONA UNA MINCHIA -------------------- #
-
-
-                #print 'sono entrato nel controllo checkmate'
-                #tempo = self.searchfield
-                #self.set_field(3)
-                #if color == 0: req = self.minmaxtreeevaluationai()
-                #else: req = self.blackminmax()
-                #if req == -1000000:
-                #    PythonPass.CheckMate("Black")
-                #    self.set_field(tempo)
-                #    return 1
-                #elif req == 1000000:
-                #    PythonPass.CheckMate("White")
-                #    self.set_field(tempo)
-                #    return 1
-                #print 'sono uscito dal checkmate'
-                #return 0
         
 
     def update_number_matrix(self):
@@ -1057,8 +1039,7 @@ class chessboard():
 
 
 
-ch = chessboard()
-ch.set_field(2)
+#ch = chessboard()
 #ch.setposition([["","","","","","","",""],
 #["","","","","","","",""],
 #["","","","","","","",""],
@@ -1067,5 +1048,5 @@ ch.set_field(2)
 #["","","","","","","",""],
 #["","","","","","","",""],
 #["","","","","","p2","","p1"]])
-ch.update_number_matrix()
-#ch.Play_whitWhite()
+
+
