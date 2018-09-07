@@ -24,6 +24,7 @@ namespace ChessApp_2._0
 {
     public partial class Form1 : Form
     {
+        static string gameMode = "\\NUll.py";
         Thread PyThread = new Thread(PythonIni);
 
         bool clickdStart = false;
@@ -188,8 +189,8 @@ namespace ChessApp_2._0
         private static void PythonIni()
         {
             
-            string pathsStr = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
-            pathsStr += "\\ScriptChess";
+            string pathStr = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
+            pathStr += "\\ScriptChess";
 
             ScriptEngine engine = Python.CreateEngine();
 
@@ -197,11 +198,11 @@ namespace ChessApp_2._0
             var paths = engine.GetSearchPaths();
             paths.Add(@"C:\\Python27\\Lib");
             paths.Add(@"c:\\python27\\lib\\site-packages\\numpy\\core");
-            paths.Add(pathsStr);
+            paths.Add(pathStr);
             engine.SetSearchPaths(paths);
 
-            pathsStr += "\\Ai_vs_Ai.py";
-            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pathsStr).Compile();
+
+            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pathStr + gameMode).Compile();
 
            
 
@@ -239,22 +240,22 @@ namespace ChessApp_2._0
         #region -------------ToolStrip item function-------------
         private void PlayerVsPlayerGameMode_Click(object sender, EventArgs e)
         {
-
+            gameMode = "\\Player_Vs_Player";
         }
 
         private void PlayWhitWhiteGameMode_Click(object sender, EventArgs e)
         {
-
+            gameMode = "\\Play_Whit_White";
         }
 
         private void PlayWhitBlackGameMode_Click(object sender, EventArgs e)
         {
-
+            gameMode = "\\Play_Whit_Black";
         }
 
         private void AiVsAiGameMode_Click(object sender, EventArgs e)
         {
-
+            gameMode = "\\Ai_Vs_Ai";
         }
 
         private void SetPositionTool_Click(object sender, EventArgs e)
