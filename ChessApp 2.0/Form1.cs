@@ -200,7 +200,7 @@ namespace ChessApp_2._0
             paths.Add(pathsStr);
             engine.SetSearchPaths(paths);
 
-            pathsStr += "\\ScriptChess.py";
+            pathsStr += "\\Ai_vs_Ai.py";
             CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pathsStr).Compile();
 
            

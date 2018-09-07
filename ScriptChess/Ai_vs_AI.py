@@ -19,6 +19,8 @@ while True:
     match.make_move_number(movB)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
+
+
     if self.check_if_checkmate_is_imminent(color=0):
         PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
         break
