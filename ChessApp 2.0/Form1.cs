@@ -369,16 +369,28 @@ namespace ChessApp_2._0
             Global.clickStr = "";
             return k;
         }
-        public void CheckMate(string winner)
-        {
-            MessageBox.Show("CheckMate!!\nwinner " + winner);
-        }
-
         public bool TrackBackValue()
         {
             bool temp = Trackback;
             Trackback = false;
             return temp;
         }
+
+        #region end game
+        public void CheckMate(string winner)
+        {
+            MessageBox.Show("CheckMate!!\nwinner " + winner);
+        }
+        public void DrawByRepetition()
+        {
+            MessageBox.Show("Paregio per pipetizione");
+        }
+        public void StaleMate()
+        {
+            MessageBox.Show("Stallo!");
+        }
+        #endregion
+
+       
     }
 }
