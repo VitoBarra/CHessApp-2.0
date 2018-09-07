@@ -929,7 +929,7 @@ class chessboard():
             if 0 not in temporal:
 
                 return 1
-        else:    # color == 0
+        else:    # color == 0  
             self.generate_for_white()
             temporal = [0] * len(self.moveswhite)
             count = 0
