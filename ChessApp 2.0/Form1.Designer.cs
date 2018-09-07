@@ -42,6 +42,8 @@
             this.SetPositionTool = new System.Windows.Forms.ToolStripMenuItem();
             this.TrackBackButton = new System.Windows.Forms.Button();
             this.TrackForwardButton = new System.Windows.Forms.Button();
+            this.LeftTimerButton = new System.Windows.Forms.Button();
+            this.RightTimerButton = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,9 +53,9 @@
             this.Start_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Start_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Start_button.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start_button.Location = new System.Drawing.Point(119, 28);
+            this.Start_button.Location = new System.Drawing.Point(93, 28);
             this.Start_button.Name = "Start_button";
-            this.Start_button.Size = new System.Drawing.Size(75, 23);
+            this.Start_button.Size = new System.Drawing.Size(53, 23);
             this.Start_button.TabIndex = 0;
             this.Start_button.Text = "Start";
             this.Start_button.UseVisualStyleBackColor = false;
@@ -64,9 +66,9 @@
             this.Reset_button.BackColor = System.Drawing.SystemColors.Menu;
             this.Reset_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reset_button.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reset_button.Location = new System.Drawing.Point(200, 28);
+            this.Reset_button.Location = new System.Drawing.Point(152, 28);
             this.Reset_button.Name = "Reset_button";
-            this.Reset_button.Size = new System.Drawing.Size(75, 23);
+            this.Reset_button.Size = new System.Drawing.Size(53, 23);
             this.Reset_button.TabIndex = 1;
             this.Reset_button.Text = "Reset";
             this.Reset_button.UseVisualStyleBackColor = false;
@@ -99,7 +101,7 @@
             // PlayerVsPlayerGameMode
             // 
             this.PlayerVsPlayerGameMode.Name = "PlayerVsPlayerGameMode";
-            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(155, 22);
             this.PlayerVsPlayerGameMode.Text = "Player vs Player";
             this.PlayerVsPlayerGameMode.Click += new System.EventHandler(this.PlayerVsPlayerGameMode_Click);
             // 
@@ -109,7 +111,7 @@
             this.PlayWhitWhiteGameMode,
             this.PlayWhitBlackGameMode});
             this.PlayerVsAIGameMode.Name = "PlayerVsAIGameMode";
-            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(155, 22);
             this.PlayerVsAIGameMode.Text = "Player Vs AI";
             // 
             // PlayWhitWhiteGameMode
@@ -129,7 +131,7 @@
             // AiVsAiGameMode
             // 
             this.AiVsAiGameMode.Name = "AiVsAiGameMode";
-            this.AiVsAiGameMode.Size = new System.Drawing.Size(180, 22);
+            this.AiVsAiGameMode.Size = new System.Drawing.Size(155, 22);
             this.AiVsAiGameMode.Text = "Ai Vs Ai";
             this.AiVsAiGameMode.Click += new System.EventHandler(this.AiVsAiGameMode_Click);
             // 
@@ -177,12 +179,34 @@
             this.TrackForwardButton.UseVisualStyleBackColor = false;
             this.TrackForwardButton.Click += new System.EventHandler(this.TrackForwardButton_Click);
             // 
+            // LeftTimerButton
+            // 
+            this.LeftTimerButton.Location = new System.Drawing.Point(264, 28);
+            this.LeftTimerButton.Name = "LeftTimerButton";
+            this.LeftTimerButton.Size = new System.Drawing.Size(48, 23);
+            this.LeftTimerButton.TabIndex = 6;
+            this.LeftTimerButton.Text = "00:00";
+            this.LeftTimerButton.UseVisualStyleBackColor = true;
+            this.LeftTimerButton.Click += new System.EventHandler(this.LeftTimerButton_Click);
+            // 
+            // RightTimerButton
+            // 
+            this.RightTimerButton.Location = new System.Drawing.Point(318, 28);
+            this.RightTimerButton.Name = "RightTimerButton";
+            this.RightTimerButton.Size = new System.Drawing.Size(48, 23);
+            this.RightTimerButton.TabIndex = 7;
+            this.RightTimerButton.Text = "00:00";
+            this.RightTimerButton.UseVisualStyleBackColor = true;
+            this.RightTimerButton.Click += new System.EventHandler(this.RightTimerButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(399, 450);
+            this.Controls.Add(this.RightTimerButton);
+            this.Controls.Add(this.LeftTimerButton);
             this.Controls.Add(this.TrackForwardButton);
             this.Controls.Add(this.TrackBackButton);
             this.Controls.Add(this.toolStrip1);
@@ -213,6 +237,8 @@
         private System.Windows.Forms.ToolStripMenuItem SetPositionTool;
         private System.Windows.Forms.Button TrackBackButton;
         private System.Windows.Forms.Button TrackForwardButton;
+        private System.Windows.Forms.Button LeftTimerButton;
+        private System.Windows.Forms.Button RightTimerButton;
     }
 }
 

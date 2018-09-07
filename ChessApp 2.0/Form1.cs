@@ -25,8 +25,19 @@ namespace ChessApp_2._0
     public partial class Form1 : Form
     {
         Thread PyThread = new Thread(PythonIni);
+
         bool clickdStart = false;
         bool clickdReset = false;
+
+
+        int leftMinutes = 15, leftSecond=00;
+        int rightMinutes = 15, rightSecond=00;
+
+        System.Timers.Timer tLeft;
+        System.Timers.Timer tRight;
+
+        bool clickdTimerLeft = false;
+        bool clickdTimerRight = false;
         //------------------------------------------------------In Form1----------------------------------------
         public Form1()
         {
@@ -35,8 +46,16 @@ namespace ChessApp_2._0
         private void Form1_Load(object sender, EventArgs e)
         {
             Bildboard();
-        }
+            tLeft = new System.Timers.Timer();
+            tLeft.Interval = 1000;
+            tLeft.Elapsed += OnTimeEventLeft;
+            LeftTimerButton.Text = leftMinutes + ":" + leftSecond;
 
+            tRight = new System.Timers.Timer();
+            tRight.Interval = 1000;
+            tRight.Elapsed += OnTimeEventRight;
+            RightTimerButton.Text = rightMinutes + ":" + rightSecond;
+        }
 
         private void Start_Click(object sender, EventArgs e)
         {
@@ -196,7 +215,7 @@ namespace ChessApp_2._0
 
         }
 
-
+        #region ----------------------trak----------------------
         private void TrackBackButton_Click(object sender, EventArgs e)
         {
             PythonPass.Trackback = true;
@@ -206,8 +225,9 @@ namespace ChessApp_2._0
         {
 
         }
+        #endregion
 
-        #region ToolStrip item function
+        #region -------------ToolStrip item function-------------
         private void PlayerVsPlayerGameMode_Click(object sender, EventArgs e)
         {
 
@@ -232,9 +252,82 @@ namespace ChessApp_2._0
         {
 
         }
+
+
         #endregion
 
+        #region ---------------------timer--------------------
+        private void LeftTimerButton_Click(object sender, EventArgs e)
+        {
+            if (!clickdTimerLeft)
+            {
+                tLeft.Start();
+                clickdTimerLeft = true;
+            }
+            else
+            {
+                tLeft.Stop();
+                clickdTimerRight = false;
+            }
+        }
 
+        private void RightTimerButton_Click(object sender, EventArgs e)
+        {
+            if(!clickdTimerRight)
+            {
+                tRight.Start();
+                clickdTimerRight = true;
+
+            }
+            else
+            {
+                tRight.Stop();
+                clickdTimerRight = false;
+            }
+        }
+
+
+
+        private void OnTimeEventLeft(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                if (leftSecond == 0)
+                {
+                    if (leftMinutes >= 0)
+                    {
+                        leftMinutes -= 1;
+                        leftSecond = 59;
+                    }
+                }
+                else
+                    leftSecond -= 1;
+
+                LeftTimerButton.Text = leftMinutes + ":" + leftSecond;
+            }
+            ));
+        }
+        private void OnTimeEventRight(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                if (rightSecond == 0)
+                {
+                    if (rightMinutes >= 0)
+                    {
+                        rightMinutes -= 1;
+                        rightSecond = 59;
+                    }
+                }
+                else
+                    rightSecond -= 1;
+
+
+                RightTimerButton.Text = rightMinutes + ":" + rightSecond;
+            }
+            ));
+        }
+        #endregion
     }
 
 
