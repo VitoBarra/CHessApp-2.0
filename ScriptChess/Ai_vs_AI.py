@@ -1,13 +1,16 @@
 from ScriptChess import *
 
 match = chessboard()
-
+k1,k2 = PythonPass.Difficulty()
+k1-= 48
+k2 -= 48
 match.set_field(2)  # base value, va aggiunta una funzione in c#
 
 
 
 
 while True:
+    match.set_field(k1)
     evW, movW = match.minmaxtreeevaluationai()
     match.make_move_number(movW)
     match.update_number_matrix()
@@ -23,6 +26,7 @@ while True:
     if match.repetitiondraw():
         PythonPass.DrawByRepetition()
         break
+    match.set_field(k2)
     evB, movB = match.blackminmax()
     match.make_move_number(movB)
     match.update_number_matrix()

@@ -447,15 +447,15 @@ namespace ChessApp_2._0
             return temp;
         }
 
-        public int[] Dificulty()
+        public int[] Difficulty()
         {
             int[] temp = new int[2];
 
-            Global.DificultyReader = new StreamReader(Form1.FindPath() + "DificultyW.txt");
+            Global.DificultyReader = new StreamReader(Form1.FindPath() + "\\DificultyW.txt");
             temp[0] = Global.DificultyReader.Read();
             Global.DificultyReader.Close();
 
-            Global.DificultyReader = new StreamReader(Form1.FindPath() + "DificultyB.txt");
+            Global.DificultyReader = new StreamReader(Form1.FindPath() + "\\DificultyB.txt");
             temp[1] = Global.DificultyReader.Read();
             Global.DificultyReader.Close();
 
