@@ -267,7 +267,7 @@ namespace ChessApp_2._0
             else
             {
                 tLeft.Stop();
-                clickdTimerRight = false;
+                clickdTimerLeft = false;
             }
         }
 
@@ -277,7 +277,6 @@ namespace ChessApp_2._0
             {
                 tRight.Start();
                 clickdTimerRight = true;
-
             }
             else
             {
