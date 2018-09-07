@@ -1014,7 +1014,7 @@ class chessboard():
                 break
             
             if self.repetitiondraw():
-                print "draw by repetition"
+                PythonPass.DrawByRepetition()
                 break
 
 
