@@ -24,21 +24,15 @@ namespace ChessApp_2._0
 {
     public partial class Form1 : Form
     {
-        static string gameMode = "\\NUll.py";
+       
         Thread PyThread = new Thread(PythonIni);
 
         bool clickdStart = false;
         bool clickdReset = false;
+        static string gameMode = "\\NUll.py";
+        static string pathStr = FindPath();
 
 
-        int leftMinutes = 15, leftSecond=00;
-        int rightMinutes = 15, rightSecond=00;
-
-        System.Timers.Timer tLeft;
-        System.Timers.Timer tRight;
-
-        bool clickdTimerLeft = false;
-        bool clickdTimerRight = false;
         //------------------------------------------------------In Form1----------------------------------------
         public Form1()
         {
@@ -46,6 +40,7 @@ namespace ChessApp_2._0
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+
             Bildboard();
             tLeft = new System.Timers.Timer();
             tLeft.Interval = 1000;
@@ -188,16 +183,13 @@ namespace ChessApp_2._0
         }
         private static void PythonIni()
         {
-            
-            string pathStr = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
-            pathStr += "\\ScriptChess";
 
             ScriptEngine engine = Python.CreateEngine();
 
 
             var paths = engine.GetSearchPaths();
-            paths.Add(@"C:\\Python27\\Lib");
-            paths.Add(@"c:\\python27\\lib\\site-packages\\numpy\\core");
+            paths.Add(@"C:\Python27\Lib");
+            paths.Add(@"c:\python27\lib\site-packages\numpy\core");
             paths.Add(pathStr);
             engine.SetSearchPaths(paths);
 
@@ -213,6 +205,12 @@ namespace ChessApp_2._0
 
             compiledCode.Execute(scope);
 
+        }
+
+        public static string FindPath()
+        {
+            return Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()
+                ).ToString()).ToString()+ "\\ScriptChess";
         }
         #endregion
 
@@ -262,35 +260,49 @@ namespace ChessApp_2._0
 
         }
 
+        #region Dificulty
         private void DificultyW2_Click(object sender, EventArgs e)
         {
-
+            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyW.txt", false);
+            Global.DificultyWriter.Write(2);
+            Global.DificultyWriter.Close();
         }
 
         private void DificultyW3_Click(object sender, EventArgs e)
         {
-
+            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyW.txt", false);
+            Global.DificultyWriter.Write(3);
+            Global.DificultyWriter.Close();
         }
 
         private void DificultyW4_Click(object sender, EventArgs e)
         {
-
+            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyW.txt", false);
+            Global.DificultyWriter.Write(4);
+            Global.DificultyWriter.Close();
         }
 
         private void DificultyB2_Click(object sender, EventArgs e)
         {
-
+            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyB.txt", false);
+            Global.DificultyWriter.Write(2);
+            Global.DificultyWriter.Close();
         }
 
         private void DificultyB3_Click(object sender, EventArgs e)
         {
-
+            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyB.txt", false);
+            Global.DificultyWriter.Write(3);
+            Global.DificultyWriter.Close();
         }
 
         private void DificultyB4_Click(object sender, EventArgs e)
         {
-
+            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyB.txt", false);
+            Global.DificultyWriter.Write(4);
+            Global.DificultyWriter.Close();
         }
+        #endregion
 
         #endregion
 
@@ -300,6 +312,16 @@ namespace ChessApp_2._0
 
 
         #region ---------------------timer--------------------
+
+        int leftMinutes = 15, leftSecond = 00;
+        int rightMinutes = 15, rightSecond = 00;
+
+        System.Timers.Timer tLeft;
+        System.Timers.Timer tRight;
+
+        bool clickdTimerLeft = false;
+        bool clickdTimerRight = false;
+
         private void LeftTimerButton_Click(object sender, EventArgs e)
         {
             if (!clickdTimerLeft)
@@ -376,6 +398,8 @@ namespace ChessApp_2._0
 
     public static class Global
     {
+        public static StreamReader DificultyReader;
+        public static StreamWriter DificultyWriter;
         public static Board[,] board;
         public static int[,] boardCod;
         public static bool Player = false;
@@ -404,12 +428,18 @@ namespace ChessApp_2._0
 
             Form1.RenderPiceOnboard();
         }
+
+
         public string Mossa()
         {
             string k = Global.clickStr;
             Global.clickStr = "";
             return k;
         }
+
+        #region -------------------utilitys------------------
+
+
         public bool TrackBackValue()
         {
             bool temp = Trackback;
@@ -417,7 +447,26 @@ namespace ChessApp_2._0
             return temp;
         }
 
-        #region end game
+        public int[] Dificulty()
+        {
+            int[] temp = new int[2];
+
+            Global.DificultyReader = new StreamReader(Form1.FindPath() + "DificultyW.txt");
+            temp[0] = Global.DificultyReader.Read();
+            Global.DificultyReader.Close();
+
+            Global.DificultyReader = new StreamReader(Form1.FindPath() + "DificultyB.txt");
+            temp[1] = Global.DificultyReader.Read();
+            Global.DificultyReader.Close();
+
+            return temp;
+        }
+
+        #endregion
+
+
+
+        #region ------------------end game-----------------
         public void CheckMate(string winner)
         {
             MessageBox.Show("CheckMate!!\nwinner " + winner);
