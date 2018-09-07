@@ -3,48 +3,6 @@ import time
 # import numpy as np
 from GenericFunction import *
 
-CSI = '\033['
-
-
-def code_tochars(code):
-    return CSI + str(code) + 'm'
-
-
-class AnsiCodes(object):
-    def init(self):
-        # the subclasses declare class attributes which are numbers.
-        # Upon instantiation we define instance attributes, which are the same
-        # as the class attributes but wrapped with the ANSI escape sequence
-        for name in dir(self):
-            if not name.startswith(''):
-                value = getattr(self, name)
-                setattr(self, name, code_to_chars(value))
-
-
-class AnsiFore(AnsiCodes):
-    BLACK = 30
-    RED = 31
-    GREEN = 32
-    YELLOW = 33
-    BLUE = 34
-    MAGENTA = 35
-    CYAN = 36
-    WHITE = 37
-    RESET = 39
-
-    # These are fairly well supported, but not part of the standard.
-    LIGHTBLACK_EX = 90
-    LIGHTRED_EX = 91
-    LIGHTGREEN_EX = 92
-    LIGHTYELLOW_EX = 93
-    LIGHTBLUE_EX = 94
-    LIGHTMAGENTA_EX = 95
-    LIGHTCYAN_EX = 96
-    LIGHTWHITE_EX = 97
-
-
-Fore = AnsiFore()
-
 
 def StrigaStrana(a):
     stringa = ""
@@ -91,20 +49,6 @@ class chessboard():
         except:
             print "okay non va qui"
 
-    def write(self, white=1):
-        for j1 in range(8):
-            print
-            for j2 in range(8):
-                if self.matrix[j1][j2] == "":
-                    print "  |"
-                else:
-                    if self.matrix[j1][j2][1] == "1":
-                        print self.matrix[j1][j2]
-                        print "|"
-                    else:
-                        print self.matrix[j1][j2]
-                        print "|"
-        print Fore.WHITE
 
     def exportposition(self):
         print self.matrix
@@ -1057,17 +1001,6 @@ class chessboard():
                     self.matrix_with_numbers[j1][j2] = 6
                 if tester == "p2":
                     self.matrix_with_numbers[j1][j2] = -6
-
-    def play_againstitself(self):
-        for x in range(50):
-            evW, movW = self.minmaxtreeevaluationai()
-            self.make_move_number(movW)
-            self.update_number_matrix()
-            # PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
-            evB, movB = self.blackminmax()
-            self.make_move_number(movB)
-            self.update_number_matrix()
-            # PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
 
     def Play_whitWhite(self):
         pygamemossacoordinateperboard = ""
