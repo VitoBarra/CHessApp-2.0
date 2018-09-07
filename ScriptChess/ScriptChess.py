@@ -119,6 +119,9 @@ class chessboard():
             return 0
         self.matrix[int(number[2])][int(number[3])] = copy.deepcopy(self.matrix[int(number[0])][int(number[1])])
         self.matrix[int(number[0])][int(number[1])] = ''
+
+
+
         if number[0] == 0 and number[1] == 0:
             self.castle[0] = False
         elif number[0] == 0 and number[1] == 7:
@@ -1026,7 +1029,6 @@ class chessboard():
     #                        if pygamemossacoordinateperboard in self.movesblack:
     #                            self.make_move_number(pygamemossacoordinateperboard)
     #                            k = 1
-
     #                    except:
     #                        pass
     #                    pygamemossacoordinateperboard = ""
