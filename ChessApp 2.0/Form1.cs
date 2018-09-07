@@ -84,9 +84,9 @@ namespace ChessApp_2._0
             if (PyThread.IsAlive)
             {
                 PyThread.Abort();
-                clickdReset = true;
-                clickdStart = false;
             }
+            clickdReset = true;
+            clickdStart = false;
 
             if (Global.Player)
                 Global.boardCod = new int[8, 8]
@@ -201,7 +201,6 @@ namespace ChessApp_2._0
             paths.Add(pathStr);
             engine.SetSearchPaths(paths);
 
-
             CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pathStr + gameMode).Compile();
 
            
@@ -240,22 +239,22 @@ namespace ChessApp_2._0
         #region -------------ToolStrip item function-------------
         private void PlayerVsPlayerGameMode_Click(object sender, EventArgs e)
         {
-            gameMode = "\\Player_Vs_Player";
+            gameMode = "\\Player_Vs_Player.py";
         }
 
         private void PlayWhitWhiteGameMode_Click(object sender, EventArgs e)
         {
-            gameMode = "\\Play_Whit_White";
+            gameMode = "\\Play_Whit_White.py";
         }
 
         private void PlayWhitBlackGameMode_Click(object sender, EventArgs e)
         {
-            gameMode = "\\Play_Whit_Black";
+            gameMode = "\\Play_Whit_Black.py";
         }
 
         private void AiVsAiGameMode_Click(object sender, EventArgs e)
         {
-            gameMode = "\\Ai_Vs_Ai";
+            gameMode = "\\Ai_vs_Ai.py";
         }
 
         private void SetPositionTool_Click(object sender, EventArgs e)
