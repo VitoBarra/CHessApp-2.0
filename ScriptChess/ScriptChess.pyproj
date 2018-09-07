@@ -22,7 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Ai_vs_AI.py">
+    <Compile Include="Ai_vs_Ai.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GenericFunction.py">

@@ -38,20 +38,20 @@
             this.PlayWhitWhiteGameMode = new System.Windows.Forms.ToolStripMenuItem();
             this.PlayWhitBlackGameMode = new System.Windows.Forms.ToolStripMenuItem();
             this.AiVsAiGameMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.DificultyAiWhite = new System.Windows.Forms.ToolStripMenuItem();
+            this.DificultyW2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DificultyW3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DificultyW4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DificultyAiBlack = new System.Windows.Forms.ToolStripMenuItem();
+            this.DificultyB2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DificultyB3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DificultyB4 = new System.Windows.Forms.ToolStripMenuItem();
             this.Tool = new System.Windows.Forms.ToolStripDropDownButton();
             this.SetPositionTool = new System.Windows.Forms.ToolStripMenuItem();
             this.TrackBackButton = new System.Windows.Forms.Button();
             this.TrackForwardButton = new System.Windows.Forms.Button();
             this.LeftTimerButton = new System.Windows.Forms.Button();
             this.RightTimerButton = new System.Windows.Forms.Button();
-            this.DificultyAiWhite = new System.Windows.Forms.ToolStripMenuItem();
-            this.DificultyAiBlack = new System.Windows.Forms.ToolStripMenuItem();
-            this.DificultyW2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.DificultyW3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.DificultyW4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.DificultyB2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.DificultyB3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.DificultyB4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,7 +109,7 @@
             // PlayerVsPlayerGameMode
             // 
             this.PlayerVsPlayerGameMode.Name = "PlayerVsPlayerGameMode";
-            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(155, 22);
             this.PlayerVsPlayerGameMode.Text = "Player vs Player";
             this.PlayerVsPlayerGameMode.Click += new System.EventHandler(this.PlayerVsPlayerGameMode_Click);
             // 
@@ -119,20 +119,20 @@
             this.PlayWhitWhiteGameMode,
             this.PlayWhitBlackGameMode});
             this.PlayerVsAIGameMode.Name = "PlayerVsAIGameMode";
-            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(155, 22);
             this.PlayerVsAIGameMode.Text = "Player Vs AI";
             // 
             // PlayWhitWhiteGameMode
             // 
             this.PlayWhitWhiteGameMode.Name = "PlayWhitWhiteGameMode";
-            this.PlayWhitWhiteGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayWhitWhiteGameMode.Size = new System.Drawing.Size(156, 22);
             this.PlayWhitWhiteGameMode.Text = "Play whit White";
             this.PlayWhitWhiteGameMode.Click += new System.EventHandler(this.PlayWhitWhiteGameMode_Click);
             // 
             // PlayWhitBlackGameMode
             // 
             this.PlayWhitBlackGameMode.Name = "PlayWhitBlackGameMode";
-            this.PlayWhitBlackGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayWhitBlackGameMode.Size = new System.Drawing.Size(156, 22);
             this.PlayWhitBlackGameMode.Text = "Play whit Black";
             this.PlayWhitBlackGameMode.Click += new System.EventHandler(this.PlayWhitBlackGameMode_Click);
             // 
@@ -142,9 +142,71 @@
             this.DificultyAiWhite,
             this.DificultyAiBlack});
             this.AiVsAiGameMode.Name = "AiVsAiGameMode";
-            this.AiVsAiGameMode.Size = new System.Drawing.Size(180, 22);
+            this.AiVsAiGameMode.Size = new System.Drawing.Size(155, 22);
             this.AiVsAiGameMode.Text = "Ai Vs Ai";
             this.AiVsAiGameMode.Click += new System.EventHandler(this.AiVsAiGameMode_Click);
+            // 
+            // DificultyAiWhite
+            // 
+            this.DificultyAiWhite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DificultyW2,
+            this.DificultyW3,
+            this.DificultyW4});
+            this.DificultyAiWhite.Name = "DificultyAiWhite";
+            this.DificultyAiWhite.Size = new System.Drawing.Size(166, 22);
+            this.DificultyAiWhite.Text = "Dificulty Ai White";
+            // 
+            // DificultyW2
+            // 
+            this.DificultyW2.Name = "DificultyW2";
+            this.DificultyW2.Size = new System.Drawing.Size(80, 22);
+            this.DificultyW2.Text = "2";
+            this.DificultyW2.Click += new System.EventHandler(this.DificultyW2_Click);
+            // 
+            // DificultyW3
+            // 
+            this.DificultyW3.Name = "DificultyW3";
+            this.DificultyW3.Size = new System.Drawing.Size(80, 22);
+            this.DificultyW3.Text = "3";
+            this.DificultyW3.Click += new System.EventHandler(this.DificultyW3_Click);
+            // 
+            // DificultyW4
+            // 
+            this.DificultyW4.Name = "DificultyW4";
+            this.DificultyW4.Size = new System.Drawing.Size(80, 22);
+            this.DificultyW4.Text = "4";
+            this.DificultyW4.Click += new System.EventHandler(this.DificultyW4_Click);
+            // 
+            // DificultyAiBlack
+            // 
+            this.DificultyAiBlack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DificultyB2,
+            this.DificultyB3,
+            this.DificultyB4});
+            this.DificultyAiBlack.Name = "DificultyAiBlack";
+            this.DificultyAiBlack.Size = new System.Drawing.Size(166, 22);
+            this.DificultyAiBlack.Text = "Dificulty Ai Black";
+            // 
+            // DificultyB2
+            // 
+            this.DificultyB2.Name = "DificultyB2";
+            this.DificultyB2.Size = new System.Drawing.Size(80, 22);
+            this.DificultyB2.Text = "2";
+            this.DificultyB2.Click += new System.EventHandler(this.DificultyB2_Click);
+            // 
+            // DificultyB3
+            // 
+            this.DificultyB3.Name = "DificultyB3";
+            this.DificultyB3.Size = new System.Drawing.Size(80, 22);
+            this.DificultyB3.Text = "3";
+            this.DificultyB3.Click += new System.EventHandler(this.DificultyB3_Click);
+            // 
+            // DificultyB4
+            // 
+            this.DificultyB4.Name = "DificultyB4";
+            this.DificultyB4.Size = new System.Drawing.Size(80, 22);
+            this.DificultyB4.Text = "4";
+            this.DificultyB4.Click += new System.EventHandler(this.DificultyB4_Click);
             // 
             // Tool
             // 
@@ -209,68 +271,6 @@
             this.RightTimerButton.Text = "00:00";
             this.RightTimerButton.UseVisualStyleBackColor = true;
             this.RightTimerButton.Click += new System.EventHandler(this.RightTimerButton_Click);
-            // 
-            // DificultyAiWhite
-            // 
-            this.DificultyAiWhite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DificultyW2,
-            this.DificultyW3,
-            this.DificultyW4});
-            this.DificultyAiWhite.Name = "DificultyAiWhite";
-            this.DificultyAiWhite.Size = new System.Drawing.Size(180, 22);
-            this.DificultyAiWhite.Text = "Dificulty Ai White";
-            // 
-            // DificultyAiBlack
-            // 
-            this.DificultyAiBlack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DificultyB2,
-            this.DificultyB3,
-            this.DificultyB4});
-            this.DificultyAiBlack.Name = "DificultyAiBlack";
-            this.DificultyAiBlack.Size = new System.Drawing.Size(180, 22);
-            this.DificultyAiBlack.Text = "Dificulty Ai Black";
-            // 
-            // DificultyW2
-            // 
-            this.DificultyW2.Name = "DificultyW2";
-            this.DificultyW2.Size = new System.Drawing.Size(180, 22);
-            this.DificultyW2.Text = "2";
-            this.DificultyW2.Click += new System.EventHandler(this.DificultyW2_Click);
-            // 
-            // DificultyW3
-            // 
-            this.DificultyW3.Name = "DificultyW3";
-            this.DificultyW3.Size = new System.Drawing.Size(180, 22);
-            this.DificultyW3.Text = "3";
-            this.DificultyW3.Click += new System.EventHandler(this.DificultyW3_Click);
-            // 
-            // DificultyW4
-            // 
-            this.DificultyW4.Name = "DificultyW4";
-            this.DificultyW4.Size = new System.Drawing.Size(180, 22);
-            this.DificultyW4.Text = "4";
-            this.DificultyW4.Click += new System.EventHandler(this.DificultyW4_Click);
-            // 
-            // DificultyB2
-            // 
-            this.DificultyB2.Name = "DificultyB2";
-            this.DificultyB2.Size = new System.Drawing.Size(180, 22);
-            this.DificultyB2.Text = "2";
-            this.DificultyB2.Click += new System.EventHandler(this.DificultyB2_Click);
-            // 
-            // DificultyB3
-            // 
-            this.DificultyB3.Name = "DificultyB3";
-            this.DificultyB3.Size = new System.Drawing.Size(180, 22);
-            this.DificultyB3.Text = "3";
-            this.DificultyB3.Click += new System.EventHandler(this.DificultyB3_Click);
-            // 
-            // DificultyB4
-            // 
-            this.DificultyB4.Name = "DificultyB4";
-            this.DificultyB4.Size = new System.Drawing.Size(180, 22);
-            this.DificultyB4.Text = "4";
-            this.DificultyB4.Click += new System.EventHandler(this.DificultyB4_Click);
             // 
             // Form1
             // 
