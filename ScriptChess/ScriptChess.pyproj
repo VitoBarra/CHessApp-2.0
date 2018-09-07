@@ -28,6 +28,9 @@
     <Compile Include="GenericFunction.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="NULL.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ScriptChess.py" />
   </ItemGroup>
   <ItemGroup>
