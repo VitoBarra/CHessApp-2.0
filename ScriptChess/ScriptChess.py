@@ -1002,57 +1002,57 @@ class chessboard():
                 if tester == "p2":
                     self.matrix_with_numbers[j1][j2] = -6
 
-    def Play_whitWhite(self):
-        pygamemossacoordinateperboard = ""
-        PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
-        for x in range(50):
+    #def Play_whitWhite(self):
+    #    pygamemossacoordinateperboard = ""
+    #    PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
+    #    for x in range(50):
 
 
 
-            if self.check_if_checkmate_is_imminent():
-                PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
-                break
+    #        if self.check_if_checkmate_is_imminent():
+    #            PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
+    #            break
             
-            if self.repetitiondraw():
-                PythonPass.DrawByRepetition()
-                break
+    #        if self.repetitiondraw():
+    #            PythonPass.DrawByRepetition()
+    #            break
 
 
 
-            t = time.time()
-            evW, movW = self.minmaxtreeevaluationai()
-            print time.time() - t
-            self.make_move_number(movW)
-            self.update_number_matrix()
-            PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
-            k = 0
-            if self.check_if_checkmate_is_imminent(color=1):
-                PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
-                break
-            while k == 0:
-                zorrotto = PythonPass.Mossa()
-                if len(zorrotto) == 2:
-                    #print zorrotto
-                    if self.matrix[int(zorrotto[0])][int(zorrotto[1])] == "" and len(
-                            pygamemossacoordinateperboard) == 0:
-                        pass
-                    else:
-                        pygamemossacoordinateperboard += zorrotto
-                    if len(pygamemossacoordinateperboard) == 4:
-                        try:
-                            self.generate_for_black()
-                            if pygamemossacoordinateperboard in self.movesblack:
-                                self.make_move_number(pygamemossacoordinateperboard)
-                                k = 1
+    #        t = time.time()
+    #        evW, movW = self.minmaxtreeevaluationai()
+    #        print time.time() - t
+    #        self.make_move_number(movW)
+    #        self.update_number_matrix()
+    #        PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
+    #        k = 0
+    #        if self.check_if_checkmate_is_imminent(color=1):
+    #            PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
+    #            break
+    #        while k == 0:
+    #            zorrotto = PythonPass.Mossa()
+    #            if len(zorrotto) == 2:
+    #                #print zorrotto
+    #                if self.matrix[int(zorrotto[0])][int(zorrotto[1])] == "" and len(
+    #                        pygamemossacoordinateperboard) == 0:
+    #                    pass
+    #                else:
+    #                    pygamemossacoordinateperboard += zorrotto
+    #                if len(pygamemossacoordinateperboard) == 4:
+    #                    try:
+    #                        self.generate_for_black()
+    #                        if pygamemossacoordinateperboard in self.movesblack:
+    #                            self.make_move_number(pygamemossacoordinateperboard)
+    #                            k = 1
 
-                        except:
-                            pass
-                        pygamemossacoordinateperboard = ""
-                trackBack = PythonPass.TrackBackValue()
-                #if trackBack:
-                #    for 
+    #                    except:
+    #                        pass
+    #                    pygamemossacoordinateperboard = ""
+    #            trackBack = PythonPass.TrackBackValue()
+    #            #if trackBack:
+    #            #    for 
 
-            PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
+    #        PythonPass.BildPiceOnBoard(StrigaStrana(self.matrix_with_numbers))
 
 
 
@@ -1068,4 +1068,4 @@ ch.set_field(2)
 #["","","","","","","",""],
 #["","","","","","p2","","p1"]])
 ch.update_number_matrix()
-ch.Play_whitWhite()
+#ch.Play_whitWhite()
