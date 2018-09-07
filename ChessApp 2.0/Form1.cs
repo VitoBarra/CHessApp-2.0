@@ -116,7 +116,7 @@ namespace ChessApp_2._0
         }
 
         //------------------------------------------------------method Form1-----------------------------------
-
+        #region ------------------------board-------------------
         private void Bildboard()
         {
             int offset = 0;
@@ -214,6 +214,10 @@ namespace ChessApp_2._0
             compiledCode.Execute(scope);
 
         }
+        #endregion
+
+
+
 
         #region ----------------------trak----------------------
         private void TrackBackButton_Click(object sender, EventArgs e)
@@ -226,6 +230,11 @@ namespace ChessApp_2._0
 
         }
         #endregion
+
+
+
+
+
 
         #region -------------ToolStrip item function-------------
         private void PlayerVsPlayerGameMode_Click(object sender, EventArgs e)
@@ -253,8 +262,42 @@ namespace ChessApp_2._0
 
         }
 
+        private void DificultyW2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DificultyW3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DificultyW4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DificultyB2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DificultyB3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DificultyB4_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #endregion
+
+
+
+
+
 
         #region ---------------------timer--------------------
         private void LeftTimerButton_Click(object sender, EventArgs e)
@@ -284,8 +327,6 @@ namespace ChessApp_2._0
                 clickdTimerRight = false;
             }
         }
-
-
 
         private void OnTimeEventLeft(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -369,16 +410,28 @@ namespace ChessApp_2._0
             Global.clickStr = "";
             return k;
         }
-        public void CheckMate(string winner)
-        {
-            MessageBox.Show("CheckMate!!\nwinner " + winner);
-        }
-
         public bool TrackBackValue()
         {
             bool temp = Trackback;
             Trackback = false;
             return temp;
         }
+
+        #region end game
+        public void CheckMate(string winner)
+        {
+            MessageBox.Show("CheckMate!!\nwinner " + winner);
+        }
+        public void DrawByRepetition()
+        {
+            MessageBox.Show("Paregio per pipetizione");
+        }
+        public void StaleMate()
+        {
+            MessageBox.Show("Stallo!");
+        }
+        #endregion
+
+       
     }
 }
