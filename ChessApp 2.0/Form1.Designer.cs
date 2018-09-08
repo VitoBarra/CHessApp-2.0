@@ -111,7 +111,7 @@
             this.PlayerVsPlayerGameMode.Name = "PlayerVsPlayerGameMode";
             this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(155, 22);
             this.PlayerVsPlayerGameMode.Text = "Player vs Player";
-            this.PlayerVsPlayerGameMode.Click += new System.EventHandler(this.PlayerVsPlayerGameMode_Click);
+            this.PlayerVsPlayerGameMode.Click += new System.EventHandler(this.GameModeSelector);
             // 
             // PlayerVsAIGameMode
             // 
@@ -127,14 +127,14 @@
             this.PlayWhitWhiteGameMode.Name = "PlayWhitWhiteGameMode";
             this.PlayWhitWhiteGameMode.Size = new System.Drawing.Size(156, 22);
             this.PlayWhitWhiteGameMode.Text = "Play whit White";
-            this.PlayWhitWhiteGameMode.Click += new System.EventHandler(this.PlayWhitWhiteGameMode_Click);
+            this.PlayWhitWhiteGameMode.Click += new System.EventHandler(this.GameModeSelector);
             // 
             // PlayWhitBlackGameMode
             // 
             this.PlayWhitBlackGameMode.Name = "PlayWhitBlackGameMode";
             this.PlayWhitBlackGameMode.Size = new System.Drawing.Size(156, 22);
             this.PlayWhitBlackGameMode.Text = "Play whit Black";
-            this.PlayWhitBlackGameMode.Click += new System.EventHandler(this.PlayWhitBlackGameMode_Click);
+            this.PlayWhitBlackGameMode.Click += new System.EventHandler(this.GameModeSelector);
             // 
             // AiVsAiGameMode
             // 
@@ -144,7 +144,7 @@
             this.AiVsAiGameMode.Name = "AiVsAiGameMode";
             this.AiVsAiGameMode.Size = new System.Drawing.Size(155, 22);
             this.AiVsAiGameMode.Text = "Ai Vs Ai";
-            this.AiVsAiGameMode.Click += new System.EventHandler(this.AiVsAiGameMode_Click);
+            this.AiVsAiGameMode.Click += new System.EventHandler(this.GameModeSelector);
             // 
             // DificultyAiWhite
             // 
@@ -161,21 +161,21 @@
             this.DificultyW2.Name = "DificultyW2";
             this.DificultyW2.Size = new System.Drawing.Size(80, 22);
             this.DificultyW2.Text = "2";
-            this.DificultyW2.Click += new System.EventHandler(this.DificultyW2_Click);
+            this.DificultyW2.Click += new System.EventHandler(this.DifficultyWSelector);
             // 
             // DificultyW3
             // 
             this.DificultyW3.Name = "DificultyW3";
             this.DificultyW3.Size = new System.Drawing.Size(80, 22);
             this.DificultyW3.Text = "3";
-            this.DificultyW3.Click += new System.EventHandler(this.DificultyW3_Click);
+            this.DificultyW3.Click += new System.EventHandler(this.DifficultyWSelector);
             // 
             // DificultyW4
             // 
             this.DificultyW4.Name = "DificultyW4";
             this.DificultyW4.Size = new System.Drawing.Size(80, 22);
             this.DificultyW4.Text = "4";
-            this.DificultyW4.Click += new System.EventHandler(this.DificultyW4_Click);
+            this.DificultyW4.Click += new System.EventHandler(this.DifficultyWSelector);
             // 
             // DificultyAiBlack
             // 
@@ -192,21 +192,21 @@
             this.DificultyB2.Name = "DificultyB2";
             this.DificultyB2.Size = new System.Drawing.Size(80, 22);
             this.DificultyB2.Text = "2";
-            this.DificultyB2.Click += new System.EventHandler(this.DificultyB2_Click);
+            this.DificultyB2.Click += new System.EventHandler(this.DifficultyBSelector);
             // 
             // DificultyB3
             // 
             this.DificultyB3.Name = "DificultyB3";
             this.DificultyB3.Size = new System.Drawing.Size(80, 22);
             this.DificultyB3.Text = "3";
-            this.DificultyB3.Click += new System.EventHandler(this.DificultyB3_Click);
+            this.DificultyB3.Click += new System.EventHandler(this.DifficultyBSelector);
             // 
             // DificultyB4
             // 
             this.DificultyB4.Name = "DificultyB4";
             this.DificultyB4.Size = new System.Drawing.Size(80, 22);
             this.DificultyB4.Text = "4";
-            this.DificultyB4.Click += new System.EventHandler(this.DificultyB4_Click);
+            this.DificultyB4.Click += new System.EventHandler(this.DifficultyBSelector);
             // 
             // Tool
             // 

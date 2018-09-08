@@ -40,6 +40,10 @@ namespace ChessApp_2._0
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            Global.FileReader = new StreamReader(pathStr + "\\GameMode.txt");
+            gameMode = Global.FileReader.ReadLine();
+            Global.FileReader.Close();
+                
 
             Bildboard();
             tLeft = new System.Timers.Timer();
@@ -235,74 +239,69 @@ namespace ChessApp_2._0
 
 
         #region -------------ToolStrip item function-------------
-        private void PlayerVsPlayerGameMode_Click(object sender, EventArgs e)
+
+
+        private void GameModeSelector(object sender, EventArgs e)
         {
-            gameMode = "\\Player_Vs_Player.py";
+            Global.FileWriter = new StreamWriter(pathStr + "\\GameMode.txt", false);
+
+            if (sender == PlayerVsPlayerGameMode)
+            {
+                gameMode = "\\Player_vs_Player.py";
+                Global.FileWriter.Write(gameMode);
+            }
+            else if (sender == PlayWhitWhiteGameMode)
+            {
+                gameMode = "\\Play_Whit_White.py";
+                Global.FileWriter.Write(gameMode);
+            }
+            else if (sender == PlayWhitBlackGameMode)
+            {
+                gameMode = "\\Play_Whit_Black.py";
+                Global.FileWriter.Write(gameMode);
+            }
+            else if (sender == AiVsAiGameMode)
+            {
+                gameMode = "\\Ai_vs_Ai.py";
+                Global.FileWriter.Write(gameMode);
+            }
+
+            Global.FileWriter.Close();
+        }
+        private void DifficultyWSelector(object sender, EventArgs e)
+        {
+            Global.FileWriter = new StreamWriter(pathStr + "\\DificultyW.txt", false);
+
+            if (sender == DificultyW2)
+                Global.FileWriter.Write(2);
+            else if (sender == DificultyW3)
+                Global.FileWriter.Write(3);
+            else if (sender == DificultyW4)
+                Global.FileWriter.Write(4);
+
+            Global.FileWriter.Close();
+        }
+        private void DifficultyBSelector(object sender, EventArgs e)
+        {
+            Global.FileWriter = new StreamWriter(pathStr + "\\DificultyB.txt", false);
+
+            if (sender == DificultyB2)
+                Global.FileWriter.Write(2);
+            else if (sender == DificultyB3)
+                Global.FileWriter.Write(3);
+            else if (sender == DificultyB4)
+                Global.FileWriter.Write(4);
+
+            Global.FileWriter.Close();
         }
 
-        private void PlayWhitWhiteGameMode_Click(object sender, EventArgs e)
-        {
-            gameMode = "\\Play_Whit_White.py";
-        }
 
-        private void PlayWhitBlackGameMode_Click(object sender, EventArgs e)
-        {
-            gameMode = "\\Play_Whit_Black.py";
-        }
-
-        private void AiVsAiGameMode_Click(object sender, EventArgs e)
-        {
-            gameMode = "\\Ai_vs_Ai.py";
-        }
 
         private void SetPositionTool_Click(object sender, EventArgs e)
         {
 
         }
 
-        #region Dificulty
-        private void DificultyW2_Click(object sender, EventArgs e)
-        {
-            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyW.txt", false);
-            Global.DificultyWriter.Write(2);
-            Global.DificultyWriter.Close();
-        }
-
-        private void DificultyW3_Click(object sender, EventArgs e)
-        {
-            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyW.txt", false);
-            Global.DificultyWriter.Write(3);
-            Global.DificultyWriter.Close();
-        }
-
-        private void DificultyW4_Click(object sender, EventArgs e)
-        {
-            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyW.txt", false);
-            Global.DificultyWriter.Write(4);
-            Global.DificultyWriter.Close();
-        }
-
-        private void DificultyB2_Click(object sender, EventArgs e)
-        {
-            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyB.txt", false);
-            Global.DificultyWriter.Write(2);
-            Global.DificultyWriter.Close();
-        }
-
-        private void DificultyB3_Click(object sender, EventArgs e)
-        {
-            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyB.txt", false);
-            Global.DificultyWriter.Write(3);
-            Global.DificultyWriter.Close();
-        }
-
-        private void DificultyB4_Click(object sender, EventArgs e)
-        {
-            Global.DificultyWriter = new StreamWriter(pathStr + "\\DificultyB.txt", false);
-            Global.DificultyWriter.Write(4);
-            Global.DificultyWriter.Close();
-        }
-        #endregion
 
         #endregion
 
@@ -398,8 +397,8 @@ namespace ChessApp_2._0
 
     public static class Global
     {
-        public static StreamReader DificultyReader;
-        public static StreamWriter DificultyWriter;
+        public static StreamReader FileReader;
+        public static StreamWriter FileWriter;
         public static Board[,] board;
         public static int[,] boardCod;
         public static bool Player = false;
@@ -451,13 +450,13 @@ namespace ChessApp_2._0
         {
             int[] temp = new int[2];
 
-            Global.DificultyReader = new StreamReader(Form1.FindPath() + "\\DificultyW.txt");
-            temp[0] = Global.DificultyReader.Read();
-            Global.DificultyReader.Close();
+            Global.FileReader = new StreamReader(Form1.FindPath() + "\\DificultyW.txt");
+            temp[0] = Global.FileReader.Read();
+            Global.FileReader.Close();
 
-            Global.DificultyReader = new StreamReader(Form1.FindPath() + "\\DificultyB.txt");
-            temp[1] = Global.DificultyReader.Read();
-            Global.DificultyReader.Close();
+            Global.FileReader = new StreamReader(Form1.FindPath() + "\\DificultyB.txt");
+            temp[1] = Global.FileReader.Read();
+            Global.FileReader.Close();
 
             return temp;
         }
