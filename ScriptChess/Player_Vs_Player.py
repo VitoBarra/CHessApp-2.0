@@ -72,11 +72,12 @@ while True:
     match.make_move_number(move)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
-    if match.check_if_checkmate_is_imminent(color=1) == 1:
+    kek = match.check_if_checkmate_is_imminent(color=1)
+    if kek == 1:
         PythonPass.CheckMate("Black")
         PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
         break
-    elif match.check_if_checkmate_is_imminent(color=1) == 2:
+    elif kek == 2:
         PythonPass.CheckMate("White")
         PythonPass.BildPieOnBoard(StrigaStrana(match.matrix_with_numbers))
         break
@@ -89,12 +90,12 @@ while True:
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
 
-
-    if match.check_if_checkmate_is_imminent(color=0) == 1:
+    kek = match.check_if_checkmate_is_imminent(color=0)
+    if kek == 1:
         PythonPass.CheckMate("Black")
         PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
         break
-    elif match.check_if_checkmate_is_imminent(color=0) == 2:
+    elif kek == 2:
         PythonPass.CheckMate("White")
         PythonPass.BildPieOnBoard(StrigaStrana(match.matrix_with_numbers))
         break
