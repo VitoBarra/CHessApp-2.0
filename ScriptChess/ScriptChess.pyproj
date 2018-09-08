@@ -31,7 +31,7 @@
     <Compile Include="NULL.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Player_Vs_Player.py">
+    <Compile Include="Player_vs_Player.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ScriptChess.py" />
