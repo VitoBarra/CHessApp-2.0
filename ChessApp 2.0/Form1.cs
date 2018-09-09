@@ -170,18 +170,18 @@ namespace ChessApp_2._0
                     switch (Global.boardCod[i, j])
                     {
                         case 0: Global.board[i, j].BackgroundImage = null; break;
-                        case 1: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\PedestrianW.png"); break;
-                        case -1: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\PedestrianB.png"); break;
-                        case 4: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\TowerW.png"); break;
-                        case -4: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\TowerB.png"); break;
-                        case 3: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\HorseW.png"); break;
-                        case -3: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\HorseB.png"); break;
-                        case 2: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\BishopW.png"); break;
-                        case -2: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\BishopB.png"); break;
-                        case 5: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\QueenW.png"); break;
-                        case -5: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\QueenB.png"); break;
-                        case 6: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\KingW.png"); break;
-                        case -6: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\KingB.png"); break;
+                        case 1: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\PedestrianW.svg"); break;
+                        case -1: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\PedestrianB.svg"); break;
+                        case 4: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\TowerW.svg"); break;
+                        case -4: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\TowerB.svg"); break;
+                        case 3: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\HorseW.svg"); break;
+                        case -3: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\HorseB.svg"); break;
+                        case 2: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\BishopW.svg"); break;
+                        case -2: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\BishopB.svg"); break;
+                        case 5: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\QueenW.svg"); break;
+                        case -5: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\QueenB.svg"); break;
+                        case 6: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\KingW.svg"); break;
+                        case -6: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\KingB.svg"); break;
                     }
 
                 }

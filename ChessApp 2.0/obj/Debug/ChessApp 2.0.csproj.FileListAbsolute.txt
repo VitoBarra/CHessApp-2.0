@@ -106,3 +106,6 @@ C:\Users\R39\source\repos\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.cspro
 C:\Users\R39\source\repos\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.csproj.CopyComplete
 C:\Users\R39\source\repos\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.exe
 C:\Users\R39\source\repos\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.pdb
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Svg.dll
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Svg.pdb
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Svg.xml
