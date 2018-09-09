@@ -10,6 +10,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 
+using Svg;
 using Microsoft.Scripting.Hosting;
 
 using IronPython.Modules;
