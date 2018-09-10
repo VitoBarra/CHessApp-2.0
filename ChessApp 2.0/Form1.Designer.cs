@@ -48,27 +48,25 @@
             this.DificultyB4 = new System.Windows.Forms.ToolStripMenuItem();
             this.Tool = new System.Windows.Forms.ToolStripDropDownButton();
             this.SetPositionTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.OptionTool = new System.Windows.Forms.ToolStripMenuItem();
             this.TrackBackButton = new System.Windows.Forms.Button();
             this.TrackForwardButton = new System.Windows.Forms.Button();
             this.LeftTimerButton = new System.Windows.Forms.Button();
             this.RightTimerButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Width = new System.Windows.Forms.TextBox();
-            this.Height = new System.Windows.Forms.TextBox();
-            this.RefreshButton = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Start_button
             // 
+            this.Start_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Start_button.AutoSize = true;
             this.Start_button.BackColor = System.Drawing.SystemColors.Menu;
             this.Start_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Start_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Start_button.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start_button.Location = new System.Drawing.Point(93, 28);
+            this.Start_button.Location = new System.Drawing.Point(132, 29);
             this.Start_button.Name = "Start_button";
-            this.Start_button.Size = new System.Drawing.Size(53, 23);
+            this.Start_button.Size = new System.Drawing.Size(53, 25);
             this.Start_button.TabIndex = 0;
             this.Start_button.Text = "Start";
             this.Start_button.UseVisualStyleBackColor = false;
@@ -76,12 +74,14 @@
             // 
             // Reset_button
             // 
+            this.Reset_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Reset_button.AutoSize = true;
             this.Reset_button.BackColor = System.Drawing.SystemColors.Menu;
             this.Reset_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reset_button.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reset_button.Location = new System.Drawing.Point(152, 28);
+            this.Reset_button.Location = new System.Drawing.Point(191, 29);
             this.Reset_button.Name = "Reset_button";
-            this.Reset_button.Size = new System.Drawing.Size(53, 23);
+            this.Reset_button.Size = new System.Drawing.Size(53, 25);
             this.Reset_button.TabIndex = 1;
             this.Reset_button.Text = "Reset";
             this.Reset_button.UseVisualStyleBackColor = false;
@@ -89,12 +89,13 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GameMode,
             this.Tool});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(655, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(397, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -217,7 +218,8 @@
             // 
             this.Tool.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.Tool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SetPositionTool});
+            this.SetPositionTool,
+            this.OptionTool});
             this.Tool.Image = ((System.Drawing.Image)(resources.GetObject("Tool.Image")));
             this.Tool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Tool.Name = "Tool";
@@ -231,14 +233,22 @@
             this.SetPositionTool.Text = "Set position";
             this.SetPositionTool.Click += new System.EventHandler(this.SetPositionTool_Click);
             // 
+            // OptionTool
+            // 
+            this.OptionTool.Name = "OptionTool";
+            this.OptionTool.Size = new System.Drawing.Size(136, 22);
+            this.OptionTool.Text = "Option";
+            this.OptionTool.Click += new System.EventHandler(this.OptionTool_Click);
+            // 
             // TrackBackButton
             // 
+            this.TrackBackButton.AutoSize = true;
             this.TrackBackButton.BackColor = System.Drawing.SystemColors.Menu;
             this.TrackBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TrackBackButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrackBackButton.Location = new System.Drawing.Point(12, 28);
+            this.TrackBackButton.Location = new System.Drawing.Point(12, 29);
             this.TrackBackButton.Name = "TrackBackButton";
-            this.TrackBackButton.Size = new System.Drawing.Size(23, 23);
+            this.TrackBackButton.Size = new System.Drawing.Size(25, 25);
             this.TrackBackButton.TabIndex = 4;
             this.TrackBackButton.Text = "<";
             this.TrackBackButton.UseVisualStyleBackColor = false;
@@ -246,12 +256,13 @@
             // 
             // TrackForwardButton
             // 
+            this.TrackForwardButton.AutoSize = true;
             this.TrackForwardButton.BackColor = System.Drawing.SystemColors.Menu;
             this.TrackForwardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TrackForwardButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrackForwardButton.Location = new System.Drawing.Point(41, 28);
+            this.TrackForwardButton.Location = new System.Drawing.Point(41, 29);
             this.TrackForwardButton.Name = "TrackForwardButton";
-            this.TrackForwardButton.Size = new System.Drawing.Size(23, 23);
+            this.TrackForwardButton.Size = new System.Drawing.Size(25, 25);
             this.TrackForwardButton.TabIndex = 5;
             this.TrackForwardButton.Text = ">";
             this.TrackForwardButton.UseVisualStyleBackColor = false;
@@ -259,66 +270,40 @@
             // 
             // LeftTimerButton
             // 
-            this.LeftTimerButton.Location = new System.Drawing.Point(264, 28);
+            this.LeftTimerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LeftTimerButton.AutoSize = true;
+            this.LeftTimerButton.BackColor = System.Drawing.SystemColors.Menu;
+            this.LeftTimerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LeftTimerButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LeftTimerButton.Location = new System.Drawing.Point(278, 29);
             this.LeftTimerButton.Name = "LeftTimerButton";
-            this.LeftTimerButton.Size = new System.Drawing.Size(48, 23);
+            this.LeftTimerButton.Size = new System.Drawing.Size(49, 25);
             this.LeftTimerButton.TabIndex = 6;
             this.LeftTimerButton.Text = "00:00";
-            this.LeftTimerButton.UseVisualStyleBackColor = true;
+            this.LeftTimerButton.UseVisualStyleBackColor = false;
             this.LeftTimerButton.Click += new System.EventHandler(this.LeftTimerButton_Click);
             // 
             // RightTimerButton
             // 
-            this.RightTimerButton.Location = new System.Drawing.Point(318, 28);
+            this.RightTimerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RightTimerButton.AutoSize = true;
+            this.RightTimerButton.BackColor = System.Drawing.SystemColors.Menu;
+            this.RightTimerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RightTimerButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RightTimerButton.Location = new System.Drawing.Point(332, 29);
             this.RightTimerButton.Name = "RightTimerButton";
-            this.RightTimerButton.Size = new System.Drawing.Size(48, 23);
+            this.RightTimerButton.Size = new System.Drawing.Size(49, 25);
             this.RightTimerButton.TabIndex = 7;
             this.RightTimerButton.Text = "00:00";
-            this.RightTimerButton.UseVisualStyleBackColor = true;
+            this.RightTimerButton.UseVisualStyleBackColor = false;
             this.RightTimerButton.Click += new System.EventHandler(this.RightTimerButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(443, 128);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 121);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Width
-            // 
-            this.Width.Location = new System.Drawing.Point(443, 48);
-            this.Width.Name = "Width";
-            this.Width.Size = new System.Drawing.Size(100, 20);
-            this.Width.TabIndex = 9;
-            // 
-            // Height
-            // 
-            this.Height.Location = new System.Drawing.Point(443, 75);
-            this.Height.Name = "Height";
-            this.Height.Size = new System.Drawing.Size(100, 20);
-            this.Height.TabIndex = 10;
-            // 
-            // RefreshButton
-            // 
-            this.RefreshButton.Location = new System.Drawing.Point(568, 48);
-            this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(75, 23);
-            this.RefreshButton.TabIndex = 11;
-            this.RefreshButton.Text = "button1";
-            this.RefreshButton.UseVisualStyleBackColor = true;
-            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(655, 450);
-            this.Controls.Add(this.RefreshButton);
-            this.Controls.Add(this.Height);
-            this.Controls.Add(this.Width);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(397, 450);
             this.Controls.Add(this.RightTimerButton);
             this.Controls.Add(this.LeftTimerButton);
             this.Controls.Add(this.TrackForwardButton);
@@ -331,7 +316,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,10 +346,7 @@
         private System.Windows.Forms.ToolStripMenuItem DificultyB2;
         private System.Windows.Forms.ToolStripMenuItem DificultyB3;
         private System.Windows.Forms.ToolStripMenuItem DificultyB4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox Width;
-        private System.Windows.Forms.TextBox Height;
-        private System.Windows.Forms.Button RefreshButton;
+        private System.Windows.Forms.ToolStripMenuItem OptionTool;
     }
 }
 
