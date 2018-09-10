@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using System.IO;
+using System.Configuration;
 
 using Svg;
 using Microsoft.Scripting.Hosting;
@@ -513,13 +514,17 @@ namespace ChessApp_2._0
         {
             int[] temp = new int[2];
 
-            Global.FileReader = new StreamReader(Form1.FindPath() + "\\Option\\DificultyW.txt");
-            temp[0] = Global.FileReader.Read();
-            Global.FileReader.Close();
+            temp[0] = int.Parse(ConfigurationManager.AppSettings["DifficultyWhiteAi"]) ;
+            temp[1] = int.Parse(ConfigurationManager.AppSettings["DifficultyBlackAi"]) ;
 
-            Global.FileReader = new StreamReader(Form1.FindPath() + "\\Option\\DificultyB.txt");
-            temp[1] = Global.FileReader.Read();
-            Global.FileReader.Close();
+
+            //Global.FileReader = new StreamReader(Form1.FindPath() + "\\Option\\DificultyW.txt");
+            //temp[0] = Global.FileReader.Read();
+            //Global.FileReader.Close();
+
+            //Global.FileReader = new StreamReader(Form1.FindPath() + "\\Option\\DificultyB.txt");
+            //temp[1] = Global.FileReader.Read();
+            //Global.FileReader.Close();
 
             return temp;
         }
