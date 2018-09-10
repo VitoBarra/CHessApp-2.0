@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using System.IO;
+using System.Configuration;
 
 using Svg;
 using Microsoft.Scripting.Hosting;
@@ -30,7 +31,7 @@ namespace ChessApp_2._0
 
         bool clickdStart = false;
         bool clickdReset = false;
-        static string gameMode = "\\NUll.py";
+      //  static string gameMode = "\\NUll.py";
         static string optionPathStr = FindPath() + "\\Option";
         static string pythonPath = FindPath() + "\\ScriptChess";
 
@@ -41,7 +42,6 @@ namespace ChessApp_2._0
         {
             InitializeComponent();
 
-
             Global.FileReader = new StreamReader(optionPathStr + "\\Dimention.txt");
             Global.width_Height = int.Parse(Global.FileReader.ReadLine());
             Global.FileReader.Close();
@@ -50,9 +50,9 @@ namespace ChessApp_2._0
             this.Height = Global.width_Height * 8 + Global.width_Height + 39;
 
 
-            Global.FileReader = new StreamReader(optionPathStr + "\\GameMode.txt");
-            gameMode = Global.FileReader.ReadLine();
-            Global.FileReader.Close();
+            //Global.FileReader = new StreamReader(optionPathStr + "\\GameMode.txt");
+            //gameMode = Global.FileReader.ReadLine();
+            //Global.FileReader.Close();
 
         }
 
@@ -140,56 +140,32 @@ namespace ChessApp_2._0
 
         private void GameModeSelector(object sender, EventArgs e)
         {
-            Global.FileWriter = new StreamWriter(optionPathStr + "\\GameMode.txt", false);
-
             if (sender == PlayerVsPlayerGameMode)
-            {
-                gameMode = "\\Player_vs_Player.py";
-                Global.FileWriter.Write(gameMode);
-            }
+                ConfigurationManager.AppSettings["GameMode"] = "\\Player_vs_Player.py";
             else if (sender == PlayWhitWhiteGameMode)
-            {
-                gameMode = "\\Play_Whit_White.py";
-                Global.FileWriter.Write(gameMode);
-            }
+                ConfigurationManager.AppSettings["GameMode"] = "\\Play_Whit_White.py";
             else if (sender == PlayWhitBlackGameMode)
-            {
-                gameMode = "\\Play_Whit_Black.py";
-                Global.FileWriter.Write(gameMode);
-            }
+                ConfigurationManager.AppSettings["GameMode"] = "\\Play_Whit_Black.py";
             else if (sender == AiVsAiGameMode)
-            {
-                gameMode = "\\Ai_vs_Ai.py";
-                Global.FileWriter.Write(gameMode);
-            }
-
-            Global.FileWriter.Close();
+                ConfigurationManager.AppSettings["GameMode"] = "\\Ai_vs_Ai.py";
         }
         private void DifficultyWSelector(object sender, EventArgs e)
         {
-            Global.FileWriter = new StreamWriter(optionPathStr + "\\DificultyW.txt", false);
-
             if (sender == DificultyW2)
-                Global.FileWriter.Write(2);
+                ConfigurationManager.AppSettings["DifficultyWhiteAi"] = "2";
             else if (sender == DificultyW3)
-                Global.FileWriter.Write(3);
+                ConfigurationManager.AppSettings["DifficultyWhiteAi"] = "3";
             else if (sender == DificultyW4)
-                Global.FileWriter.Write(4);
-
-            Global.FileWriter.Close();
+                ConfigurationManager.AppSettings["DifficultyWhiteAi"] = "4";
         }
         private void DifficultyBSelector(object sender, EventArgs e)
         {
-            Global.FileWriter = new StreamWriter(optionPathStr + "\\DificultyB.txt", false);
-
             if (sender == DificultyB2)
-                Global.FileWriter.Write(2);
+                ConfigurationManager.AppSettings["DifficultyBlackAi"] = "2";
             else if (sender == DificultyB3)
-                Global.FileWriter.Write(3);
+                ConfigurationManager.AppSettings["DifficultyBlackAi"] = "3";
             else if (sender == DificultyB4)
-                Global.FileWriter.Write(4);
-
-            Global.FileWriter.Close();
+                ConfigurationManager.AppSettings["DifficultyBlackAi"] = "4";
         }
 
         private void SetPositionTool_Click(object sender, EventArgs e)
@@ -266,7 +242,8 @@ namespace ChessApp_2._0
                             Global.board[i, j].BackColor = ColorTranslator.FromHtml("#f4e4b5");
                     }
                 }
-
+           
+            
             RenderPiceOnboard();
         }
 
@@ -322,7 +299,7 @@ namespace ChessApp_2._0
             paths.Add(pythonPath);
             engine.SetSearchPaths(paths);
 
-            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pythonPath + gameMode).Compile();
+            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pythonPath + ConfigurationManager.AppSettings["GameMode"]).Compile();
 
            
 
@@ -513,13 +490,20 @@ namespace ChessApp_2._0
         {
             int[] temp = new int[2];
 
-            Global.FileReader = new StreamReader(Form1.FindPath() + "\\DificultyW.txt");
-            temp[0] = Global.FileReader.Read();
-            Global.FileReader.Close();
+            temp[0] = int.Parse(ConfigurationManager.AppSettings["DifficultyWhiteAi"]);
+            temp[1] = int.Parse(ConfigurationManager.AppSettings["DifficultyBlackAi"]);
 
-            Global.FileReader = new StreamReader(Form1.FindPath() + "\\DificultyB.txt");
-            temp[1] = Global.FileReader.Read();
-            Global.FileReader.Close();
+            MessageBox.Show(ConfigurationManager.AppSettings["DifficultyWhiteAi"]+" " +ConfigurationManager.AppSettings["DifficultyBlackAi"]);
+
+            //Global.FileReader = new StreamReader(Form1.FindPath() + "\\Option\\DificultyW.txt");
+            //temp[0] = Global.FileReader.Read();
+            //Global.FileReader.Close();
+
+            //Global.FileReader = new StreamReader(Form1.FindPath() + "\\Option\\DificultyB.txt");
+            //temp[1] = Global.FileReader.Read();
+            //Global.FileReader.Close();
+
+
 
             return temp;
         }
@@ -535,7 +519,7 @@ namespace ChessApp_2._0
         }
         public void DrawByRepetition()
         {
-            MessageBox.Show("Paregio per pipetizione");
+            MessageBox.Show("Pareggio per ripetizione");
         }
         public void StaleMate()
         {
