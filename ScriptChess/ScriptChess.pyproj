@@ -28,10 +28,16 @@
     <Compile Include="GenericFunction.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Play_With_White.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="NULL.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Player_vs_Player.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Play_With_Black.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ScriptChess.py" />

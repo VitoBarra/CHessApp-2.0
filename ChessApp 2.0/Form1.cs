@@ -149,12 +149,12 @@ namespace ChessApp_2._0
             }
             else if (sender == PlayWhitWhiteGameMode)
             {
-                gameMode = "\\Play_Whit_White.py";
+                gameMode = "\\Play_With_White.py";
                 Global.FileWriter.Write(gameMode);
             }
             else if (sender == PlayWhitBlackGameMode)
             {
-                gameMode = "\\Play_Whit_Black.py";
+                gameMode = "\\Play_With_Black.py";
                 Global.FileWriter.Write(gameMode);
             }
             else if (sender == AiVsAiGameMode)
@@ -513,11 +513,11 @@ namespace ChessApp_2._0
         {
             int[] temp = new int[2];
 
-            Global.FileReader = new StreamReader(Form1.FindPath() + "\\DificultyW.txt");
+            Global.FileReader = new StreamReader(Form1.FindPath() + "\\Option\\DificultyW.txt");
             temp[0] = Global.FileReader.Read();
             Global.FileReader.Close();
 
-            Global.FileReader = new StreamReader(Form1.FindPath() + "\\DificultyB.txt");
+            Global.FileReader = new StreamReader(Form1.FindPath() + "\\Option\\DificultyB.txt");
             temp[1] = Global.FileReader.Read();
             Global.FileReader.Close();
 
