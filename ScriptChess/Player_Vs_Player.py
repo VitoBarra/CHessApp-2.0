@@ -15,6 +15,7 @@ def catch_the_move(board, turn=0):  # 0 for white to move, 1 for black to move
     else: print "black to move"
     pygamemossacoordinateperboard = ""
     while k == 0:
+        if PythonPass.TrackBackValue(): PythonPass.BildPieceOnBoard(StringaStrana(board.matrix_with_numbers))
         zorrotto = PythonPass.Mossa()
         #print zorrotto
         if len(zorrotto) == 2:
