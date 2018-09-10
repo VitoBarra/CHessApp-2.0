@@ -2,8 +2,6 @@ from ScriptChess import *
 
 match = chessboard()
 k1,k2 = PythonPass.Difficulty()
-k1-= 48
-k2 -= 48
 match.set_field(k1)  # base value, va aggiunta una funzione in c#
 
 
