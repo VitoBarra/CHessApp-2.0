@@ -131,6 +131,18 @@ class chessboard():
         elif number[0] == 7 and number[1] == 7:
             self.castle[3] = False
 
+    def backtracking(self):
+        total_moves = []
+        for h in range(len(self.movehistoryw)):
+            total_moves += self.movehistoryw[h]
+            if h < len(self.movehistoryb): total_moves += self.movehistoryb[h]
+        nuovo_temp = chessboard()
+        for j in range(len(total_moves) - 1):
+            nuovo_temp.make_move_number(total_moves[j])
+        nuovo_temp.update_number_matrix()
+        return nuovo_temp.matrix_with_numbers
+
+
     def pawnmoves(self, coord1, coord2):
         moves = []
         try:

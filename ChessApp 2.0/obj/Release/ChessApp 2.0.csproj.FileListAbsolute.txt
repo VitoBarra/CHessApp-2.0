@@ -25,3 +25,6 @@ C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\obj\Release\ChessApp 2.0.csp
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\obj\Release\ChessApp 2.0.csproj.CopyComplete
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\obj\Release\ChessApp 2.0.exe
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\obj\Release\ChessApp 2.0.pdb
+C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Release\Svg.dll
+C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Release\Svg.pdb
+C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Release\Svg.xml
