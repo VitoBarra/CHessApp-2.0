@@ -31,7 +31,8 @@ namespace ChessApp_2._0
         bool clickdStart = false;
         bool clickdReset = false;
         static string gameMode = "\\NUll.py";
-        static string pathStr = FindPath();
+        static string optionPathStr = FindPath() + "\\Option";
+        static string pythonPath = FindPath() + "\\ScriptChess";
 
 
 
@@ -39,26 +40,34 @@ namespace ChessApp_2._0
         public Form1()
         {
             InitializeComponent();
+
+
+            Global.FileReader = new StreamReader(optionPathStr + "\\Dimention.txt");
+            Global.width_Height = int.Parse(Global.FileReader.ReadLine());
+            Global.FileReader.Close();
+
+            this.Width = Global.width_Height * 8 + 15;
+            this.Height = Global.width_Height * 8 + Global.width_Height + 39;
+
+
+            Global.FileReader = new StreamReader(optionPathStr + "\\GameMode.txt");
+            gameMode = Global.FileReader.ReadLine();
+            Global.FileReader.Close();
+
         }
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            
-
-            Global.FileReader = new StreamReader(pathStr + "\\GameMode.txt");
-            gameMode = Global.FileReader.ReadLine();
-            Global.FileReader.Close();
 
             Global.SvgBitMap = LoadSvg();
 
 
+
             tLeft = new System.Timers.Timer() { Interval = 1000};
-            
             tLeft.Elapsed += OnTimeEventLeft;
             LeftTimerButton.Text = leftMinutes + ":" + leftSecond;
 
             tRight = new System.Timers.Timer() { Interval = 1000 };
-           
             tRight.Elapsed += OnTimeEventRight;
             RightTimerButton.Text = rightMinutes + ":" + rightSecond;
 
@@ -67,8 +76,6 @@ namespace ChessApp_2._0
 
             Bildboard();
         }
-
-
 
         private void Start_Click(object sender, EventArgs e)
         {
@@ -133,7 +140,7 @@ namespace ChessApp_2._0
 
         private void GameModeSelector(object sender, EventArgs e)
         {
-            Global.FileWriter = new StreamWriter(pathStr + "\\GameMode.txt", false);
+            Global.FileWriter = new StreamWriter(optionPathStr + "\\GameMode.txt", false);
 
             if (sender == PlayerVsPlayerGameMode)
             {
@@ -160,7 +167,7 @@ namespace ChessApp_2._0
         }
         private void DifficultyWSelector(object sender, EventArgs e)
         {
-            Global.FileWriter = new StreamWriter(pathStr + "\\DificultyW.txt", false);
+            Global.FileWriter = new StreamWriter(optionPathStr + "\\DificultyW.txt", false);
 
             if (sender == DificultyW2)
                 Global.FileWriter.Write(2);
@@ -173,7 +180,7 @@ namespace ChessApp_2._0
         }
         private void DifficultyBSelector(object sender, EventArgs e)
         {
-            Global.FileWriter = new StreamWriter(pathStr + "\\DificultyB.txt", false);
+            Global.FileWriter = new StreamWriter(optionPathStr + "\\DificultyB.txt", false);
 
             if (sender == DificultyB2)
                 Global.FileWriter.Write(2);
@@ -198,9 +205,9 @@ namespace ChessApp_2._0
             optionForm.ShowDialog();
 
 
-            Global.FileWriter = new StreamWriter("Dimention.txt", false);
-
-
+            Global.FileWriter = new StreamWriter(optionPathStr + "\\Dimention.txt", false);
+            Global.FileWriter.Write(Global.width_Height);
+            Global.FileWriter.Close();
 
             Global.SvgBitMap = LoadSvg();
             Bildboard();
@@ -312,10 +319,10 @@ namespace ChessApp_2._0
             var paths = engine.GetSearchPaths();
             paths.Add(@"C:\Python27\Lib");
             paths.Add(@"c:\python27\lib\site-packages\numpy\core");
-            paths.Add(pathStr);
+            paths.Add(pythonPath);
             engine.SetSearchPaths(paths);
 
-            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pathStr + gameMode).Compile();
+            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pythonPath + gameMode).Compile();
 
            
 
@@ -331,7 +338,7 @@ namespace ChessApp_2._0
         public static string FindPath()
         {
             return Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()
-                ).ToString()).ToString()+ "\\ScriptChess";
+                ).ToString()).ToString();
         }
         #endregion
 
@@ -451,7 +458,6 @@ namespace ChessApp_2._0
 
     public static class Global
     {
-
         public static StreamReader FileReader;
         public static StreamWriter FileWriter;
         public static Bitmap[] SvgBitMap;
