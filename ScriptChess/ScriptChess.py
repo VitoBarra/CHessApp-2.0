@@ -942,7 +942,6 @@ class chessboard():
                         temporal[count] = 1
                 count += 1
             if 0 not in temporal:
-
                 return 1
         else:    # color == 0  
             self.generate_for_white()

@@ -15,17 +15,21 @@ while True:
     match.make_move_number(movW)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
-    if match.check_if_checkmate_is_imminent(color=1) == 1:
-        PythonPass.CheckMate("Black")
-        PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
+
+    if evW == 1000000:
+        pythonpass.checkmate("white")
+        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
-    elif match.check_if_checkmate_is_imminent(color=1) == 2:
-        PythonPass.CheckMate("White")
-        PythonPass.BildPieOnBoard(StrigaStrana(match.matrix_with_numbers))
+    elif evW == -1000000:
+        pythonpass.checkmate("black")
+        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
     if match.repetitiondraw():
         PythonPass.DrawByRepetition()
         break
+
+
+
     match.set_field(k2)
     evB, movB = match.blackminmax()
     match.make_move_number(movB)
@@ -33,13 +37,13 @@ while True:
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
 
 
-    if match.check_if_checkmate_is_imminent(color=0) == 1:
-        PythonPass.CheckMate("Black")
-        PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
+    if evB == 1000000:
+        pythonpass.checkmate("white")
+        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
-    elif match.check_if_checkmate_is_imminent(color=0) == 2:
-        PythonPass.CheckMate("White")
-        PythonPass.BildPieOnBoard(StrigaStrana(match.matrix_with_numbers))
+    elif evB == -1000000:
+        pythonpass.checkmate("black")
+        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
     if match.repetitiondraw():
         PythonPass.DrawByRepetition()
