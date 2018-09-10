@@ -34,17 +34,18 @@ namespace ChessApp_2._0
         static string pathStr = FindPath();
 
 
+
         //------------------------------------------------------In Form1----------------------------------------
         public Form1()
         {
             InitializeComponent();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Global.FileReader = new StreamReader(pathStr + "\\GameMode.txt");
             gameMode = Global.FileReader.ReadLine();
             Global.FileReader.Close();
-                
 
             Bildboard();
             tLeft = new System.Timers.Timer();
@@ -164,24 +165,29 @@ namespace ChessApp_2._0
         }
         public static void RenderPiceOnboard()
         {
+            SvgDocument document = SvgDocument.Open("pice\\PedestrianW.svg");
+            document.Width = 50;
+            document.Height = 50;
+            Bitmap bp = document.Draw();
+
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                 {
                     switch (Global.boardCod[i, j])
                     {
                         case 0: Global.board[i, j].BackgroundImage = null; break;
-                        case 1: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\PedestrianW.svg"); break;
-                        case -1: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\PedestrianB.svg"); break;
-                        case 4: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\TowerW.svg"); break;
-                        case -4: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\TowerB.svg"); break;
-                        case 3: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\HorseW.svg"); break;
-                        case -3: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\HorseB.svg"); break;
-                        case 2: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\BishopW.svg"); break;
-                        case -2: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\BishopB.svg"); break;
-                        case 5: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\QueenW.svg"); break;
-                        case -5: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\QueenB.svg"); break;
-                        case 6: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\KingW.svg"); break;
-                        case -6: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\KingB.svg"); break;
+                        case 1: Global.board[i, j].BackgroundImage = bp ; break;
+                        case -1: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\PedestrianB.png"); break;
+                        case 4: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\TowerW.png"); break;
+                        case -4: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\TowerB.png"); break;
+                        case 3: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\HorseW.png"); break;
+                        case -3: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\HorseB.png"); break;
+                        case 2: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\BishopW.png"); break;
+                        case -2: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\BishopB.png"); break;
+                        case 5: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\QueenW.png"); break;
+                        case -5: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\QueenB.png"); break;
+                        case 6: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\KingW.png"); break;
+                        case -6: Global.board[i, j].BackgroundImage = System.Drawing.Image.FromFile("pice\\KingB.png"); break;
                     }
 
                 }
@@ -211,6 +217,22 @@ namespace ChessApp_2._0
             compiledCode.Execute(scope);
 
         }
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            SvgDocument document = SvgDocument.Open("pice\\PedestrianW.svg");
+
+            document.Width = int.Parse(Width.Text);
+            document.Height = int.Parse(Width.Text);
+
+            pictureBox1.Width = int.Parse(Width.Text);
+            pictureBox1.Height = int.Parse(Width.Text);
+
+            Bitmap bp = document.Draw();
+
+
+
+            pictureBox1.Image = bp;
+        }
 
         public static string FindPath()
         {
@@ -218,6 +240,9 @@ namespace ChessApp_2._0
                 ).ToString()).ToString()+ "\\ScriptChess";
         }
         #endregion
+
+        
+
 
 
 
@@ -350,6 +375,7 @@ namespace ChessApp_2._0
             }
         }
 
+
         private void OnTimeEventLeft(object sender, System.Timers.ElapsedEventArgs e)
         {
             Invoke(new Action(() =>
@@ -391,7 +417,6 @@ namespace ChessApp_2._0
         }
         #endregion
     }
-
 
 
 

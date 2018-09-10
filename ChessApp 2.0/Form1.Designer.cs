@@ -52,7 +52,12 @@
             this.TrackForwardButton = new System.Windows.Forms.Button();
             this.LeftTimerButton = new System.Windows.Forms.Button();
             this.RightTimerButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Width = new System.Windows.Forms.TextBox();
+            this.Height = new System.Windows.Forms.TextBox();
+            this.RefreshButton = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Start_button
@@ -89,7 +94,7 @@
             this.Tool});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(399, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(655, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -272,12 +277,48 @@
             this.RightTimerButton.UseVisualStyleBackColor = true;
             this.RightTimerButton.Click += new System.EventHandler(this.RightTimerButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(443, 128);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 121);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Width
+            // 
+            this.Width.Location = new System.Drawing.Point(443, 48);
+            this.Width.Name = "Width";
+            this.Width.Size = new System.Drawing.Size(100, 20);
+            this.Width.TabIndex = 9;
+            // 
+            // Height
+            // 
+            this.Height.Location = new System.Drawing.Point(443, 75);
+            this.Height.Name = "Height";
+            this.Height.Size = new System.Drawing.Size(100, 20);
+            this.Height.TabIndex = 10;
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.Location = new System.Drawing.Point(568, 48);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(75, 23);
+            this.RefreshButton.TabIndex = 11;
+            this.RefreshButton.Text = "button1";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(399, 450);
+            this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.RefreshButton);
+            this.Controls.Add(this.Height);
+            this.Controls.Add(this.Width);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.RightTimerButton);
             this.Controls.Add(this.LeftTimerButton);
             this.Controls.Add(this.TrackForwardButton);
@@ -290,6 +331,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,6 +362,10 @@
         private System.Windows.Forms.ToolStripMenuItem DificultyB2;
         private System.Windows.Forms.ToolStripMenuItem DificultyB3;
         private System.Windows.Forms.ToolStripMenuItem DificultyB4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox Width;
+        private System.Windows.Forms.TextBox Height;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }
 
