@@ -113,3 +113,4 @@ C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Debug\Svg.dll
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Debug\Svg.pdb
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Debug\Svg.xml
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.OptionForm.resources
+C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.OptionForm.resources

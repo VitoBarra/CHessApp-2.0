@@ -28,3 +28,4 @@ C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\obj\Release\ChessApp 2.0.pdb
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Release\Svg.dll
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Release\Svg.pdb
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Release\Svg.xml
+C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\obj\Release\ChessApp_2._0.OptionForm.resources
