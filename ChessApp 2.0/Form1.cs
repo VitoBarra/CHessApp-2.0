@@ -84,7 +84,7 @@ namespace ChessApp_2._0
         {
             if (!clickdStart) 
             {
-                MessageBox.Show("Ci arrivo");
+                
                 if (!clickdStart && clickdReset)
                 {
                     PyThread = new Thread(PythonIni);
@@ -365,9 +365,10 @@ namespace ChessApp_2._0
 
 
         private void Refras(object sender, System.Timers.ElapsedEventArgs e)
-        {
+        { 
             if (Global.MoveW != "")
             {
+                MessageBox.Show("E pure bello");
                 Invoke(new Action(() =>
                 {
                     AddMoveB();
