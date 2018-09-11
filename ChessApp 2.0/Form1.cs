@@ -41,6 +41,21 @@ namespace ChessApp_2._0
         public Form1()
         {
             InitializeComponent();
+            #region Timer ini
+            tLeft = new System.Timers.Timer() { Interval = 1000};
+            tLeft.Elapsed += OnTimeEventLeft;
+            LeftTimerButton.Text = leftMinutes + ":" + leftSecond;
+
+            tRight = new System.Timers.Timer() { Interval = 1000 };
+            tRight.Elapsed += OnTimeEventRight;
+            RightTimerButton.Text = rightMinutes + ":" + rightSecond;
+
+
+            tRef = new System.Timers.Timer() { Interval = 150 };
+            tRef.Elapsed += Refras;
+            tRef.Start();
+
+            #endregion
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -60,31 +75,15 @@ namespace ChessApp_2._0
             this.Width = Global.width_Height * 8 + 15 + TurnCount.Width + WhiteMove.Width + BlackMove.Width;
             this.Height = Global.width_Height * 8 + Global.width_Height + 39;
 
-            #region Timer ini
-            tLeft = new System.Timers.Timer() { Interval = 1000};
-            tLeft.Elapsed += OnTimeEventLeft;
-           LeftTimerButton.Text = leftMinutes + ":" + leftSecond;
-
-            tRight = new System.Timers.Timer() { Interval = 1000 };
-            tRight.Elapsed += OnTimeEventRight;
-            RightTimerButton.Text = rightMinutes + ":" + rightSecond;
-
-
-
-            tRef = new System.Timers.Timer() { Interval = 150 };
-            tRef.Elapsed += Refras;
-            tRef.Start();
-            #endregion
 
 
             Bildboard();
-        } 
+        }
 
         private void Start_Click(object sender, EventArgs e)
         {
             if (!clickdStart) 
             {
-                
                 if (!clickdStart && clickdReset)
                 {
                     PyThread = new Thread(PythonIni);
@@ -330,70 +329,38 @@ namespace ChessApp_2._0
         #endregion
 
 
-        public void AddCount()
-        {
-            TurnCount.Controls.Add(new Label()
-            {
-                Height = 36,
-                Width = TurnCount.Width,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Text = Global.moveCout.ToString(),
-            }
-            );
-        }
-        public void AddMoveW()
-        {
-
-            WhiteMove.Controls.Add(new Button()
-            {
-                Height = 30,
-                Width = TurnCount.Width,
-                Text = Global.MoveW
-            }
-            );
-        }
-        public void AddMoveB()
-        {
-            BlackMove.Controls.Add(new Button()
-            {
-                Height = 30,
-                Width = TurnCount.Width,
-                Text = Global.MoveB
-            }
-            );
-        }
 
 
         private void Refras(object sender, System.Timers.ElapsedEventArgs e)
-        { 
+        {
             if (Global.MoveW != "")
             {
-                MessageBox.Show("E pure bello");
                 Invoke(new Action(() =>
                 {
-                    AddMoveB();
+                    WhiteMove.Controls.Add(new Button(){Height = 30, Width = TurnCount.Width, Text = Global.MoveW});
                     Global.MoveW = "";
                 }
            ));
             }
-            else if (Global.MoveB !="")
+            else if (Global.MoveB != "")
             {
                 Invoke(new Action(() =>
                 {
-                    AddMoveB();
+                    BlackMove.Controls.Add(new Button(){   Height = 30, Width = TurnCount.Width,Text = Global.MoveB});
                     Global.MoveB = "";
+                    Global.MoveBool = true;
                 }
            ));
             }
-            else if (Global.countStr % 2 == 0) 
+            else if (Global.countStr % 2 == 0 && Global.MoveBool)
             {
                 Invoke(new Action(() =>
                 {
 
-                    AddCount();
-                   
+                    TurnCount.Controls.Add(new Label() { Height = 36, Width = TurnCount.Width, TextAlign = ContentAlignment.MiddleCenter, Text = Global.moveCout.ToString() });
+                    Global.MoveBool = false;
                 }
-           ));
+                   ));
             }
         }
 
@@ -500,6 +467,7 @@ namespace ChessApp_2._0
         public static int[,] boardCod;
         public static bool Player = false;
         public static bool clicked = false;
+        public static bool MoveBool = false; 
         public static string clickStr = "";
         public static string MoveW ="";
         public static string MoveB ="";
