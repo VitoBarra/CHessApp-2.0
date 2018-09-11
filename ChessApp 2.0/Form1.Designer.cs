@@ -56,7 +56,6 @@
             this.BlackMove = new System.Windows.Forms.FlowLayoutPanel();
             this.WhiteMove = new System.Windows.Forms.FlowLayoutPanel();
             this.TurnCount = new System.Windows.Forms.FlowLayoutPanel();
-            this.HistoryMove = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,7 +118,7 @@
             // PlayerVsPlayerGameMode
             // 
             this.PlayerVsPlayerGameMode.Name = "PlayerVsPlayerGameMode";
-            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(155, 22);
             this.PlayerVsPlayerGameMode.Text = "Player vs Player";
             this.PlayerVsPlayerGameMode.Click += new System.EventHandler(this.GameModeSelector);
             // 
@@ -129,7 +128,7 @@
             this.PlayWhitWhiteGameMode,
             this.PlayWhitBlackGameMode});
             this.PlayerVsAIGameMode.Name = "PlayerVsAIGameMode";
-            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(180, 22);
+            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(155, 22);
             this.PlayerVsAIGameMode.Text = "Player Vs AI";
             // 
             // PlayWhitWhiteGameMode
@@ -152,7 +151,7 @@
             this.DificultyAiWhite,
             this.DificultyAiBlack});
             this.AiVsAiGameMode.Name = "AiVsAiGameMode";
-            this.AiVsAiGameMode.Size = new System.Drawing.Size(180, 22);
+            this.AiVsAiGameMode.Size = new System.Drawing.Size(155, 22);
             this.AiVsAiGameMode.Text = "Ai Vs Ai";
             this.AiVsAiGameMode.Click += new System.EventHandler(this.GameModeSelector);
             // 
@@ -186,7 +185,7 @@
             this.DificultyW4.Size = new System.Drawing.Size(80, 22);
             this.DificultyW4.Text = "4";
             this.DificultyW4.Click += new System.EventHandler(this.DifficultyWSelector);
-            //// 
+            // 
             // DificultyAiBlack
             // 
             this.DificultyAiBlack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -233,14 +232,14 @@
             // SetPositionTool
             // 
             this.SetPositionTool.Name = "SetPositionTool";
-            this.SetPositionTool.Size = new System.Drawing.Size(180, 22);
+            this.SetPositionTool.Size = new System.Drawing.Size(136, 22);
             this.SetPositionTool.Text = "Set position";
             this.SetPositionTool.Click += new System.EventHandler(this.SetPositionTool_Click);
             // 
             // OptionTool
             // 
             this.OptionTool.Name = "OptionTool";
-            this.OptionTool.Size = new System.Drawing.Size(180, 22);
+            this.OptionTool.Size = new System.Drawing.Size(136, 22);
             this.OptionTool.Text = "Option";
             this.OptionTool.Click += new System.EventHandler(this.OptionTool_Click);
             // 
@@ -306,8 +305,8 @@
             // 
             this.BlackMove.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BlackMove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BlackMove.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BlackMove.Location = new System.Drawing.Point(0, 25);
+            this.BlackMove.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BlackMove.Location = new System.Drawing.Point(662, 25);
             this.BlackMove.Name = "BlackMove";
             this.BlackMove.Size = new System.Drawing.Size(50, 425);
             this.BlackMove.TabIndex = 8;
@@ -316,8 +315,8 @@
             // 
             this.WhiteMove.BackColor = System.Drawing.SystemColors.ControlDark;
             this.WhiteMove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.WhiteMove.Dock = System.Windows.Forms.DockStyle.Left;
-            this.WhiteMove.Location = new System.Drawing.Point(50, 25);
+            this.WhiteMove.Dock = System.Windows.Forms.DockStyle.Right;
+            this.WhiteMove.Location = new System.Drawing.Point(612, 25);
             this.WhiteMove.Name = "WhiteMove";
             this.WhiteMove.Size = new System.Drawing.Size(50, 425);
             this.WhiteMove.TabIndex = 9;
@@ -326,42 +325,11 @@
             // 
             this.TurnCount.BackColor = System.Drawing.SystemColors.ControlDark;
             this.TurnCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TurnCount.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TurnCount.Location = new System.Drawing.Point(100, 25);
+            this.TurnCount.Dock = System.Windows.Forms.DockStyle.Right;
+            this.TurnCount.Location = new System.Drawing.Point(582, 25);
             this.TurnCount.Name = "TurnCount";
             this.TurnCount.Size = new System.Drawing.Size(30, 425);
             this.TurnCount.TabIndex = 9;
-            // 
-            // HistoryMove
-            // 
-            this.HistoryMove.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.HistoryMove.ColumnCount = 3;
-            this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
-            this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.72727F));
-            this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
-            this.HistoryMove.Dock = System.Windows.Forms.DockStyle.Right;
-            this.HistoryMove.Location = new System.Drawing.Point(576, 25);
-            this.HistoryMove.Name = "HistoryMove";
-            this.HistoryMove.RowCount = 17;
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.HistoryMove.Size = new System.Drawing.Size(136, 425);
-            this.HistoryMove.TabIndex = 10;
             // 
             // Form1
             // 
@@ -369,7 +337,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(712, 450);
-            this.Controls.Add(this.HistoryMove);
             this.Controls.Add(this.TurnCount);
             this.Controls.Add(this.WhiteMove);
             this.Controls.Add(this.BlackMove);
@@ -419,7 +386,6 @@
         private System.Windows.Forms.FlowLayoutPanel BlackMove;
         private System.Windows.Forms.FlowLayoutPanel WhiteMove;
         private System.Windows.Forms.FlowLayoutPanel TurnCount;
-        public System.Windows.Forms.TableLayoutPanel HistoryMove;
     }
 }
 

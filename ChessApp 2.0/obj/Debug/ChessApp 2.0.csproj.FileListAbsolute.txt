@@ -69,7 +69,6 @@ D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.Wpf.xm
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Dynamic.xml
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Scripting.xml
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\Microsoft.Scripting.Metadata.xml
-D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.csprojAssemblyReference.cache
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.Board.resources
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.Form1.resources
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.Properties.Resources.resources
@@ -145,3 +144,4 @@ C:\Users\R39\Source\Repos\ChessApp_2.02\ChessApp 2.0\obj\Debug\ChessApp 2.0.cspr
 C:\Users\R39\Source\Repos\ChessApp_2.02\ChessApp 2.0\obj\Debug\ChessApp 2.0.csproj.CopyComplete
 C:\Users\R39\Source\Repos\ChessApp_2.02\ChessApp 2.0\obj\Debug\ChessApp 2.0.exe
 C:\Users\R39\Source\Repos\ChessApp_2.02\ChessApp 2.0\obj\Debug\ChessApp 2.0.pdb
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.csprojAssemblyReference.cache
