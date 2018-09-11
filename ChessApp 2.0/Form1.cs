@@ -42,19 +42,8 @@ namespace ChessApp_2._0
         {
             InitializeComponent();
 
-            Global.Conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-
-            Global.width_Height = int.Parse(Global.Conf.AppSettings.Settings["Dimension"].Value);
-            Global.ThemeW = Global.Conf.AppSettings.Settings["ThemeW"].Value;
-            Global.ThemeB = Global.Conf.AppSettings.Settings["ThemeB"].Value;
-            while(Global.Conf.AppSettings.Settings["PythonPath"].Value =="")
-            {
-                OptionForm option = new OptionForm();
-                option.ShowDialog();
-            }
-            this.Width = Global.width_Height * 8 + 15;
-            this.Height = Global.width_Height * 8 + Global.width_Height + 39;
+          
+         //   TurnCount.BackColor = ColorTranslator.FromHtml(" #bd9c21");
 
 
 
@@ -62,11 +51,22 @@ namespace ChessApp_2._0
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            Global.Conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
+
+            Global.width_Height = int.Parse(Global.Conf.AppSettings.Settings["Dimension"].Value);
             Global.SvgBitMap = LoadSvg();
+            Global.ThemeW = Global.Conf.AppSettings.Settings["ThemeW"].Value;
+            Global.ThemeB = Global.Conf.AppSettings.Settings["ThemeB"].Value;
+            while (Global.Conf.AppSettings.Settings["PythonPath"].Value == "")
+            {
+                OptionForm option = new OptionForm();
+                option.ShowDialog();
+            }
+            this.Width = Global.width_Height * 8 + 15 + TurnCount.Width + WhiteMove.Width + BlackMove.Width;
+            this.Height = Global.width_Height * 8 + Global.width_Height + 39;
 
-
-
+            #region Timer ini
             tLeft = new System.Timers.Timer() { Interval = 1000};
             tLeft.Elapsed += OnTimeEventLeft;
             LeftTimerButton.Text = leftMinutes + ":" + leftSecond;
@@ -74,9 +74,8 @@ namespace ChessApp_2._0
             tRight = new System.Timers.Timer() { Interval = 1000 };
             tRight.Elapsed += OnTimeEventRight;
             RightTimerButton.Text = rightMinutes + ":" + rightSecond;
+            #endregion
 
-
-            
 
             Bildboard();
         }
@@ -188,11 +187,7 @@ namespace ChessApp_2._0
         {
             OptionForm optionForm = new OptionForm { StartPosition = FormStartPosition.CenterParent };
             optionForm.ShowDialog();
-
-
-            Global.SvgBitMap = LoadSvg();
-            Bildboard();
-
+            Form1_Load(sender,e);
         }
 
 
@@ -203,11 +198,6 @@ namespace ChessApp_2._0
         #region ------------------------board-------------------
         public void Bildboard()
         {
-            this.Width = Global.width_Height * 8 + 15;
-            this.Height = Global.width_Height * 8 + Global.width_Height + 39;
-
-
-
             int offset = 0;
             int pixelPice = Global.width_Height;
             if (Global.board == null)
@@ -339,9 +329,38 @@ namespace ChessApp_2._0
         #endregion
 
 
+        public void AddCount()
+        {
+            TurnCount.Controls.Add(new Label()
+            {
+                Height = 36,
+                Width = TurnCount.Width,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Text = Global.moveCout.ToString(),
+            }
+            );
+        }
+        public void AddMoveW()
+        {
 
-
-
+            WhiteMove.Controls.Add(new Button()
+            {
+                Height = 30,
+                Width = TurnCount.Width,
+                Text = Global.MoveW
+            }
+            );
+        }
+        public void AddMoveB()
+        {
+            BlackMove.Controls.Add(new Button()
+            {
+                Height = 30,
+                Width = TurnCount.Width,
+                Text = Global.MoveB
+            }
+            );
+        }
 
 
 
@@ -386,6 +405,11 @@ namespace ChessApp_2._0
                 tRight.Stop();
                 clickdTimerRight = false;
             }
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
 
@@ -436,6 +460,7 @@ namespace ChessApp_2._0
 
     public static class Global
     {
+        public static int moveCout; 
         public static string ThemeW;
         public static string ThemeB;
         public static Configuration Conf;
@@ -448,10 +473,14 @@ namespace ChessApp_2._0
         public static bool Player = false;
         public static bool clicked = false;
         public static string clickStr = "";
+        public static string MoveW;
+        public static string MoveB;
+        public static string[] TotalMove;
     }
 
-    public class PythonPass
+     public class  PythonPass
     {
+        int count;
         public static bool Trackback = false;
 
 
@@ -498,6 +527,18 @@ namespace ChessApp_2._0
             temp[1] = int.Parse(Global.Conf.AppSettings.Settings["DifficultyBlackAi"].Value);
             return temp;
         }
+
+
+        public void WhiteMove(string moveW)
+        {
+            Global.MoveW = moveW;
+        }
+        public void BlackMove(string moveB)
+        {
+            Global.MoveB = moveB;
+        }
+
+
 
         #endregion
 

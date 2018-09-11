@@ -53,6 +53,10 @@
             this.TrackForwardButton = new System.Windows.Forms.Button();
             this.LeftTimerButton = new System.Windows.Forms.Button();
             this.RightTimerButton = new System.Windows.Forms.Button();
+            this.BlackMove = new System.Windows.Forms.FlowLayoutPanel();
+            this.WhiteMove = new System.Windows.Forms.FlowLayoutPanel();
+            this.TurnCount = new System.Windows.Forms.FlowLayoutPanel();
+            this.HistoryMove = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +68,7 @@
             this.Start_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Start_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Start_button.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start_button.Location = new System.Drawing.Point(132, 29);
+            this.Start_button.Location = new System.Drawing.Point(226, 29);
             this.Start_button.Name = "Start_button";
             this.Start_button.Size = new System.Drawing.Size(53, 25);
             this.Start_button.TabIndex = 0;
@@ -79,7 +83,7 @@
             this.Reset_button.BackColor = System.Drawing.SystemColors.Menu;
             this.Reset_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reset_button.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reset_button.Location = new System.Drawing.Point(191, 29);
+            this.Reset_button.Location = new System.Drawing.Point(285, 29);
             this.Reset_button.Name = "Reset_button";
             this.Reset_button.Size = new System.Drawing.Size(53, 25);
             this.Reset_button.TabIndex = 1;
@@ -95,7 +99,7 @@
             this.Tool});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(397, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(712, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -275,7 +279,7 @@
             this.LeftTimerButton.BackColor = System.Drawing.SystemColors.Menu;
             this.LeftTimerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LeftTimerButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LeftTimerButton.Location = new System.Drawing.Point(278, 29);
+            this.LeftTimerButton.Location = new System.Drawing.Point(446, 29);
             this.LeftTimerButton.Name = "LeftTimerButton";
             this.LeftTimerButton.Size = new System.Drawing.Size(49, 25);
             this.LeftTimerButton.TabIndex = 6;
@@ -290,7 +294,7 @@
             this.RightTimerButton.BackColor = System.Drawing.SystemColors.Menu;
             this.RightTimerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RightTimerButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RightTimerButton.Location = new System.Drawing.Point(332, 29);
+            this.RightTimerButton.Location = new System.Drawing.Point(500, 29);
             this.RightTimerButton.Name = "RightTimerButton";
             this.RightTimerButton.Size = new System.Drawing.Size(49, 25);
             this.RightTimerButton.TabIndex = 7;
@@ -298,12 +302,77 @@
             this.RightTimerButton.UseVisualStyleBackColor = false;
             this.RightTimerButton.Click += new System.EventHandler(this.RightTimerButton_Click);
             // 
+            // BlackMove
+            // 
+            this.BlackMove.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BlackMove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BlackMove.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BlackMove.Location = new System.Drawing.Point(0, 25);
+            this.BlackMove.Name = "BlackMove";
+            this.BlackMove.Size = new System.Drawing.Size(50, 425);
+            this.BlackMove.TabIndex = 8;
+            // 
+            // WhiteMove
+            // 
+            this.WhiteMove.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.WhiteMove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.WhiteMove.Dock = System.Windows.Forms.DockStyle.Left;
+            this.WhiteMove.Location = new System.Drawing.Point(50, 25);
+            this.WhiteMove.Name = "WhiteMove";
+            this.WhiteMove.Size = new System.Drawing.Size(50, 425);
+            this.WhiteMove.TabIndex = 9;
+            // 
+            // TurnCount
+            // 
+            this.TurnCount.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.TurnCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TurnCount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TurnCount.Location = new System.Drawing.Point(100, 25);
+            this.TurnCount.Name = "TurnCount";
+            this.TurnCount.Size = new System.Drawing.Size(30, 425);
+            this.TurnCount.TabIndex = 9;
+            // 
+            // HistoryMove
+            // 
+            this.HistoryMove.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.HistoryMove.ColumnCount = 3;
+            this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
+            this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.72727F));
+            this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.HistoryMove.Dock = System.Windows.Forms.DockStyle.Right;
+            this.HistoryMove.Location = new System.Drawing.Point(576, 25);
+            this.HistoryMove.Name = "HistoryMove";
+            this.HistoryMove.RowCount = 17;
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.HistoryMove.Size = new System.Drawing.Size(136, 425);
+            this.HistoryMove.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(397, 450);
+            this.ClientSize = new System.Drawing.Size(712, 450);
+            this.Controls.Add(this.HistoryMove);
+            this.Controls.Add(this.TurnCount);
+            this.Controls.Add(this.WhiteMove);
+            this.Controls.Add(this.BlackMove);
             this.Controls.Add(this.RightTimerButton);
             this.Controls.Add(this.LeftTimerButton);
             this.Controls.Add(this.TrackForwardButton);
@@ -347,6 +416,10 @@
         private System.Windows.Forms.ToolStripMenuItem DificultyB3;
         private System.Windows.Forms.ToolStripMenuItem DificultyB4;
         private System.Windows.Forms.ToolStripMenuItem OptionTool;
+        private System.Windows.Forms.FlowLayoutPanel BlackMove;
+        private System.Windows.Forms.FlowLayoutPanel WhiteMove;
+        private System.Windows.Forms.FlowLayoutPanel TurnCount;
+        public System.Windows.Forms.TableLayoutPanel HistoryMove;
     }
 }
 
