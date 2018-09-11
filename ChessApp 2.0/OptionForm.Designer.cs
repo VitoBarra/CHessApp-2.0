@@ -43,9 +43,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Browserbutton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PythonPathTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // DimentionSquareTextBox
@@ -178,6 +183,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -215,11 +221,50 @@
             this.tabPage2.Text = "Aspetto";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.PythonPathTextBox);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.Browserbutton);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(303, 111);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Generale";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // Browserbutton
+            // 
+            this.Browserbutton.Location = new System.Drawing.Point(246, 6);
+            this.Browserbutton.Name = "Browserbutton";
+            this.Browserbutton.Size = new System.Drawing.Size(26, 19);
+            this.Browserbutton.TabIndex = 0;
+            this.Browserbutton.Text = "...";
+            this.Browserbutton.UseVisualStyleBackColor = true;
+            this.Browserbutton.Click += new System.EventHandler(this.Browserbutton_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Percorso Python2";
+            // 
+            // PythonPathTextBox
+            // 
+            this.PythonPathTextBox.Location = new System.Drawing.Point(140, 6);
+            this.PythonPathTextBox.Name = "PythonPathTextBox";
+            this.PythonPathTextBox.ReadOnly = true;
+            this.PythonPathTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PythonPathTextBox.TabIndex = 2;
+            // 
             // OptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 170);
+            this.ClientSize = new System.Drawing.Size(309, 167);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.CancellaButton);
             this.Controls.Add(this.ApplicaButton);
@@ -232,6 +277,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +300,9 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox PythonPathTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button Browserbutton;
     }
 }
