@@ -13,30 +13,73 @@ namespace ChessApp_2._0
 {
     public partial class OptionForm : Form
     {
+       
+
         public OptionForm()
         {
             InitializeComponent();
-
-            DimentionSquareTextBox.Text = Global.Conf.AppSettings.Settings["Dimension"].Value;
         }
 
+        private void OptionForm_Load(object sender, EventArgs e)
+        {
+            DimentionSquareTextBox.Text = Global.Conf.AppSettings.Settings["Dimension"].Value;
+            #region ComboBox Selected
+            if (Global.Conf.AppSettings.Settings["GameMode"].Value == "\\Player_vs_Player.py")
+                GameModeComboBox.SelectedIndex = 0;
+            else if(Global.Conf.AppSettings.Settings["GameMode"].Value == "\\Play_With_White.py")
+                GameModeComboBox.SelectedIndex = 1;
+            else if (Global.Conf.AppSettings.Settings["GameMode"].Value == "\\Play_With_Black.py")
+                GameModeComboBox.SelectedIndex = 2;
+            else if (Global.Conf.AppSettings.Settings["GameMode"].Value == "\\Ai_vs_Ai.py")
+                GameModeComboBox.SelectedIndex = 3;
+
+            if (Global.Conf.AppSettings.Settings["DifficultyWhiteAi"].Value == "2")
+                DifficultyWCombo.SelectedIndex = 0;
+            else if (Global.Conf.AppSettings.Settings["DifficultyWhiteAi"].Value == "3")
+                DifficultyWCombo.SelectedIndex = 1;
+            else if (Global.Conf.AppSettings.Settings["DifficultyWhiteAi"].Value == "4")
+                DifficultyWCombo.SelectedIndex = 2;
+
+            if (Global.Conf.AppSettings.Settings["DifficultyBlackAi"].Value == "2")
+                DifficultyBCombo.SelectedIndex = 0;
+            else if (Global.Conf.AppSettings.Settings["DifficultyBlackAi"].Value == "3")
+                DifficultyBCombo.SelectedIndex = 1;
+            else if (Global.Conf.AppSettings.Settings["DifficultyBlackAi"].Value == "4")
+                DifficultyBCombo.SelectedIndex = 2;
+
+            if (Global.Conf.AppSettings.Settings["ThemeW"].Value == "#f4e4b5" && Global.Conf.AppSettings.Settings["ThemeB"].Value == "#744b44")
+                ThemeComboBox.SelectedIndex = 0;
+            if (Global.Conf.AppSettings.Settings["ThemeW"].Value == "#e6e6e6" && Global.Conf.AppSettings.Settings["ThemeB"].Value == "#666666")
+                ThemeComboBox.SelectedIndex = 1;
+            if (Global.Conf.AppSettings.Settings["ThemeW"].Value == "#ffe6ee" && Global.Conf.AppSettings.Settings["ThemeB"].Value == "#ff6699")
+                ThemeComboBox.SelectedIndex = 2;
+            #endregion
+        }
+
+        #region Button
         private void OKButton_Click(object sender, EventArgs e)
         {
-            Global.width_Height = int.Parse(DimentionSquareTextBox.Text);
-            Global.Conf.AppSettings.Settings["Dimension"].Value = Global.width_Height.ToString();
-            Global.Conf.Save();
-            this.Close();
+            if (ValidateChildren())
+            {
+                Global.width_Height = int.Parse(DimentionSquareTextBox.Text);
+                Global.Conf.AppSettings.Settings["Dimension"].Value = DimentionSquareTextBox.Text;
+                Global.Conf.Save();
+                this.Close();
+            }
         }
 
         private void ApplicaButton_Click(object sender, EventArgs e)
         {
-            Global.width_Height = int.Parse(DimentionSquareTextBox.Text);
-            Global.Conf.AppSettings.Settings["Dimension"].Value = Global.width_Height.ToString();
-            Global.Conf.Save();
+            if (ValidateChildren())
+            {
+                Global.width_Height = int.Parse(DimentionSquareTextBox.Text);
+                Global.Conf.AppSettings.Settings["Dimension"].Value = DimentionSquareTextBox.Text;
+                Global.Conf.Save();
+            }
         }
 
         private void CancellaButton_Click(object sender, EventArgs e){ this.Close();}
-
+        #endregion
 
 
 
@@ -44,13 +87,25 @@ namespace ChessApp_2._0
         private void GameModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (GameModeComboBox.SelectedIndex == 0)
+            {
+                DifficultyWCombo.Hide(); DifficultyBCombo.Hide();
                 Global.Conf.AppSettings.Settings["GameMode"].Value = "\\Player_vs_Player.py";
+            }
             else if (GameModeComboBox.SelectedIndex == 1)
+            {
+                DifficultyWCombo.Hide(); DifficultyBCombo.Show();
                 Global.Conf.AppSettings.Settings["GameMode"].Value = "\\Play_With_White.py";
+            }
             else if (GameModeComboBox.SelectedIndex == 2)
+            {
+                DifficultyWCombo.Show(); DifficultyBCombo.Hide();
                 Global.Conf.AppSettings.Settings["GameMode"].Value = "\\Play_With_Black.py";
+            }
             else if (GameModeComboBox.SelectedIndex == 3)
+            {
+                DifficultyWCombo.Show(); DifficultyBCombo.Show();
                 Global.Conf.AppSettings.Settings["GameMode"].Value = "\\Ai_vs_Ai.py";
+            }
 
             Global.Conf.Save(ConfigurationSaveMode.Modified);
         }
@@ -91,8 +146,8 @@ namespace ChessApp_2._0
             }
             else if (ThemeComboBox.SelectedIndex == 2)
             {
-                Global.Conf.AppSettings.Settings["ThemeW"].Value = "#e6e6e6";
-                Global.Conf.AppSettings.Settings["ThemeB"].Value = "#00cc00";
+                Global.Conf.AppSettings.Settings["ThemeW"].Value = "#ffe6ee";
+                Global.Conf.AppSettings.Settings["ThemeB"].Value = "#ff6699";
             }
             Global.Conf.Save(ConfigurationSaveMode.Modified);
 
@@ -101,5 +156,22 @@ namespace ChessApp_2._0
             Global.ThemeB = Global.Conf.AppSettings.Settings["ThemeB"].Value;
 
         }
+
+        private void DimentionSquareTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            ErrorProvider error = new ErrorProvider();
+            if (!(int.Parse(DimentionSquareTextBox.Text) >= 60 && int.Parse(DimentionSquareTextBox.Text) <= 100))
+            {
+                e.Cancel = true;
+                DimentionSquareTextBox.Focus();
+                error.SetError(DimentionSquareTextBox, "number between 50 and 100");
+            }
+            else
+            {
+                e.Cancel = false;
+                error.SetError(DimentionSquareTextBox, null);
+            }
+        }
+
     }
 }

@@ -319,9 +319,6 @@ namespace ChessApp_2._0
         }
         #endregion
 
-        
-
-
 
 
 

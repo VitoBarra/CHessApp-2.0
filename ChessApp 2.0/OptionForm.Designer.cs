@@ -54,6 +54,7 @@
             this.DimentionSquareTextBox.Name = "DimentionSquareTextBox";
             this.DimentionSquareTextBox.Size = new System.Drawing.Size(100, 20);
             this.DimentionSquareTextBox.TabIndex = 0;
+            this.DimentionSquareTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DimentionSquareTextBox_Validating);
             // 
             // label2
             // 
@@ -135,7 +136,7 @@
             this.ThemeComboBox.Items.AddRange(new object[] {
             "Legno",
             "Griggio",
-            "Marmo",
+            "Rosa",
             "+|Theme"});
             this.ThemeComboBox.Location = new System.Drawing.Point(140, 6);
             this.ThemeComboBox.Name = "ThemeComboBox";
@@ -166,8 +167,8 @@
             this.GameModeComboBox.FormattingEnabled = true;
             this.GameModeComboBox.Items.AddRange(new object[] {
             "Player Vs Player",
-            "Ai Vs Player",
             "Player Vs Ai",
+            "Ai Vs Player",
             "Ai Vs Ai"});
             this.GameModeComboBox.Location = new System.Drawing.Point(140, 6);
             this.GameModeComboBox.Name = "GameModeComboBox";
@@ -225,6 +226,7 @@
             this.Controls.Add(this.OKButton);
             this.Name = "OptionForm";
             this.Text = "Option";
+            this.Load += new System.EventHandler(this.OptionForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
