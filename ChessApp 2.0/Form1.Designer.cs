@@ -186,7 +186,7 @@
             this.DificultyW4.Size = new System.Drawing.Size(80, 22);
             this.DificultyW4.Text = "4";
             this.DificultyW4.Click += new System.EventHandler(this.DifficultyWSelector);
-            // 
+            //// 
             // DificultyAiBlack
             // 
             this.DificultyAiBlack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -362,7 +362,6 @@
             this.HistoryMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.HistoryMove.Size = new System.Drawing.Size(136, 425);
             this.HistoryMove.TabIndex = 10;
-            this.HistoryMove.Paint += new System.Windows.Forms.PaintEventHandler(this.HistoryMove_Paint);
             // 
             // Form1
             // 

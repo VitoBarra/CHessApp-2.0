@@ -63,7 +63,7 @@ namespace ChessApp_2._0
             #region Timer ini
             tLeft = new System.Timers.Timer() { Interval = 1000};
             tLeft.Elapsed += OnTimeEventLeft;
-            LeftTimerButton.Text = leftMinutes + ":" + leftSecond;
+           LeftTimerButton.Text = leftMinutes + ":" + leftSecond;
 
             tRight = new System.Timers.Timer() { Interval = 1000 };
             tRight.Elapsed += OnTimeEventRight;
@@ -72,18 +72,19 @@ namespace ChessApp_2._0
 
 
             tRef = new System.Timers.Timer() { Interval = 150 };
-            tRight.Elapsed += Refras;
-
+            tRef.Elapsed += Refras;
+            tRef.Start();
             #endregion
 
 
             Bildboard();
-        }
+        } 
 
         private void Start_Click(object sender, EventArgs e)
         {
             if (!clickdStart) 
             {
+                MessageBox.Show("Ci arrivo");
                 if (!clickdStart && clickdReset)
                 {
                     PyThread = new Thread(PythonIni);
