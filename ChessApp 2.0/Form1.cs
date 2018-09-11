@@ -51,7 +51,7 @@ namespace ChessApp_2._0
             RightTimerButton.Text = rightMinutes + ":" + rightSecond;
 
 
-            tRef = new System.Timers.Timer() { Interval = 150 };
+            tRef = new System.Timers.Timer() { Interval = 400 };
             tRef.Elapsed += Refras;
             tRef.Start();
 
@@ -133,7 +133,9 @@ namespace ChessApp_2._0
                  {-4,-3,-2,-6,-5,-2,-3,-4 }
                  };
             RenderPiceOnboard();
-          
+            WhiteMove.Controls.Clear();
+            BlackMove.Controls.Clear();
+            TurnCount.Controls.Clear();
         }
 
         #region -------------ToolStrip item function-------------
@@ -357,13 +359,18 @@ namespace ChessApp_2._0
                 Invoke(new Action(() =>
                 {
 
-                    TurnCount.Controls.Add(new Label() { Height = 36, Width = TurnCount.Width, TextAlign = ContentAlignment.MiddleCenter, Text = Global.moveCout.ToString() });
+                    TurnCount.Controls.Add(new Label() { Height = 36, Width = TurnCount.Width, TextAlign = ContentAlignment.MiddleCenter, Text = (Global.countStr/2).ToString() });
                     Global.MoveBool = false;
                 }
                    ));
             }
         }
 
+        public static string ConvertNumberToPgn(string NumMove)
+        {
+            string pgn ="";
+            return pgn;
+        }
 
 
 
@@ -455,7 +462,6 @@ namespace ChessApp_2._0
     public static class Global
     {
         public static int countStr = 0;
-        public static int moveCout; 
         public static string ThemeW;
         public static string ThemeB;
         public static Configuration Conf;
@@ -467,11 +473,11 @@ namespace ChessApp_2._0
         public static int[,] boardCod;
         public static bool Player = false;
         public static bool clicked = false;
-        public static bool MoveBool = false; 
+        public static bool MoveBool = true; 
         public static string clickStr = "";
         public static string MoveW ="";
         public static string MoveB ="";
-        public static string[] TotalMove = new string[1000];
+        public static string[] movePgn = new string[1000];
     }
 
      public class  PythonPass
@@ -501,6 +507,7 @@ namespace ChessApp_2._0
         {
             string k = Global.clickStr;
             Global.clickStr = "";
+            
             return k;
         }
 
@@ -527,13 +534,13 @@ namespace ChessApp_2._0
         public void WhiteMove(string moveW)
         {
             Global.MoveW = moveW;
-            Global.TotalMove[Global.countStr] += moveW;
+            Global.movePgn[Global.countStr] = Form1.ConvertNumberToPgn(moveW);
             Global.countStr++;
         }
         public void BlackMove(string moveB)
         {
             Global.MoveB = moveB;
-            Global.TotalMove[Global.countStr] += moveB;
+            Global.movePgn[Global.countStr] = Form1.ConvertNumberToPgn(moveB);
             Global.countStr++;
         }
 
