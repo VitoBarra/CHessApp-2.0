@@ -41,12 +41,6 @@ namespace ChessApp_2._0
         public Form1()
         {
             InitializeComponent();
-
-          
-         //   TurnCount.BackColor = ColorTranslator.FromHtml(" #bd9c21");
-
-
-
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -74,6 +68,12 @@ namespace ChessApp_2._0
             tRight = new System.Timers.Timer() { Interval = 1000 };
             tRight.Elapsed += OnTimeEventRight;
             RightTimerButton.Text = rightMinutes + ":" + rightSecond;
+
+
+
+            tRef = new System.Timers.Timer() { Interval = 150 };
+            tRight.Elapsed += Refras;
+
             #endregion
 
 
@@ -363,7 +363,37 @@ namespace ChessApp_2._0
         }
 
 
+        private void Refras(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (Global.MoveW != "")
+            {
+                Invoke(new Action(() =>
+                {
+                    AddMoveB();
+                    Global.MoveW = "";
+                }
+           ));
+            }
+            else if (Global.MoveB !="")
+            {
+                Invoke(new Action(() =>
+                {
+                    AddMoveB();
+                    Global.MoveB = "";
+                }
+           ));
+            }
+            else if (Global.countStr % 2 == 0) 
+            {
+                Invoke(new Action(() =>
+                {
 
+                    AddCount();
+                   
+                }
+           ));
+            }
+        }
 
 
 
@@ -375,6 +405,7 @@ namespace ChessApp_2._0
 
         System.Timers.Timer tLeft;
         System.Timers.Timer tRight;
+        System.Timers.Timer tRef;
 
         bool clickdTimerLeft = false;
         bool clickdTimerRight = false;
@@ -406,12 +437,6 @@ namespace ChessApp_2._0
                 clickdTimerRight = false;
             }
         }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
 
         private void OnTimeEventLeft(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -460,6 +485,7 @@ namespace ChessApp_2._0
 
     public static class Global
     {
+        public static int countStr = 0;
         public static int moveCout; 
         public static string ThemeW;
         public static string ThemeB;
@@ -473,14 +499,13 @@ namespace ChessApp_2._0
         public static bool Player = false;
         public static bool clicked = false;
         public static string clickStr = "";
-        public static string MoveW;
-        public static string MoveB;
-        public static string[] TotalMove;
+        public static string MoveW ="";
+        public static string MoveB ="";
+        public static string[] TotalMove = new string[1000];
     }
 
      public class  PythonPass
     {
-        int count;
         public static bool Trackback = false;
 
 
@@ -532,10 +557,14 @@ namespace ChessApp_2._0
         public void WhiteMove(string moveW)
         {
             Global.MoveW = moveW;
+            Global.TotalMove[Global.countStr] += moveW;
+            Global.countStr++;
         }
         public void BlackMove(string moveB)
         {
             Global.MoveB = moveB;
+            Global.TotalMove[Global.countStr] += moveB;
+            Global.countStr++;
         }
 
 
