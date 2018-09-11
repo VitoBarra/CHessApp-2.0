@@ -48,7 +48,11 @@ namespace ChessApp_2._0
             Global.width_Height = int.Parse(Global.Conf.AppSettings.Settings["Dimension"].Value);
             Global.ThemeW = Global.Conf.AppSettings.Settings["ThemeW"].Value;
             Global.ThemeB = Global.Conf.AppSettings.Settings["ThemeB"].Value;
-
+            while(Global.Conf.AppSettings.Settings["PythonPath"].Value =="")
+            {
+                OptionForm option = new OptionForm();
+                option.ShowDialog();
+            }
             this.Width = Global.width_Height * 8 + 15;
             this.Height = Global.width_Height * 8 + Global.width_Height + 39;
 
@@ -297,8 +301,8 @@ namespace ChessApp_2._0
 
 
             var paths = engine.GetSearchPaths();
-            paths.Add(@"C:\Python27\Lib");
-            paths.Add(@"c:\python27\lib\site-packages\numpy\core");
+            paths.Add(Global.Conf.AppSettings.Settings["PythonPath"].Value);
+            paths.Add(Global.Conf.AppSettings.Settings["PythonPath"].Value + @"\lib");
             paths.Add(pythonPath);
             engine.SetSearchPaths(paths);
 
