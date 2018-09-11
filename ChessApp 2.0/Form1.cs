@@ -31,8 +31,8 @@ namespace ChessApp_2._0
 
         bool clickdStart = false;
         bool clickdReset = false;
-        static string gameMode = "\\NUll.py";
         static string optionPathStr = FindPath() + "\\Option";
+        static string chesspath = FindPath() + "\\ChessApp 2.0";
         static string pythonPath = FindPath() + "\\ScriptChess";
 
 
@@ -42,18 +42,17 @@ namespace ChessApp_2._0
         {
             InitializeComponent();
 
+            Global.Conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-            Global.FileReader = new StreamReader(optionPathStr + "\\Dimention.txt");
-            Global.width_Height = int.Parse(Global.FileReader.ReadLine());
-            Global.FileReader.Close();
+
+            Global.width_Height = int.Parse(Global.Conf.AppSettings.Settings["Dimension"].Value);
+            Global.ThemeW = Global.Conf.AppSettings.Settings["ThemeW"].Value;
+            Global.ThemeB = Global.Conf.AppSettings.Settings["ThemeB"].Value;
 
             this.Width = Global.width_Height * 8 + 15;
             this.Height = Global.width_Height * 8 + Global.width_Height + 39;
 
 
-            Global.FileReader = new StreamReader(optionPathStr + "\\GameMode.txt");
-            gameMode = Global.FileReader.ReadLine();
-            Global.FileReader.Close();
 
         }
 
@@ -95,8 +94,6 @@ namespace ChessApp_2._0
                 }
                 clickdStart = true;
             }
-
-            
         }
 
         private void Reset_Click(object sender, EventArgs e)
@@ -142,31 +139,34 @@ namespace ChessApp_2._0
         private void GameModeSelector(object sender, EventArgs e)
         {
             if (sender == PlayerVsPlayerGameMode)
-               ConfigurationManager.AppSettings["GameMode"] = "\\Player_vs_Player.py";
+                Global.Conf.AppSettings.Settings["GameMode"].Value = "\\Player_vs_Player.py";
             else if (sender == PlayWhitWhiteGameMode)
-                ConfigurationManager.AppSettings["GameMode"] = "\\Play_With_White.py";
+                Global.Conf.AppSettings.Settings["GameMode"].Value = "\\Play_With_White.py";
             else if (sender == PlayWhitBlackGameMode)
-                ConfigurationManager.AppSettings["GameMode"] = "\\Play_With_Black.py";
+                Global.Conf.AppSettings.Settings["GameMode"].Value = "\\Play_With_Black.py";
             else if (sender == AiVsAiGameMode)
-                ConfigurationManager.AppSettings["GameMode"] = "\\Ai_vs_Ai.py";
+                Global.Conf.AppSettings.Settings["GameMode"].Value = "\\Ai_vs_Ai.py";
+            Global.Conf.Save(ConfigurationSaveMode.Modified);
         }
         private void DifficultyWSelector(object sender, EventArgs e)
         {
             if (sender == DificultyW2)
-                ConfigurationManager.AppSettings["DifficultyWhiteAi"] = "2";
+                Global.Conf.AppSettings.Settings["DifficultyWhiteAi"].Value = "2";
             else if (sender == DificultyW3)
-                ConfigurationManager.AppSettings["DifficultyWhiteAi"] = "3";
+                Global.Conf.AppSettings.Settings["DifficultyWhiteAi"].Value = "3";
             else if (sender == DificultyW4)
-                ConfigurationManager.AppSettings["DifficultyWhiteAi"] = "4";
+                Global.Conf.AppSettings.Settings["DifficultyWhiteAi"].Value = "4";
+            Global.Conf.Save(ConfigurationSaveMode.Modified);
         }
         private void DifficultyBSelector(object sender, EventArgs e)
         {
             if (sender == DificultyB2)
-                ConfigurationManager.AppSettings["DifficultyBlackAi"] = "2";
+                Global.Conf.AppSettings.Settings["DifficultyBlackAi"].Value = "2";
             else if (sender == DificultyB3)
-                ConfigurationManager.AppSettings["DifficultyBlackAi"] = "3";
+                Global.Conf.AppSettings.Settings["DifficultyBlackAi"].Value = "3";
             else if (sender == DificultyB4)
-                ConfigurationManager.AppSettings["DifficultyBlackAi"] = "4";
+                Global.Conf.AppSettings.Settings["DifficultyBlackAi"].Value = "4";
+            Global.Conf.Save(ConfigurationSaveMode.Modified);
         }
 
 
@@ -186,10 +186,6 @@ namespace ChessApp_2._0
             optionForm.ShowDialog();
 
 
-            Global.FileWriter = new StreamWriter(optionPathStr + "\\Dimention.txt", false);
-            Global.FileWriter.Write(Global.width_Height);
-            Global.FileWriter.Close();
-
             Global.SvgBitMap = LoadSvg();
             Bildboard();
 
@@ -205,6 +201,8 @@ namespace ChessApp_2._0
         {
             this.Width = Global.width_Height * 8 + 15;
             this.Height = Global.width_Height * 8 + Global.width_Height + 39;
+
+
 
             int offset = 0;
             int pixelPice = Global.width_Height;
@@ -235,16 +233,16 @@ namespace ChessApp_2._0
                     if (i % 2 == 0)
                     {
                         if (j % 2 == 1)
-                            Global.board[i, j].BackColor = ColorTranslator.FromHtml("#744b44");
+                            Global.board[i, j].BackColor = ColorTranslator.FromHtml(Global.ThemeB);
                         else
-                            Global.board[i, j].BackColor = ColorTranslator.FromHtml("#f4e4b5");
+                            Global.board[i, j].BackColor = ColorTranslator.FromHtml(Global.ThemeW);
                     }
                     else
                     {
                         if (j % 2 == 0)
-                            Global.board[i, j].BackColor = ColorTranslator.FromHtml("#744b44");
+                            Global.board[i, j].BackColor = ColorTranslator.FromHtml(Global.ThemeB);
                         else
-                            Global.board[i, j].BackColor = ColorTranslator.FromHtml("#f4e4b5");
+                            Global.board[i, j].BackColor = ColorTranslator.FromHtml(Global.ThemeW);
                     }
                 }
 
@@ -257,6 +255,7 @@ namespace ChessApp_2._0
             SvgDocument[] document = new SvgDocument[12];
             Bitmap[] bp = new Bitmap[12];
             string[] Files = Directory.GetFiles("pice");
+
             foreach(string File in Files)
             {
                 document[count] = SvgDocument.Open(File);
@@ -303,11 +302,9 @@ namespace ChessApp_2._0
             paths.Add(pythonPath);
             engine.SetSearchPaths(paths);
 
-            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pythonPath + gameMode).Compile();
-
-           
-
+            CompiledCode compiledCode = engine.CreateScriptSourceFromFile(pythonPath + Global.Conf.AppSettings.Settings["GameMode"].Value).Compile();
             ScriptScope scope = engine.CreateScope();
+
 
             PythonPass pass = new PythonPass();
             scope.SetVariable("PythonPass", pass);
@@ -318,8 +315,7 @@ namespace ChessApp_2._0
         }
         public static string FindPath()
         {
-            return Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()
-                ).ToString()).ToString();
+            return Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
         }
         #endregion
 
@@ -439,8 +435,11 @@ namespace ChessApp_2._0
 
     public static class Global
     {
-        public static StreamReader FileReader;
-        public static StreamWriter FileWriter;
+        public static string ThemeW;
+        public static string ThemeB;
+        public static Configuration Conf;
+        //public static StreamReader FileReader;
+        //public static StreamWriter FileWriter;
         public static Bitmap[] SvgBitMap;
         public static int width_Height = 50;
         public static Board[,] board;
@@ -494,9 +493,8 @@ namespace ChessApp_2._0
         {
             int[] temp = new int[2];
 
-            temp[0] = int.Parse(ConfigurationManager.AppSettings["DifficultyWhiteAi"]) ;
-            temp[1] = int.Parse(ConfigurationManager.AppSettings["DifficultyBlackAi"]) ;
-
+            temp[0] = int.Parse(Global.Conf.AppSettings.Settings["DifficultyWhiteAi"].Value);
+            temp[1] = int.Parse(Global.Conf.AppSettings.Settings["DifficultyBlackAi"].Value);
             return temp;
         }
 

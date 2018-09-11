@@ -52,7 +52,6 @@ D:\User\Documents\Projects\ChessApp 2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.cspr
 D:\User\Documents\Projects\ChessApp 2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.exe
 D:\User\Documents\Projects\ChessApp 2.0\ChessApp 2.0\obj\Debug\ChessApp 2.0.pdb
 D:\User\Documents\Projects\ChessApp 2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.Form1.resources
-D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\ChessApp 2.0.exe.config
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\ChessApp 2.0.exe
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\ChessApp 2.0.pdb
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\IronPython.dll
@@ -114,3 +113,4 @@ C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Debug\Svg.pdb
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\bin\Debug\Svg.xml
 D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.OptionForm.resources
 C:\Users\R39\Source\Repos\ChessApp_2.0\ChessApp 2.0\obj\Debug\ChessApp_2._0.OptionForm.resources
+D:\User\Documents\Projects\ChessApp_2.0\ChessApp 2.0\bin\Debug\ChessApp 2.0.exe.config
