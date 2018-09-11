@@ -119,7 +119,7 @@
             // PlayerVsPlayerGameMode
             // 
             this.PlayerVsPlayerGameMode.Name = "PlayerVsPlayerGameMode";
-            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(155, 22);
+            this.PlayerVsPlayerGameMode.Size = new System.Drawing.Size(180, 22);
             this.PlayerVsPlayerGameMode.Text = "Player vs Player";
             this.PlayerVsPlayerGameMode.Click += new System.EventHandler(this.GameModeSelector);
             // 
@@ -129,7 +129,7 @@
             this.PlayWhitWhiteGameMode,
             this.PlayWhitBlackGameMode});
             this.PlayerVsAIGameMode.Name = "PlayerVsAIGameMode";
-            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(155, 22);
+            this.PlayerVsAIGameMode.Size = new System.Drawing.Size(180, 22);
             this.PlayerVsAIGameMode.Text = "Player Vs AI";
             // 
             // PlayWhitWhiteGameMode
@@ -152,7 +152,7 @@
             this.DificultyAiWhite,
             this.DificultyAiBlack});
             this.AiVsAiGameMode.Name = "AiVsAiGameMode";
-            this.AiVsAiGameMode.Size = new System.Drawing.Size(155, 22);
+            this.AiVsAiGameMode.Size = new System.Drawing.Size(180, 22);
             this.AiVsAiGameMode.Text = "Ai Vs Ai";
             this.AiVsAiGameMode.Click += new System.EventHandler(this.GameModeSelector);
             // 
@@ -186,7 +186,7 @@
             this.DificultyW4.Size = new System.Drawing.Size(80, 22);
             this.DificultyW4.Text = "4";
             this.DificultyW4.Click += new System.EventHandler(this.DifficultyWSelector);
-            // 
+            //// 
             // DificultyAiBlack
             // 
             this.DificultyAiBlack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -233,14 +233,14 @@
             // SetPositionTool
             // 
             this.SetPositionTool.Name = "SetPositionTool";
-            this.SetPositionTool.Size = new System.Drawing.Size(136, 22);
+            this.SetPositionTool.Size = new System.Drawing.Size(180, 22);
             this.SetPositionTool.Text = "Set position";
             this.SetPositionTool.Click += new System.EventHandler(this.SetPositionTool_Click);
             // 
             // OptionTool
             // 
             this.OptionTool.Name = "OptionTool";
-            this.OptionTool.Size = new System.Drawing.Size(136, 22);
+            this.OptionTool.Size = new System.Drawing.Size(180, 22);
             this.OptionTool.Text = "Option";
             this.OptionTool.Click += new System.EventHandler(this.OptionTool_Click);
             // 
@@ -338,7 +338,7 @@
             this.HistoryMove.ColumnCount = 3;
             this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
             this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.72727F));
-            this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.HistoryMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.HistoryMove.Dock = System.Windows.Forms.DockStyle.Right;
             this.HistoryMove.Location = new System.Drawing.Point(576, 25);
             this.HistoryMove.Name = "HistoryMove";
