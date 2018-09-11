@@ -70,10 +70,11 @@ pass
 while True:
     temporary = copy.deepcopy(match)
     move = catch_the_move(temporary, turn=0)
+    PythonPass.WhiteMove(trasformazionepernotazione(move))
     match.make_move_number(move)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
-    PythonPass.WhiteMove(move)
+    PythonPass.WhiteMove(match.trasformforpgn(move))
     kek = match.check_if_checkmate_is_imminent(color=1)
     if kek == 1:
         PythonPass.CheckMate("Black")
@@ -88,10 +89,10 @@ while True:
         break
     temporary = copy.deepcopy(match)
     move = catch_the_move(temporary, turn=1)
+    PythonPass.BlackMove(match.trasformforpgn(move))
     match.make_move_number(move)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
-    PythonPass.BlackMove(move)
     kek = match.check_if_checkmate_is_imminent(color=0)
     if kek == 1:
         PythonPass.CheckMate("Black")

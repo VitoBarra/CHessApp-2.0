@@ -98,7 +98,7 @@ class chessboard():
     def setposition(self, matr):
         self.matrix = copy.deepcopy(matr)
 
-    def trasformazionepernotazione(self, mossa):
+    def trasformforpgn(self, mossa):
         mossa = str(mossa)
         move = ""
         if self.matrix[int(mossa[0])][int(mossa[1])] != "":
