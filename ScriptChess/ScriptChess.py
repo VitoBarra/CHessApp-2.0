@@ -70,6 +70,31 @@ class chessboard():
     def set_field(self, field):
         self.searchfield = field
 
+    def create_string_of_all_moves(self):
+        jj = ""
+        if len(self.movehistoryb) == len(self.movehistoryw): kek = 0
+        else: kek = 1
+        for k in range(len(self.movehistoryw) - kek):
+            j1 = self.movehistoryb[k]
+            j2 = self.movehistoryw[k]
+            if len(j1) == 4:
+                jj += j1 + "a"
+            else:
+                jj += j1
+            if len(j2) == 4:
+                jj += j2 + "a"
+            else:
+                jj += j2
+        if kek:
+            j1 = self.movehistoryw[len(self.movehistoryw)]
+            if len(j1) == 4:
+                jj += j1 + "a"
+            else:
+                jj += j1
+        return jj
+
+
+
     def setposition(self, matr):
         self.matrix = copy.deepcopy(matr)
 
