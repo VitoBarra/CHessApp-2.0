@@ -412,6 +412,10 @@ namespace ChessApp_2._0
 
         }
 
+        private void HistoryMove_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         private void OnTimeEventLeft(object sender, System.Timers.ElapsedEventArgs e)
         {
