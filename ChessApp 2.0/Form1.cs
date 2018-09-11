@@ -388,7 +388,6 @@ namespace ChessApp_2._0
             }
         }
 
-
         private void OnTimeEventLeft(object sender, System.Timers.ElapsedEventArgs e)
         {
             Invoke(new Action(() =>

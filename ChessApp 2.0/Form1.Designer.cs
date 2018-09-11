@@ -59,12 +59,11 @@
             // Start_button
             // 
             this.Start_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Start_button.AutoSize = true;
             this.Start_button.BackColor = System.Drawing.SystemColors.Menu;
             this.Start_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Start_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Start_button.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start_button.Location = new System.Drawing.Point(132, 29);
+            this.Start_button.Location = new System.Drawing.Point(219, 29);
             this.Start_button.Name = "Start_button";
             this.Start_button.Size = new System.Drawing.Size(53, 25);
             this.Start_button.TabIndex = 0;
@@ -75,11 +74,10 @@
             // Reset_button
             // 
             this.Reset_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Reset_button.AutoSize = true;
             this.Reset_button.BackColor = System.Drawing.SystemColors.Menu;
             this.Reset_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reset_button.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reset_button.Location = new System.Drawing.Point(191, 29);
+            this.Reset_button.Location = new System.Drawing.Point(278, 29);
             this.Reset_button.Name = "Reset_button";
             this.Reset_button.Size = new System.Drawing.Size(53, 25);
             this.Reset_button.TabIndex = 1;
@@ -95,7 +93,7 @@
             this.Tool});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(397, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(571, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -271,11 +269,10 @@
             // LeftTimerButton
             // 
             this.LeftTimerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LeftTimerButton.AutoSize = true;
             this.LeftTimerButton.BackColor = System.Drawing.SystemColors.Menu;
             this.LeftTimerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LeftTimerButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LeftTimerButton.Location = new System.Drawing.Point(278, 29);
+            this.LeftTimerButton.Location = new System.Drawing.Point(452, 29);
             this.LeftTimerButton.Name = "LeftTimerButton";
             this.LeftTimerButton.Size = new System.Drawing.Size(49, 25);
             this.LeftTimerButton.TabIndex = 6;
@@ -286,11 +283,10 @@
             // RightTimerButton
             // 
             this.RightTimerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RightTimerButton.AutoSize = true;
             this.RightTimerButton.BackColor = System.Drawing.SystemColors.Menu;
             this.RightTimerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RightTimerButton.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RightTimerButton.Location = new System.Drawing.Point(332, 29);
+            this.RightTimerButton.Location = new System.Drawing.Point(506, 29);
             this.RightTimerButton.Name = "RightTimerButton";
             this.RightTimerButton.Size = new System.Drawing.Size(49, 25);
             this.RightTimerButton.TabIndex = 7;
@@ -303,7 +299,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(397, 450);
+            this.ClientSize = new System.Drawing.Size(571, 450);
             this.Controls.Add(this.RightTimerButton);
             this.Controls.Add(this.LeftTimerButton);
             this.Controls.Add(this.TrackForwardButton);
