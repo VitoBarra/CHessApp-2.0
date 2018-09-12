@@ -15,12 +15,12 @@ while True:
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
 
     if evW == 1000000:
-        pythonpass.checkmate("white")
-        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
+        PythonPass.checkmate("white")
+        PythonPass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
     elif evW == -1000000:
-        pythonpass.checkmate("black")
-        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
+        PythonPass.checkmate("black")
+        PythonPass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
     if match.repetitiondraw():
         PythonPass.DrawByRepetition()
