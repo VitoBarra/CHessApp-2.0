@@ -14,7 +14,7 @@ match.set_field(k1)  # base value, va aggiunta una funzione in c#
 #                   ["0","0","0","0","0","0","0","0"],
 #                   ["r2","0","0","p2","0","0","0","0"]])
 
-
+  
 #match.update_number_matrix()
 #PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
 
