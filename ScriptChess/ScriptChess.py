@@ -131,6 +131,29 @@ class chessboard():
         self.matrix[c1a][c2a] = ''
 
     def make_move_number(self, number):
+        if number == "7370":
+            self.matrix[7][3] = ""
+            self.matrix[7][0] = ""
+            self.matrix[7][1] = "p2"
+            self.matrix[7][2] = "r2"
+        if number == "7377":
+            self.matrix[7][7] = ""
+            self.matrix[7][3] = ""
+            self.matrix[7][5] = "p2"
+            self.matrix[7][4] = "r2"
+
+        if number == "0300":
+            self.matrix[0][3] = ""
+            self.matrix[0][0] = ""
+            self.matrix[0][1] = "p1"
+            self.matrix[0][2] = "r1"
+        if number == "0300":
+            self.matrix[0][7] = ""
+            self.matrix[0][3] = ""
+            self.matrix[0][5] = "p1"
+            self.matrix[0][4] = "r1"
+
+
         if self.matrix[int(number[0])][int(number[1])][1] == "1":
             self.movehistoryw += [number]
         else:
@@ -151,9 +174,15 @@ class chessboard():
             self.castle[0] = False
         elif number[0] == 0 and number[1] == 7:
             self.castle[1] = False
-        elif number[0] == 7 and number[1] == 0:
+        if number[0] == 7 and number[1] == 0:
             self.castle[2] = False
         elif number[0] == 7 and number[1] == 7:
+            self.castle[3] = False
+        if number[0] == 0 and number[1] == 3:
+            self.castle[0] = False
+            self.castle[1] = False
+        if number[0] == 7 and number[1] == 3:
+            self.castle[2] = False
             self.castle[3] = False
 
     def backtracking(self):
@@ -671,10 +700,10 @@ class chessboard():
                             self.movesblack += self.rookmovesb(j1, j2)
                         if pointer[0] == "p":
                             self.movesblack += self.kingmovesb(j1, j2)
-        if self.castle[2] == True:
-            self.moveswhite += ["bO-O"]
-        if self.castle[3] == True:
-            self.moveswhite += ["bO-O-O"]
+        if self.castle[2] == True and self.matrix[7][2] == "" and self.matrix[7][1] == "":
+            self.movesblack += ["7370"]
+        if self.castle[3] == True and self.matrix[7][4] == "" and self.matrix[7][5] == "" and self.matrix[7][6] == "":
+            self.movesblack += ["7377"]
 
     def check_if_white_is_in_check(self):
         for j1 in range(8):

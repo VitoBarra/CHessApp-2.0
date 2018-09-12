@@ -72,17 +72,18 @@ while True:
 
     match.set_field(k1)
     evW, movW = match.minmaxtreeevaluationai()
+    PythonPass.WhiteMove(match.trasformforpgn(movW))
     match.make_move_number(movW)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
 
     if evW == 1000000:
-        pythonpass.checkmate("white")
-        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
+        PythonPass.checkmate("white")
+        PythonPass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
     elif evW == -1000000:
-        pythonpass.checkmate("black")
-        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
+        PythonPass.checkmate("black")
+        PythonPass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
     if match.repetitiondraw():
         PythonPass.DrawByRepetition()
@@ -90,6 +91,7 @@ while True:
 
     temporary = copy.deepcopy(match)
     move = catch_the_move(temporary, turn=1)
+    PythonPass.BlackMove(match.trasformforpgn(move))
     match.make_move_number(move)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))

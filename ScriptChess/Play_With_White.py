@@ -72,6 +72,7 @@ def catch_the_move(board, turn=0):  # 0 for white to move, 1 for black to move
 while True:
     temporary = copy.deepcopy(match)
     move = catch_the_move(temporary, turn=0)
+    PythonPass.WhiteMove(match.trasformforpgn(move))
     match.make_move_number(move)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
@@ -92,18 +93,19 @@ while True:
     print "Engine to move"
     match.set_field(k2)
     evB, movB = match.blackminmax()
+    PythonPass.BlackMove(match.trasformforpgn(movB))
     match.make_move_number(movB)
     match.update_number_matrix()
     PythonPass.BildPiceOnBoard(StrigaStrana(match.matrix_with_numbers))
 
 
     if evB == 1000000:
-        pythonpass.checkmate("white")
-        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
+        PythonPass.checkmate("white")
+        PythonPass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
     elif evB == -1000000:
-        pythonpass.checkmate("black")
-        pythonpass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
+        PythonPass.checkmate("black")
+        PythonPass.bildpiceonboard(strigastrana(match.matrix_with_numbers))
         break
     if match.repetitiondraw():
         PythonPass.DrawByRepetition()
