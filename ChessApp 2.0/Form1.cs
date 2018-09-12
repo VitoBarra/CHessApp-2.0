@@ -23,6 +23,7 @@ using IronPython.Hosting;
 
 
 
+
 namespace ChessApp_2._0
 {
     public partial class Form1 : Form
@@ -309,13 +310,10 @@ namespace ChessApp_2._0
             compiledCode.Execute(scope);
 
         }
-        public static string FindPath()
-        {
-            return Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
-        }
+
+        public static string FindPath() => Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()).ToString();
+
         #endregion
-
-
 
 
         #region ----------------------track----------------------
@@ -544,11 +542,7 @@ namespace ChessApp_2._0
             Global.countStr++;
         }
 
-
-
         #endregion
-
-
 
         #region ------------------end game-----------------
         public void CheckMate(string winner)
