@@ -1,0 +1,8 @@
+D:\User\Documents\Projects\ChessApp_3.0\ChessApp 3.0\obj\Debug\ChessApp_3._0.Board.resources
+D:\User\Documents\Projects\ChessApp_3.0\ChessApp 3.0\obj\Debug\ChessApp_3._0.Form1.resources
+D:\User\Documents\Projects\ChessApp_3.0\ChessApp 3.0\obj\Debug\ChessApp_3._0.OptionForm.resources
+D:\User\Documents\Projects\ChessApp_3.0\ChessApp 3.0\obj\Debug\ChessApp_2._0.Properties.Resources.resources
+D:\User\Documents\Projects\ChessApp_3.0\ChessApp 3.0\obj\Debug\ChessApp 3.0.csproj.GenerateResource.cache
+D:\User\Documents\Projects\ChessApp_3.0\ChessApp 3.0\obj\Debug\ChessApp 3.0.csproj.CoreCompileInputs.cache
+D:\User\Documents\Projects\ChessApp_3.0\ChessApp 3.0\obj\Debug\ChessApp 2.0.exe
+D:\User\Documents\Projects\ChessApp_3.0\ChessApp 3.0\obj\Debug\ChessApp 2.0.pdb
